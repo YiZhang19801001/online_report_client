@@ -1,0 +1,46 @@
+$colors: (
+  textSubtitle: #a5a5a5,
+  textPrimary: #8c8c8c,
+  textButton: #fff,
+  bodyBackground: #fff,
+  border: #a5a5a5,
+  cover: #c7c7c7a5,
+  main: #ffba2d,
+  boxShadow: #a5a5a5,
+  secondary: #f55747
+);
+
+@function color($color_name) {
+  @return map-get($colors, $color_name);
+}
+
+$height: (
+  button: 35px
+);
+
+@function height($height_name) {
+  @return map-get($height, $height_name);
+}
+
+$width: (
+  button: 150px
+);
+
+@function width($width_name) {
+  @return map-get($width, $width_name);
+}
+
+$animations: (
+  normal: all 400ms ease
+);
+
+@function animation($animation_name) {
+  @return map-get($animations, $animation_name);
+}
+
+$mobile: 450px;
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}

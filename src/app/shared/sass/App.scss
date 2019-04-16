@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  color: color("text");
+  font-family: "pingfang", Arial, Helvetica, sans-serif !important;
+}
+body {
+  background-color: color("bodyBackground");
+  min-height: 100vh;
+}
+/* hide ugly scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-moz-scrollbar {
+  display: none;
+}

@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "pingfang", Arial, Helvetica, sans-serif !important;
+}
+
+body {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* hide ugly scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-moz-scrollbar {
+  display: none;
+}
+
+.app .header {
+  height: 6rem;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffba2d;
+  box-shadow: 0 3px 3px #a5a5a5;
+  margin-bottom: 5px;
+}
+.app .header button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.app .header button i {
+  font-size: 3rem;
+}
+
+.app .summary .row .block {
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 3px #a5a5a5;
+  margin-top: 0.5rem;
+}
+.app .summary .row .block .title {
+  text-transform: uppercase;
+  color: #8c8c8c;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.app .summary .row .block .value {
+  font-size: 2.5rem;
+  color: #000;
+  text-align: center;
+}
+
+.app .summary {
+  width: 100vw;
+}
+.app .summary .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*# sourceMappingURL=App.css.map */

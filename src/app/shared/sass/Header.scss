@@ -1,0 +1,22 @@
+.app .header {
+  height: 6rem;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: color("main");
+  box-shadow: 0 3px 3px color("boxShadow");
+  margin-bottom: 5px;
+  button {
+    background-color: transparent;
+    border: none;
+    color: color("bodyBackground");
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    i {
+      font-size: 3rem;
+    }
+  }
+}
