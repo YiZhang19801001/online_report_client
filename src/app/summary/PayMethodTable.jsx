@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "../shared/";
+import { Loading } from "../shared";
 
 export default ({ list }) => {
   console.log({ list });
@@ -13,7 +14,7 @@ export default ({ list }) => {
           data={list}
         />
       ) : (
-        "loading..."
+        <Loading />
       )}
     </div>
   );

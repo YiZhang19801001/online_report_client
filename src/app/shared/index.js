@@ -1,4 +1,5 @@
 import { history } from "./history";
 import Header from "./Header";
 import Table from "./Table";
-export { history, Header, Table };
+import Loading from "./Loading";
+export { history, Header, Table, Loading };

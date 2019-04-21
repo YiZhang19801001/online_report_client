@@ -9,9 +9,9 @@ export default () => {
   useEffect(() => {
     const fn = async () => {
       const response = await axios.get(
-        "http://localhost:8000/api/reports?date=20190410230000"
+        "http://localhost:8000/reports?date=20190410230000"
       );
-      setReports(response.data.reports);
+      setReports(response.data);
     };
     fn();
   }, []);

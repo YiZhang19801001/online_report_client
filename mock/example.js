@@ -1,7 +1,7 @@
 let faker = require("faker");
 let fs = require("fs");
 
-let generateWorkers = () => {
+let generateSummary = () => {
   let workers = [];
 
   for (let id = 0; id < 30; id++) {
@@ -13,7 +13,7 @@ let generateWorkers = () => {
       ...workers,
       {
         id: id,
-        firstName: firstName,
+        sales: firstName,
         lastName: lastName,
         email: email
       }
@@ -23,4 +23,4 @@ let generateWorkers = () => {
   fs.writeFileSync("db.json", JSON.stringify({ workers }));
 };
 
-generateWorkers();
+generateSummary();
