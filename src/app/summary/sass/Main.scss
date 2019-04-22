@@ -1,9 +1,11 @@
 .app .summary {
   width: 100vw;
+
   .row {
-    width: 100%;
+    width: 90%;
+    margin: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
 }

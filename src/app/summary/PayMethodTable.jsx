@@ -3,19 +3,25 @@ import { Table } from "../shared/";
 import { Loading } from "../shared";
 
 export default ({ list }) => {
-  console.log({ list });
   return (
-    <div className="block">
+    <div className="block large">
       <span className="title">Sales by Payment Method</span>
       {list ? (
-        <Table
-          ths={["payment type", "amout", "amout %"]}
-          dataFormat={["paymenttype", "total", "percentage"]}
-          data={list}
-        />
+        <Table ths={ths} dataFormat={dataFormat} data={list} />
       ) : (
         <Loading />
       )}
     </div>
   );
 };
+
+const ths = [
+  { value: "payment type", type: "text" },
+  { value: "amout", type: "number" },
+  { value: "amout %", type: "number" }
+];
+const dataFormat = [
+  { value: "paymenttype", type: "text" },
+  { value: "total", type: "number" },
+  { value: "percentage", type: "number" }
+];

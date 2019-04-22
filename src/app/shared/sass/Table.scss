@@ -1,0 +1,30 @@
+table {
+  width: 100%;
+  max-height: 100%;
+  overflow: scroll;
+  thead {
+    tr {
+      th {
+        span {
+          display: inline-flex;
+          justify-content: flex-start;
+          align-items: center;
+          width: 100%;
+          border-bottom: 2px solid color("main");
+          &.number {
+            justify-content: flex-end;
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        &.number {
+          text-align: right;
+        }
+      }
+    }
+  }
+}

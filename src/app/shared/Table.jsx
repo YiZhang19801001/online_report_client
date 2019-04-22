@@ -1,10 +1,13 @@
 import React from "react";
 import _ from "lodash";
+import Loading from "./Loading";
 
+/**
+ * main function component
+ */
 export default ({ ths, data, dataFormat }) => {
-  console.log({ ths, data, dataFormat });
   if (!ths || !data || ths.length === 0) {
-    return `loading...`;
+    return <Loading />;
   } else if (data.length === 0) {
     return <p>no data avaliable</p>;
   }
@@ -16,12 +19,17 @@ export default ({ ths, data, dataFormat }) => {
   );
 };
 
+//** */
 const renderThead = ths => {
   return (
     <thead>
       <tr>
         {ths.map(th => {
-          return <th key={th}>{th}</th>;
+          return (
+            <th key={_.uniqueId("th")}>
+              <span className={th.type}>{th.value}</span>
+            </th>
+          );
         })}
       </tr>
     </thead>
@@ -42,6 +50,18 @@ const renderTbody = (ths, data, dataFormat) => {
 
 const renderTds = (dataFormat, row) => {
   return dataFormat.map(perporty => {
-    return <td key={_.uniqueId("tableRowTd")}>{row[perporty]}</td>;
+    return (
+      <td key={_.uniqueId("tableRowTd")} className={perporty.type}>
+        {row[perporty.value]}
+      </td>
+    );
   });
+};
+
+const dynamicSort = (property, sortOrder) => {
+  return function(a, b) {
+    var result =
+      a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+    return result * sortOrder;
+  };
 };
