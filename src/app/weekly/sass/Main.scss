@@ -1,0 +1,11 @@
+.app .component-weekly-report {
+  width: 100vw;
+
+  .row {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

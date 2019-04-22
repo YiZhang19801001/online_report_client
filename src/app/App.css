@@ -89,7 +89,7 @@ table tbody tr td.text {
   padding-right: 0.2rem;
 }
 
-.app .summary .row .block {
+.row .block {
   width: max-content;
   display: flex;
   flex-direction: column;
@@ -98,17 +98,17 @@ table tbody tr td.text {
   box-shadow: 0 0 3px #a5a5a5;
   margin-top: 0.5rem;
 }
-.app .summary .row .block.large {
+.row .block.large {
   width: 100%;
   margin: 0.5rem auto;
 }
-.app .summary .row .block .title {
+.row .block .title {
   text-transform: uppercase;
   color: #8c8c8c;
   font-size: 0.7rem;
   font-weight: bold;
 }
-.app .summary .row .block .value {
+.row .block .value {
   font-size: 2.5rem;
   color: #000;
   text-align: center;
@@ -118,6 +118,17 @@ table tbody tr td.text {
   width: 100vw;
 }
 .app .summary .row {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app .component-weekly-report {
+  width: 100vw;
+}
+.app .component-weekly-report .row {
   width: 90%;
   margin: auto;
   display: flex;
