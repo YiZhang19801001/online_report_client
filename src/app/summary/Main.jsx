@@ -25,6 +25,8 @@ export default () => {
       </div>
       <div className="row">
         <PayMethodTable list={reports.reportsForPaymentMethod} />
+      </div>
+      <div className="row">
         <PayMethodChart list={reports.reportsForPaymentMethod} />
       </div>
     </div>
