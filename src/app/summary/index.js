@@ -1,3 +1,4 @@
 import DailySummary from "./Main";
-
-export { DailySummary };
+import NoOfTrans from "./NoOfTrans";
+import Sales from "./Sales";
+export { DailySummary, Sales, NoOfTrans };
