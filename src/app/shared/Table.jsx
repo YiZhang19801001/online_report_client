@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Loading from "./Loading";
 
@@ -11,22 +11,48 @@ export default ({ ths, data, dataFormat }) => {
   } else if (data.length === 0) {
     return <p>no data avaliable</p>;
   }
+
+  const [tableData, setTableData] = useState([]);
+  const initSortOrders = dataFormat.reduce((init = {}, property) => {
+    return { ...init, [property.value]: 0 };
+  });
+  const [sortOrders, setSortOrders] = useState(initSortOrders);
+
+  useEffect(() => {
+    setTableData(data);
+  }, []);
+
+  const sort = property => {
+    const sortOrder =
+      sortOrders[property] === 0 || sortOrders[property] === -1 ? 1 : -1;
+    setSortOrders({ ...initSortOrders, [property]: sortOrder });
+    const sortedTableData = tableData.sort(dynamicSort(property, sortOrder));
+    setTableData(sortedTableData);
+  };
+
   return (
     <table>
-      {renderThead(ths)}
-      {renderTbody(ths, data, dataFormat)}
+      {renderThead(ths, sort, dataFormat)}
+      {renderTbody(tableData, dataFormat)}
     </table>
   );
 };
 
 //** */
-const renderThead = ths => {
+const renderThead = (ths, sort, dataFormat) => {
+  let index = -1;
   return (
     <thead>
       <tr>
         {ths.map(th => {
+          index++;
           return (
-            <th key={_.uniqueId("th")}>
+            <th
+              onClick={() => {
+                sort(dataFormat[index].value);
+              }}
+              key={_.uniqueId("th")}
+            >
               <span className={th.type}>{th.value}</span>
             </th>
           );
@@ -36,7 +62,7 @@ const renderThead = ths => {
   );
 };
 
-const renderTbody = (ths, data, dataFormat) => {
+const renderTbody = (data, dataFormat) => {
   return (
     <tbody>
       {data.map(row => {
