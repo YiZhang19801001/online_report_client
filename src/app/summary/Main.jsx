@@ -3,6 +3,7 @@ import axios from "axios";
 import Sales from "./Sales";
 import NoOfTrans from "./NoOfTrans";
 import PayMethodTable from "./PayMethodTable";
+import PayMethodChart from "./PayMethodChart";
 export default () => {
   const [reports, setReports] = useState({});
 
@@ -24,6 +25,7 @@ export default () => {
       </div>
       <div className="row">
         <PayMethodTable list={reports.reportsForPaymentMethod} />
+        <PayMethodChart list={reports.reportsForPaymentMethod} />
       </div>
     </div>
   );

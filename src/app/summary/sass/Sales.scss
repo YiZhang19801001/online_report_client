@@ -7,6 +7,10 @@
     padding: 0.5rem 1rem;
     box-shadow: 0 0 3px color("boxShadow");
     margin-top: 0.5rem;
+    &.large {
+      width: 100%;
+      margin: 0.5rem auto;
+    }
     .title {
       text-transform: uppercase;
       color: color("textPrimary");

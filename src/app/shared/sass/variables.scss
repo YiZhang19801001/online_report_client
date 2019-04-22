@@ -7,7 +7,8 @@ $colors: (
   cover: #c7c7c7a5,
   main: #ffba2d,
   boxShadow: #a5a5a5,
-  secondary: #f55747
+  secondary: #f55747,
+  tableRow: rgba(247, 219, 161, 0.52)
 );
 
 @function color($color_name) {
