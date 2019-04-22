@@ -4,6 +4,7 @@ import Sales from "./Sales";
 import NoOfTrans from "./NoOfTrans";
 import PayMethodTable from "./PayMethodTable";
 import PayMethodChart from "./PayMethodChart";
+import DataGroup from "./DataGroup";
 export default () => {
   const [reports, setReports] = useState({});
 
@@ -16,7 +17,6 @@ export default () => {
     };
     fn();
   }, []);
-
   return (
     <div className="summary">
       <div className="row">
@@ -28,6 +28,9 @@ export default () => {
       </div>
       <div className="row">
         <PayMethodChart list={reports.reportsForPaymentMethod} />
+      </div>
+      <div className="row">
+        <DataGroup list={reports.dataGroup} />
       </div>
     </div>
   );

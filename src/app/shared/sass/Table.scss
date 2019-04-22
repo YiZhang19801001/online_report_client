@@ -31,6 +31,16 @@ table {
       &.colored {
         background-color: color("tableRow");
       }
+      &.total {
+        font-weight: bold;
+        td {
+          span {
+            width: 60%;
+            display: inline-block;
+            border-top: 2px solid color("main");
+          }
+        }
+      }
       td {
         &.number {
           text-align: right;
