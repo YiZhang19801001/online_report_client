@@ -52,8 +52,9 @@ const renderThead = (ths, sort, dataFormat) => {
                 sort(dataFormat[index].value);
               }}
               key={_.uniqueId("th")}
+              className={th.type}
             >
-              <span className={th.type}>{th.value}</span>
+              <span>{th.value}</span>
             </th>
           );
         })}
@@ -63,11 +64,19 @@ const renderThead = (ths, sort, dataFormat) => {
 };
 
 const renderTbody = (data, dataFormat) => {
+  let index = 0;
   return (
     <tbody>
       {data.map(row => {
+        index++;
+
         return (
-          <tr key={_.uniqueId("tableRow")}>{renderTds(dataFormat, row)}</tr>
+          <tr
+            key={_.uniqueId("tableRow")}
+            className={`${index % 2 !== 0 ? "colored" : ""}`}
+          >
+            {renderTds(dataFormat, row)}
+          </tr>
         );
       })}
     </tbody>
