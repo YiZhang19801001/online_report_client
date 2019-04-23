@@ -4,6 +4,7 @@ import { history } from "./shared";
 import { DailySummary } from "./summary";
 import { WeeklyReport } from "./weekly";
 import { MonthlyReport } from "./monthly";
+import { CustomReport } from "./customize";
 export default () => {
   return (
     <Router history={history}>
@@ -24,6 +25,10 @@ export default () => {
         <Route
           path={`${process.env.PUBLIC_URL}/monthly`}
           component={MonthlyReport}
+        />
+        <Route
+          path={`${process.env.PUBLIC_URL}/customize`}
+          component={CustomReport}
         />
       </>
     </Router>
