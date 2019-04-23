@@ -1,9 +1,15 @@
 import React from "react";
-
+import {
+  ReportTypeSelector,
+  QuickDatePicker,
+  TimePeriodSelector
+} from "./components";
 export default () => {
   return (
     <div className="component-custom-report">
-      <h1>custom report</h1>
+      <ReportTypeSelector />
+      <QuickDatePicker />
+      <TimePeriodSelector />
     </div>
   );
 };

@@ -1,0 +1,24 @@
+.flat-block {
+  &.date-picker-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    button {
+      margin-right: 0.5rem;
+      height: 2rem;
+      width: max-content;
+      border-radius: 3px;
+      border: 2px solid color("main");
+      background-color: #fff;
+      color: color("main");
+      outline: none;
+      box-shadow: 0 0 3px color("boxShadow");
+      transition: all 400 linear;
+      &:active {
+        box-shadow: none;
+        background-color: color("main");
+        color: #fff;
+      }
+    }
+  }
+}
