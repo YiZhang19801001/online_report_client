@@ -7,6 +7,14 @@
   background-color: color("main");
   box-shadow: 0 3px 3px color("boxShadow");
   margin-bottom: 5px;
+  transition: all 300ms linear;
+  position: fixed;
+  left: 0;
+  top: 0;
+  &.hide {
+    transform: translateY(-6rem);
+    box-shadow: none;
+  }
   button {
     background-color: transparent;
     border: none;

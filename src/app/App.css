@@ -32,6 +32,14 @@ body {
   background-color: #ffba2d;
   box-shadow: 0 3px 3px #a5a5a5;
   margin-bottom: 5px;
+  transition: all 300ms linear;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.app .header.hide {
+  transform: translateY(-6rem);
+  box-shadow: none;
 }
 .app .header button {
   background-color: transparent;
@@ -116,6 +124,14 @@ table tbody tr td.text {
 
 .app .summary {
   width: 100vw;
+  margin-top: 6rem;
+  height: calc(100vh - 6rem);
+  overflow: scroll;
+  padding-bottom: 6rem;
+}
+.app .summary.header-hide {
+  margin-top: 0;
+  height: 100vh;
 }
 .app .summary .row {
   width: 90%;
@@ -123,6 +139,11 @@ table tbody tr td.text {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 300ms linear;
+}
+.app .summary .row.hide {
+  transform: translateX(-100vw);
+  opacity: 0;
 }
 
 .row .block.date-picker-container {
@@ -152,6 +173,8 @@ table tbody tr td.text {
 
 .app .component-weekly-report {
   width: 100vw;
+  height: calc(100vh - 6rem);
+  overflow: scroll;
 }
 .app .component-weekly-report .row {
   width: 90%;

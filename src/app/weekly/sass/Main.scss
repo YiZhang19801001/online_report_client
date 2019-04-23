@@ -1,6 +1,7 @@
 .app .component-weekly-report {
   width: 100vw;
-
+  height: calc(100vh - 6rem);
+  overflow: scroll;
   .row {
     width: 90%;
     margin: auto;
