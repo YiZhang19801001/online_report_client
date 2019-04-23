@@ -3,7 +3,7 @@ import { Header } from "../shared";
 export default () => {
   return (
     <>
-      <Header />
+      <Header show={true} />
       <div className="component-monthly-report">
         <h1>Monthly Report</h1>
       </div>

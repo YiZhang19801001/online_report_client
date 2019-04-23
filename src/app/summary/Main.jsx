@@ -24,8 +24,7 @@ export default () => {
   const [showHeader, setShowHeader] = useState(true);
   useEffect(() => {
     const dom = document.querySelector("#summary-page");
-
-    dom.addEventListener("scroll", () => {
+    const handleScroll = () => {
       if (preScrollPosition > dom.scrollTop) {
         // console.log("up");
         setShowHeader(true);
@@ -34,7 +33,12 @@ export default () => {
         setShowHeader(false);
       }
       preScrollPosition = dom.scrollTop;
-    });
+    };
+    dom.addEventListener("scroll", handleScroll);
+
+    return () => {
+      dom.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (

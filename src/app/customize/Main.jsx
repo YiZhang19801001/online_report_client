@@ -8,7 +8,7 @@ import { Header } from "../shared";
 export default () => {
   return (
     <>
-      <Header />
+      <Header show={true} />
       <div className="component-custom-report">
         <ReportTypeSelector />
         <QuickDatePicker />

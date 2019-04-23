@@ -175,6 +175,8 @@ table tbody tr td.text {
   width: 100vw;
   height: calc(100vh - 6rem);
   overflow: scroll;
+  margin-top: 6rem;
+  padding-bottom: 6rem;
 }
 .app .component-weekly-report .row {
   width: 90%;
@@ -186,6 +188,8 @@ table tbody tr td.text {
 
 .component-custom-report {
   background-color: #e1e1e1;
+  margin-top: 6rem;
+  padding-bottom: 6rem;
 }
 .component-custom-report .flat-block {
   display: flex;
