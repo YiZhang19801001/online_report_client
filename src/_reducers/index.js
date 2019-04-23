@@ -1,7 +1,7 @@
+import { dateStart, dateEnd } from "../app/shared/reducers";
 import { combineReducers } from "redux";
 
 export default combineReducers({
-  placeholder: () => {
-    return "abc";
-  }
+  dateEnd,
+  dateStart
 });

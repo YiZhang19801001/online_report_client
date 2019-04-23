@@ -161,4 +161,58 @@ table tbody tr td.text {
   align-items: center;
 }
 
+.component-custom-report {
+  background-color: #e1e1e1;
+}
+.component-custom-report .flat-block {
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.5rem;
+}
+.component-custom-report .flat-block .title {
+  font-size: 0.8rem;
+  color: #a5a5a5;
+  text-transform: uppercase;
+}
+.component-custom-report .flat-block .container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 2.5rem;
+}
+.component-custom-report .flat-block .container input[type=date] {
+  margin-right: 0.3rem;
+}
+
+.flat-block.date-picker-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.flat-block.date-picker-container button {
+  margin-right: 0.5rem;
+  height: 2rem;
+  width: max-content;
+  border-radius: 3px;
+  border: 2px solid #ffba2d;
+  background-color: #fff;
+  color: #ffba2d;
+  outline: none;
+  box-shadow: 0 0 3px #a5a5a5;
+  transition: all 400 linear;
+}
+.flat-block.date-picker-container button:active {
+  box-shadow: none;
+  background-color: #ffba2d;
+  color: #fff;
+}
+
+.flat-block select {
+  margin-top: 0.2rem;
+  height: 2rem;
+  border-radius: 3px;
+}
+
 /*# sourceMappingURL=App.css.map */
