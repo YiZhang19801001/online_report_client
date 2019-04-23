@@ -1,9 +1,12 @@
 import React from "react";
-
+import { Header } from "../shared";
 export default () => {
   return (
-    <div className="component-monthly-report">
-      <h1>Monthly Report</h1>
-    </div>
+    <>
+      <Header />
+      <div className="component-monthly-report">
+        <h1>Monthly Report</h1>
+      </div>
+    </>
   );
 };

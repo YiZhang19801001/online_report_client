@@ -4,12 +4,16 @@ import {
   QuickDatePicker,
   TimePeriodSelector
 } from "./components";
+import { Header } from "../shared";
 export default () => {
   return (
-    <div className="component-custom-report">
-      <ReportTypeSelector />
-      <QuickDatePicker />
-      <TimePeriodSelector />
-    </div>
+    <>
+      <Header />
+      <div className="component-custom-report">
+        <ReportTypeSelector />
+        <QuickDatePicker />
+        <TimePeriodSelector />
+      </div>
+    </>
   );
 };

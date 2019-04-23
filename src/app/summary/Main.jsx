@@ -6,6 +6,7 @@ import PayMethodTable from "./PayMethodTable";
 import PayMethodChart from "./PayMethodChart";
 import DataGroup from "./DataGroup";
 import QuickDatePicker from "./components/QuickDatePicker";
+import { Header } from "../shared";
 export default () => {
   const [reports, setReports] = useState({});
 
@@ -19,23 +20,26 @@ export default () => {
     fn();
   }, []);
   return (
-    <div className="summary">
-      <div className="row">
-        <QuickDatePicker />
+    <>
+      <Header />
+      <div className="summary">
+        <div className="row">
+          <QuickDatePicker />
+        </div>
+        <div className="row">
+          <Sales sales={reports.sales} />
+          <NoOfTrans sum={reports.numberOfTransactions} />
+        </div>
+        <div className="row">
+          <PayMethodTable list={reports.reportsForPaymentMethod} />
+        </div>
+        <div className="row">
+          <PayMethodChart list={reports.reportsForPaymentMethod} />
+        </div>
+        <div className="row">
+          <DataGroup list={reports.dataGroup} />
+        </div>
       </div>
-      <div className="row">
-        <Sales sales={reports.sales} />
-        <NoOfTrans sum={reports.numberOfTransactions} />
-      </div>
-      <div className="row">
-        <PayMethodTable list={reports.reportsForPaymentMethod} />
-      </div>
-      <div className="row">
-        <PayMethodChart list={reports.reportsForPaymentMethod} />
-      </div>
-      <div className="row">
-        <DataGroup list={reports.dataGroup} />
-      </div>
-    </div>
+    </>
   );
 };
