@@ -125,6 +125,31 @@ table tbody tr td.text {
   align-items: center;
 }
 
+.row .block.date-picker-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.row .block.date-picker-container button {
+  width: max-content;
+  height: 2rem;
+  background-color: #fff;
+  color: #ffba2d;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ffba2d;
+  outline: none;
+  border-radius: 1rem;
+  box-shadow: 0 0 3px #a5a5a5;
+  transition: all 400ms linear;
+}
+.row .block.date-picker-container button:active {
+  box-shadow: none;
+  background-color: #ffba2d;
+  color: #fff;
+}
+
 .app .component-weekly-report {
   width: 100vw;
 }

@@ -5,6 +5,7 @@ import NoOfTrans from "./NoOfTrans";
 import PayMethodTable from "./PayMethodTable";
 import PayMethodChart from "./PayMethodChart";
 import DataGroup from "./DataGroup";
+import QuickDatePicker from "./components/QuickDatePicker";
 export default () => {
   const [reports, setReports] = useState({});
 
@@ -19,6 +20,9 @@ export default () => {
   }, []);
   return (
     <div className="summary">
+      <div className="row">
+        <QuickDatePicker />
+      </div>
       <div className="row">
         <Sales sales={reports.sales} />
         <NoOfTrans sum={reports.numberOfTransactions} />

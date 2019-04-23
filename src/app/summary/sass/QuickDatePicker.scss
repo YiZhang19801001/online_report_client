@@ -1,0 +1,28 @@
+.row {
+  .block {
+    &.date-picker-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      button {
+        width: max-content;
+        height: 2rem;
+        background-color: color("bodyBackground");
+        color: color("main");
+        margin-bottom: 0.5rem;
+        border: 1px solid color("main");
+        outline: none;
+        border-radius: 1rem;
+        box-shadow: 0 0 3px color("boxShadow");
+        transition: all 400ms linear;
+        &:active {
+          box-shadow: none;
+          background-color: color("main");
+          color: #fff;
+        }
+      }
+    }
+  }
+}
