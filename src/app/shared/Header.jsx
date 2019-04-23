@@ -1,8 +1,8 @@
 import React from "react";
 import { history } from "./history";
-export default () => {
+export default ({ show }) => {
   return (
-    <div className="header">
+    <div className={`header ${show ? "" : "hide"}`}>
       <button
         onClick={() => {
           history.push(`${process.env.PUBLIC_URL}/daily`);

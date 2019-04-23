@@ -19,11 +19,32 @@ export default () => {
     };
     fn();
   }, []);
+
+  let preScrollPosition = 0;
+  const [showHeader, setShowHeader] = useState(true);
+  useEffect(() => {
+    const dom = document.querySelector("#summary-page");
+
+    dom.addEventListener("scroll", () => {
+      if (preScrollPosition > dom.scrollTop) {
+        // console.log("up");
+        setShowHeader(true);
+      } else {
+        // console.log("down");
+        setShowHeader(false);
+      }
+      preScrollPosition = dom.scrollTop;
+    });
+  }, []);
+
   return (
     <>
-      <Header />
-      <div className="summary">
-        <div className="row">
+      <Header show={showHeader} />
+      <div
+        className={`summary ${showHeader ? "" : "header-hide"}`}
+        id="summary-page"
+      >
+        <div className={`row ${showHeader ? "" : "hide"}`}>
           <QuickDatePicker />
         </div>
         <div className="row">
