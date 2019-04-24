@@ -130,6 +130,7 @@ form .form-field input {
   border-radius: 1rem;
   padding-left: 0.6rem;
   border: 1px solid #a5a5a5;
+  outline: none;
 }
 form .form-field input::placeholder {
   color: #8c8c8c;

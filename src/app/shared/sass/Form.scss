@@ -29,6 +29,7 @@ form {
       border-radius: 1rem;
       padding-left: 0.6rem;
       border: 1px solid color("border");
+      outline: none;
       &::placeholder {
         color: color("textPrimary");
       }
