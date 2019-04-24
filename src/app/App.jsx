@@ -3,7 +3,7 @@ import Routes from "./routes";
 import { checkLogin } from "./shared/hooks";
 import "./App.css";
 export default () => {
-  // checkLogin();
+  checkLogin();
   return (
     <div className="app">
       <Routes />

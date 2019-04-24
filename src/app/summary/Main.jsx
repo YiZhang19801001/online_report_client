@@ -13,9 +13,9 @@ export default () => {
   useEffect(() => {
     const fn = async () => {
       const response = await axios.get(
-        "http://localhost:8000/reports?date=20190410230000"
+        "http://localhost:8000/api/reports?date=20190410230000"
       );
-      setReports(response.data);
+      setReports(response.data.reports);
     };
     fn();
   }, []);
@@ -26,10 +26,8 @@ export default () => {
     const dom = document.querySelector("#summary-page");
     const handleScroll = () => {
       if (preScrollPosition > dom.scrollTop) {
-        // console.log("up");
         setShowHeader(true);
       } else {
-        // console.log("down");
         setShowHeader(false);
       }
       preScrollPosition = dom.scrollTop;

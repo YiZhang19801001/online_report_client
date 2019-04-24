@@ -12,7 +12,9 @@ export const checkLogin = () => {
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/auth/user`, {
-        Authorization: `Bearer ${user.access_token}`
+        headers: {
+          Authorization: `Bearer ${user.access_token}`
+        }
       })
       .then(res => {
         history.push(`${process.env.PUBLIC_URL}/daily`);
