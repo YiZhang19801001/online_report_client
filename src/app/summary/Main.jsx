@@ -38,6 +38,8 @@ export default () => {
       dom.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // todo: need fixed
   let formatedPaymentReports = [];
   if (reports.reportsForPaymentMethod) {
     formatedPaymentReports = reports.reportsForPaymentMethod.map(row => {
