@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { history } from "../shared";
 export default () => {
   const labels = { app_name: "online report" }; //!fake data
   const [formValues, setFormValues] = useState({
-    email: "",
+    name: "",
     password: "",
     remember_me: false
   });
@@ -14,7 +15,7 @@ export default () => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    if (formValues.email === "" || formValues.password === "") {
+    if (formValues.name === "" || formValues.password === "") {
       return false;
     }
     axios.post(`http://localhost:8000/api/auth/login`, formValues).then(res => {
@@ -22,6 +23,7 @@ export default () => {
         "aupos_online_report_user",
         JSON.stringify(res.data)
       );
+      history.push(`${process.env.PUBLIC_URL}/daily`);
     });
   };
   const handleChecked = e => {
@@ -32,14 +34,14 @@ export default () => {
       <div className="header">{labels.app_name}</div>
       <form onSubmit={handleFormSubmit}>
         <div className="form-field">
-          <label htmlFor="email" className="text-label">
-            email
+          <label htmlFor="name" className="text-label">
+            username
           </label>
           <input
             type="text"
-            placeholder="enter email"
-            value={formValues.email}
-            name="email"
+            placeholder="enter username"
+            value={formValues.name}
+            name="name"
             onChange={handleInputChange}
           />
         </div>
