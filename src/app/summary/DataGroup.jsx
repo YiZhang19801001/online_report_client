@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Table, Loading } from "../shared";
-export default ({ list }) => {
+import axios from "axios";
+import moment from "moment";
+
+export default ({ date }) => {
+  const [dataGroup, setDataGroup] = useState(null);
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("aupos_online_report_user"))
+      .access_token;
+
+    const paramsDate = moment(date).format(`YYYYMMDD`);
+    axios
+      .get(
+        `http://localhost:8000/api/reports?date=${paramsDate}&meta=dataGroup`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }
+      )
+      .then(res => {
+        setDataGroup(res.data.reports.dataGroup);
+      });
+  }, [date]);
+
   return (
     <div className="block large">
-      {list ? (
-        <Table ths={ths} dataFormat={dataFormat} data={list} sum={true} />
+      {dataGroup ? (
+        <Table ths={ths} dataFormat={dataFormat} data={dataGroup} sum={true} />
       ) : (
         <Loading />
       )}

@@ -11,6 +11,7 @@ import QuickDatePicker from "./components/QuickDatePicker";
 import { Header } from "../shared";
 export default () => {
   const [reports, setReports] = useState({});
+  const [rendered, setRendered] = useState(false);
   const mapState = useCallback(
     ({ dateForDailyReport }) => ({
       dateForDailyReport
@@ -33,6 +34,7 @@ export default () => {
         }
       );
       setReports(response.data.reports);
+      setRendered(true);
     };
     fn();
   }, [dateForDailyReport]);
@@ -88,7 +90,7 @@ export default () => {
           <PayMethodChart list={formatedPaymentReports} />
         </div>
         <div className="row">
-          <DataGroup list={reports.dataGroup} />
+          {rendered && <DataGroup date={dateForDailyReport} />}
         </div>
       </div>
     </>
