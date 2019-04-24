@@ -97,6 +97,65 @@ table tbody tr td.text {
   padding-right: 0.2rem;
 }
 
+form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+form .form-field {
+  width: 80%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+form .form-field label {
+  text-transform: uppercase;
+  color: #ffba2d;
+  font-size: 0.8rem;
+}
+form .form-field.checkbox {
+  justify-content: flex-end;
+  padding-right: 2px;
+}
+form .form-field.checkbox label {
+  font-size: 0.8rem;
+  text-transform: none;
+  color: #0077cc;
+}
+form .form-field input {
+  height: 2rem;
+  border-radius: 1rem;
+  padding-left: 0.6rem;
+  border: 1px solid #a5a5a5;
+}
+form .form-field input::placeholder {
+  color: #8c8c8c;
+}
+form .button-container {
+  width: 80%;
+  text-align: right;
+}
+form .button-container button {
+  height: 2rem;
+  width: 6rem;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffba2d;
+  border: 2px solid #ffba2d;
+  background-color: #fff;
+  box-shadow: 0 0 3px #a5a5a5;
+  outline: none;
+}
+form .button-container button:active {
+  box-shadow: none;
+  color: #fff;
+  background-color: #ffba2d;
+}
+
 .row .block {
   width: max-content;
   display: flex;
@@ -240,6 +299,25 @@ table tbody tr td.text {
   margin-top: 0.2rem;
   height: 2rem;
   border-radius: 3px;
+}
+
+.component-login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.component-login .header {
+  height: 3rem;
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  text-transform: capitalize;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -1,0 +1,58 @@
+form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  .form-field {
+    width: 80%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    label {
+      text-transform: uppercase;
+      color: color("main");
+      font-size: 0.8rem;
+    }
+    &.checkbox {
+      justify-content: flex-end;
+      padding-right: 2px;
+      label {
+        font-size: 0.8rem;
+        text-transform: none;
+        color: color("myBlue");
+      }
+    }
+    input {
+      height: 2rem;
+      border-radius: 1rem;
+      padding-left: 0.6rem;
+      border: 1px solid color("border");
+      &::placeholder {
+        color: color("textPrimary");
+      }
+    }
+  }
+  .button-container {
+    width: 80%;
+    text-align: right;
+    button {
+      height: 2rem;
+      width: 6rem;
+      border-radius: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: color("main");
+      border: 2px solid color("main");
+      background-color: #fff;
+      box-shadow: 0 0 3px color("boxShadow");
+      outline: none;
+      &:active {
+        box-shadow: none;
+        color: #fff;
+        background-color: color("main");
+      }
+    }
+  }
+}
