@@ -9,7 +9,7 @@ export default ({ ths, data, dataFormat, sum }) => {
   if (!ths || !data || ths.length === 0) {
     return <Loading />;
   } else if (data.length === 0) {
-    return <p>no data avaliable</p>;
+    return <Loading />;
   }
 
   const [tableData, setTableData] = useState([]);

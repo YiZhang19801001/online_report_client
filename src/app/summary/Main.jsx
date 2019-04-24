@@ -38,7 +38,16 @@ export default () => {
       dom.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  let formatedPaymentReports = [];
+  if (reports.reportsForPaymentMethod) {
+    formatedPaymentReports = reports.reportsForPaymentMethod.map(row => {
+      return {
+        ...row,
+        total: parseFloat(row.total).toFixed(2),
+        percentage: Math.round(row.percentage * 10000) / 100
+      };
+    });
+  }
   return (
     <>
       <Header show={showHeader} />
@@ -54,10 +63,10 @@ export default () => {
           <NoOfTrans sum={reports.numberOfTransactions} />
         </div>
         <div className="row">
-          <PayMethodTable list={reports.reportsForPaymentMethod} />
+          <PayMethodTable list={formatedPaymentReports} />
         </div>
         <div className="row">
-          <PayMethodChart list={reports.reportsForPaymentMethod} />
+          <PayMethodChart list={formatedPaymentReports} />
         </div>
         <div className="row">
           <DataGroup list={reports.dataGroup} />
