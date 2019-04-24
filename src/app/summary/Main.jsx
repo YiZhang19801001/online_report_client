@@ -13,7 +13,15 @@ export default () => {
   useEffect(() => {
     const fn = async () => {
       const response = await axios.get(
-        "http://localhost:8000/api/reports?date=20190410230000"
+        "http://localhost:8000/api/reports?date=20190410230000",
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("aupos_online_report_user"))
+                .access_token
+            }`
+          }
+        }
       );
       setReports(response.data.reports);
     };
