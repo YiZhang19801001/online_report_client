@@ -211,14 +211,45 @@ form .button-container button:active {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+}
+.row .block.date-picker-container input {
+  height: 2rem;
+  width: 8rem;
+  border: 1px solid #ffba2d;
+  padding-left: 1rem;
+  border-radius: 3px;
+  box-shadow: 0 0 3px #a5a5a5;
+  position: relative;
+}
+.row .block.date-picker-container input::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0.4rem;
+  background: url(https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png) no-repeat;
+  background-size: contain;
+  height: 1rem;
+  width: 1rem;
+  border-width: thin;
+}
+.row .block.date-picker-container input:before {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+  content: attr(data-date);
+  display: inline-block;
+  color: black;
+}
+.row .block.date-picker-container input::-webkit-datetime-edit, .row .block.date-picker-container input::-webkit-inner-spin-button, .row .block.date-picker-container input::-webkit-clear-button {
+  display: none;
 }
 .row .block.date-picker-container button.date-tag {
   width: max-content;
   height: 2rem;
   background-color: #fff;
   color: #ffba2d;
-  margin-bottom: 0.5rem;
   border: 1px solid #ffba2d;
   outline: none;
   box-shadow: 0 0 3px #a5a5a5;

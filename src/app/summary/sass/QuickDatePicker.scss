@@ -5,13 +5,51 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+
+      input {
+        height: 2rem;
+        width: 8rem;
+        border: 1px solid color("main");
+        padding-left: 1rem;
+        border-radius: 3px;
+        box-shadow: 0 0 3px color("border");
+        position: relative;
+        &::-webkit-calendar-picker-indicator {
+          color: rgba(0, 0, 0, 0);
+          opacity: 1;
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 0.4rem;
+          background: url(https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png)
+            no-repeat;
+          background-size: contain;
+          height: 1rem;
+          width: 1rem;
+          border-width: thin;
+        }
+
+        &:before {
+          position: absolute;
+          top: 0.5rem;
+          left: 1rem;
+          content: attr(data-date);
+          display: inline-block;
+          color: black;
+        }
+
+        &::-webkit-datetime-edit,
+        &::-webkit-inner-spin-button,
+        &::-webkit-clear-button {
+          display: none;
+        }
+      }
       button.date-tag {
         width: max-content;
         height: 2rem;
         background-color: color("bodyBackground");
         color: color("main");
-        margin-bottom: 0.5rem;
+
         border: 1px solid color("main");
         outline: none;
         box-shadow: 0 0 3px color("boxShadow");

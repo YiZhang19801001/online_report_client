@@ -44,6 +44,7 @@ export default () => {
       </button>
       <input
         type="date"
+        data-date={moment(dateForDailyReport).format("MMM Do")}
         value={dateForDailyReport}
         onChange={handleDateChange}
       />
