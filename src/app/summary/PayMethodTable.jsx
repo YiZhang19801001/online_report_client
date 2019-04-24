@@ -17,8 +17,8 @@ export default ({ list }) => {
 
 const ths = [
   { value: "payment type", type: "text" },
-  { value: "amout", type: "number" },
-  { value: "amout %", type: "number" }
+  { value: "amount", type: "number" },
+  { value: "amount %", type: "number" }
 ];
 const dataFormat = [
   { value: "paymenttype", type: "text" },

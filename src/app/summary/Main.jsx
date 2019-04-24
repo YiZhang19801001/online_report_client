@@ -13,7 +13,15 @@ export default () => {
   useEffect(() => {
     const fn = async () => {
       const response = await axios.get(
-        "http://localhost:8000/api/reports?date=20190410230000"
+        "http://localhost:8000/api/reports?date=20190410230000",
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("aupos_online_report_user"))
+                .access_token
+            }`
+          }
+        }
       );
       setReports(response.data.reports);
     };
@@ -39,6 +47,17 @@ export default () => {
     };
   }, []);
 
+  // todo: need fixed
+  let formatedPaymentReports = [];
+  if (reports.reportsForPaymentMethod) {
+    formatedPaymentReports = reports.reportsForPaymentMethod.map(row => {
+      return {
+        ...row,
+        total: parseFloat(row.total).toFixed(2),
+        percentage: Math.round(row.percentage * 10000) / 100
+      };
+    });
+  }
   return (
     <>
       <Header show={showHeader} />
@@ -54,10 +73,10 @@ export default () => {
           <NoOfTrans sum={reports.numberOfTransactions} />
         </div>
         <div className="row">
-          <PayMethodTable list={reports.reportsForPaymentMethod} />
+          <PayMethodTable list={formatedPaymentReports} />
         </div>
         <div className="row">
-          <PayMethodChart list={reports.reportsForPaymentMethod} />
+          <PayMethodChart list={formatedPaymentReports} />
         </div>
         <div className="row">
           <DataGroup list={reports.dataGroup} />
