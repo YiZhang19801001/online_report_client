@@ -1,67 +1,59 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch, useMappedState } from "redux-react-hook";
 import moment from "moment";
+
 export default () => {
+  const mapState = useCallback(
+    ({ dateForDailyReport }) => ({
+      dateForDailyReport
+    }),
+    []
+  );
+  const { dateForDailyReport } = useMappedState(mapState);
+  const dispatch = useDispatch();
+  const handleDateChange = e => {
+    dispatch({
+      type: "setDateForDailyReport",
+      payload: moment(e.target.value).format("YYYY-MM-DD")
+    });
+  };
+  const handleDayDecrease = () => {
+    dispatch({
+      type: "setDateForDailyReport",
+      payload: moment(dateForDailyReport)
+        .subtract(1, "days")
+        .format("YYYY-MM-DD")
+    });
+  };
+  const handleDayIncrease = () => {
+    dispatch({
+      type: "setDateForDailyReport",
+      payload: moment(dateForDailyReport)
+        .add(1, "days")
+        .format("YYYY-MM-DD")
+    });
+  };
   return (
     <div className="block large date-picker-container">
       <button
-        className="date-tag"
+        className="date-tag decrease"
         data-value={`yesterday`}
-        onClick={handleDateChange}
+        onClick={handleDayDecrease}
       >
-        Yesterday
+        <i className="material-icons">arrow_left</i>
       </button>
+      <input
+        type="date"
+        value={dateForDailyReport}
+        onChange={handleDateChange}
+      />
       <button
-        className="date-tag"
+        className="date-tag increase"
         data-value={`-2 day`}
-        onClick={handleDateChange}
+        onClick={handleDayIncrease}
       >
-        Day Before Yesterday
-      </button>
-      <button
-        className="date-tag"
-        data-value={`last week`}
-        onClick={handleDateChange}
-      >
-        Same day last week
-      </button>
-      <button
-        className="date-tag"
-        data-value={`last month`}
-        onClick={handleDateChange}
-      >
-        Same day last month
+        <i className="material-icons">arrow_right</i>
       </button>
     </div>
   );
-};
-
-const handleDateChange = e => {
-  let msg = "will render report for ";
-
-  switch (e.target.dataset.value) {
-    case "yesterday":
-      msg += moment()
-        .subtract(1, "days")
-        .toLocaleString();
-      break;
-    case "-2 day":
-      msg += moment()
-        .subtract(2, "days")
-        .toLocaleString();
-      break;
-    case "last week":
-      msg += moment()
-        .subtract(7, "days")
-        .toLocaleString();
-      break;
-    case "last month":
-      msg += moment()
-        .subtract(1, "months")
-        .toLocaleString();
-      break;
-    default:
-      break;
-  }
-
-  setTimeout(alert(msg), 3000);
 };

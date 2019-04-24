@@ -213,7 +213,7 @@ form .button-container button:active {
   align-items: center;
   flex-wrap: wrap;
 }
-.row .block.date-picker-container button {
+.row .block.date-picker-container button.date-tag {
   width: max-content;
   height: 2rem;
   background-color: #fff;
@@ -221,11 +221,18 @@ form .button-container button:active {
   margin-bottom: 0.5rem;
   border: 1px solid #ffba2d;
   outline: none;
-  border-radius: 1rem;
   box-shadow: 0 0 3px #a5a5a5;
   transition: all 400ms linear;
 }
-.row .block.date-picker-container button:active {
+.row .block.date-picker-container button.date-tag.decrease {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+.row .block.date-picker-container button.date-tag.increase {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+.row .block.date-picker-container button.date-tag:active {
   box-shadow: none;
   background-color: #ffba2d;
   color: #fff;

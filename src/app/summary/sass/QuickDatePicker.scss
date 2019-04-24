@@ -6,7 +6,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      button {
+      button.date-tag {
         width: max-content;
         height: 2rem;
         background-color: color("bodyBackground");
@@ -14,9 +14,16 @@
         margin-bottom: 0.5rem;
         border: 1px solid color("main");
         outline: none;
-        border-radius: 1rem;
         box-shadow: 0 0 3px color("boxShadow");
         transition: all 400ms linear;
+        &.decrease {
+          border-top-left-radius: 1rem;
+          border-bottom-left-radius: 1rem;
+        }
+        &.increase {
+          border-top-right-radius: 1rem;
+          border-bottom-right-radius: 1rem;
+        }
         &:active {
           box-shadow: none;
           background-color: color("main");

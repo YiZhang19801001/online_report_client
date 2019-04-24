@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { useMappedState } from "redux-react-hook";
+import momment from "moment";
 import axios from "axios";
 import Sales from "./Sales";
 import NoOfTrans from "./NoOfTrans";
@@ -9,11 +11,18 @@ import QuickDatePicker from "./components/QuickDatePicker";
 import { Header } from "../shared";
 export default () => {
   const [reports, setReports] = useState({});
-
+  const mapState = useCallback(
+    ({ dateForDailyReport }) => ({
+      dateForDailyReport
+    }),
+    []
+  );
+  const { dateForDailyReport } = useMappedState(mapState);
   useEffect(() => {
+    const date = momment(dateForDailyReport).format(`YYYYMMDD`);
     const fn = async () => {
       const response = await axios.get(
-        "http://localhost:8000/api/reports?date=20190410230000",
+        `http://localhost:8000/api/reports?date=${date}`,
         {
           headers: {
             Authorization: `Bearer ${
@@ -26,7 +35,7 @@ export default () => {
       setReports(response.data.reports);
     };
     fn();
-  }, []);
+  }, [dateForDailyReport]);
 
   let preScrollPosition = 0;
   const [showHeader, setShowHeader] = useState(true);
