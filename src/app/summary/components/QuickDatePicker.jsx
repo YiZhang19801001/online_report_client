@@ -40,7 +40,24 @@ export default () => {
         data-value={`yesterday`}
         onClick={handleDayDecrease}
       >
-        <i className="material-icons">arrow_left</i>
+        {moment(dateForDailyReport)
+          .subtract(1, "days")
+          .format("MMM DD")}
+      </button>
+      <span className="display-date">
+        <span className="month">
+          {moment(dateForDailyReport).format("MMM")}
+        </span>
+        <span className="day">{moment(dateForDailyReport).format("DD")}</span>
+      </span>
+      <button
+        className="date-tag increase"
+        data-value={`-2 day`}
+        onClick={handleDayIncrease}
+      >
+        {moment(dateForDailyReport)
+          .add(1, "days")
+          .format("MMM DD")}
       </button>
       <input
         type="date"
@@ -48,13 +65,6 @@ export default () => {
         value={dateForDailyReport}
         onChange={handleDateChange}
       />
-      <button
-        className="date-tag increase"
-        data-value={`-2 day`}
-        onClick={handleDayIncrease}
-      >
-        <i className="material-icons">arrow_right</i>
-      </button>
     </div>
   );
 };
