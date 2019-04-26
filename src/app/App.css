@@ -175,7 +175,7 @@ form .button-container button:active {
   bottom: 0;
   left: 0;
   z-index: 5000;
-  height: calc(100vh - 6rem);
+  height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -220,7 +220,7 @@ form .button-container button:active {
   height: 100vh;
 }
 .app .summary.blur {
-  filter: blur(3px);
+  filter: blur(10px);
 }
 .app .summary .row {
   width: 90%;
