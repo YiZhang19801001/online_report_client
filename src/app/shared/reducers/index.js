@@ -1,4 +1,4 @@
 import dateStart from "./dateStart";
 import dateEnd from "./dateEnd";
-
-export { dateStart, dateEnd };
+import showModal from "./modal";
+export { dateStart, dateEnd, showModal };

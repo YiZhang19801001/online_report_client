@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useMappedState } from "redux-react-hook";
+import { useMappedState, useDispatch } from "redux-react-hook";
 import momment from "moment";
 import axios from "axios";
 import Sales from "./Sales";
@@ -8,7 +8,8 @@ import PayMethodTable from "./PayMethodTable";
 import PayMethodChart from "./PayMethodChart";
 import DataGroup from "./DataGroup";
 import QuickDatePicker from "./components/QuickDatePicker";
-import { Header } from "../shared";
+import { Header, Modal } from "../shared";
+
 export default () => {
   const [reports, setReports] = useState({});
   const [rendered, setRendered] = useState(false);
@@ -19,6 +20,7 @@ export default () => {
     []
   );
   const { dateForDailyReport } = useMappedState(mapState);
+  const dispatch = useDispatch();
   useEffect(() => {
     const date = momment(dateForDailyReport).format(`YYYYMMDD`);
     const fn = async () => {
@@ -33,8 +35,10 @@ export default () => {
           }
         }
       );
+
       setReports(response.data.reports);
       setRendered(true);
+      dispatch({ type: "closeModal" });
     };
     fn();
   }, [dateForDailyReport]);
@@ -72,6 +76,7 @@ export default () => {
   return (
     <>
       <Header show={showHeader} />
+      <Modal />
       <div
         className={`summary ${showHeader ? "" : "header-hide"}`}
         id="summary-page"
