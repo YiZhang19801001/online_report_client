@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900");
+* {
+  font-family: "Roboto", sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -24,13 +29,17 @@ body {
 }
 
 .app .header {
-  height: 6rem;
+  height: 34vh;
   width: 100vw;
+  padding: 0.5rem 1rem;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  background-color: #ffba2d;
-  box-shadow: 0 3px 3px #a5a5a5;
+  z-index: -1;
+  background-color: #6d81e6;
+  box-shadow: 0 4.5px 16px 0 rgba(30, 135, 240, 0.2);
+  background: url(/header-background.svg);
   margin-bottom: 5px;
   transition: all 300ms linear;
   position: fixed;
@@ -38,20 +47,59 @@ body {
   top: 0;
 }
 .app .header.hide {
-  transform: translateY(-6rem);
+  transform: translateY(-34vh);
   box-shadow: none;
 }
-.app .header button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
+.app .header .title {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+  color: #fff;
+}
+.app .header .title span.year {
+  margin-right: 0.2rem;
+  font-weight: 300;
+}
+.app .header .title span.text {
+  font-weight: 500;
+}
+.app .header .setting-icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
-.app .header button i {
-  font-size: 3rem;
+.app .header .setting-icon img {
+  height: 100%;
+  width: 100%;
+}
+.app .header .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #b3aaf6;
+}
+.app .header .navigation span {
+  font-weight: 100;
+  height: 100%;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d0c9ff;
+  padding: 0.5rem 0.8rem;
+  text-transform: capitalize;
+  margin-bottom: -3px;
+}
+.app .header .navigation span.active {
+  border-bottom: 3px solid #fff;
+  color: #fff;
+  font-weight: 300;
 }
 
 table {
@@ -66,7 +114,7 @@ table thead tr th span {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid #ffba2d;
+  border-bottom: 2px solid #6d81e6;
 }
 table thead tr th.number {
   padding-left: 0.2rem;
@@ -86,7 +134,7 @@ table tbody tr.total {
 table tbody tr.total td span {
   width: 60%;
   display: inline-block;
-  border-top: 2px solid #ffba2d;
+  border-top: 2px solid #6d81e6;
 }
 table tbody tr td.number {
   text-align: right;
@@ -126,7 +174,7 @@ form .form-field label {
 }
 form .form-field label.input-not-empty {
   top: 0;
-  color: #ffba2d;
+  color: #6d81e6;
   font-size: 0.6rem;
 }
 form .form-field input {
@@ -135,14 +183,14 @@ form .form-field input {
   padding-left: 1rem;
   outline: none;
   border: none;
-  border-bottom: 1px solid #ffba2d;
+  border-bottom: 1px solid #6d81e6;
 }
 form .form-field input::placeholder {
   opacity: 0;
 }
 form .form-field input:focus ~ label {
   top: 0;
-  color: #ffba2d;
+  color: #6d81e6;
   font-size: 0.6rem;
 }
 form .button-container {
@@ -154,8 +202,8 @@ form .button-container {
 form .button-container button {
   height: 2rem;
   width: 6rem;
-  border: 1px solid #ffba2d;
-  color: #ffba2d;
+  border: 1px solid #6d81e6;
+  color: #6d81e6;
   border-radius: 5px;
   font-weight: bold;
   text-transform: uppercase;
@@ -167,7 +215,7 @@ form .button-container button {
 form .button-container button:active {
   box-shadow: none;
   color: #fff;
-  background-color: #ffba2d;
+  background-color: #6d81e6;
 }
 
 .component-modal {
@@ -181,6 +229,38 @@ form .button-container button:active {
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.7);
+}
+
+.app .header .shop-selector {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .header .shop-selector .selector {
+  height: 1.5rem;
+  display: flex;
+  border-radius: 1rem;
+  background-color: #513ed5;
+  font-size: 0.8rem;
+  font-weight: 100;
+  border: none;
+  color: #fff;
+  width: 6rem;
+  outline: none;
+  padding: 0 0.6rem;
+}
+.app .header .shop-selector .selector .value {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .header .shop-selector .selector .indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .row .block {
@@ -198,7 +278,7 @@ form .button-container button:active {
 }
 .row .block .title {
   text-transform: uppercase;
-  color: #8c8c8c;
+  color: #7162df;
   font-size: 0.7rem;
   font-weight: bold;
 }
@@ -210,8 +290,8 @@ form .button-container button:active {
 
 .app .summary {
   width: 100vw;
-  margin-top: 6rem;
-  height: calc(100vh - 6rem);
+  margin-top: 18vh;
+  height: 82vh;
   overflow: scroll;
   padding-bottom: 6rem;
 }
@@ -244,7 +324,7 @@ form .button-container button:active {
 .row .block.date-picker-container input {
   height: 2rem;
   width: 8rem;
-  border: 1px solid #ffba2d;
+  border: 1px solid #6d81e6;
   padding-left: 1rem;
   border-radius: 3px;
   box-shadow: 0 0 3px #a5a5a5;
@@ -279,8 +359,8 @@ form .button-container button:active {
   width: max-content;
   height: 2rem;
   background-color: #fff;
-  color: #ffba2d;
-  border: 1px solid #ffba2d;
+  color: #6d81e6;
+  border: 1px solid #6d81e6;
   outline: none;
   box-shadow: 0 0 3px #a5a5a5;
   transition: all 400ms linear;
@@ -295,7 +375,7 @@ form .button-container button:active {
 }
 .row .block.date-picker-container button.date-tag:active {
   box-shadow: none;
-  background-color: #ffba2d;
+  background-color: #6d81e6;
   color: #fff;
 }
 
@@ -351,16 +431,16 @@ form .button-container button:active {
   height: 2rem;
   width: max-content;
   border-radius: 3px;
-  border: 2px solid #ffba2d;
+  border: 2px solid #6d81e6;
   background-color: #fff;
-  color: #ffba2d;
+  color: #6d81e6;
   outline: none;
   box-shadow: 0 0 3px #a5a5a5;
   transition: all 400 linear;
 }
 .flat-block.date-picker-container button:active {
   box-shadow: none;
-  background-color: #ffba2d;
+  background-color: #6d81e6;
   color: #fff;
 }
 
@@ -380,7 +460,7 @@ form .button-container button:active {
 }
 .component-login .header {
   grid-area: header;
-  background-color: #ffba2d;
+  background-color: #6d81e6;
   color: #fff;
   text-shadow: 0 0 3px #a5a5a5;
   padding-left: 1rem;

@@ -7,10 +7,10 @@ import NoOfTrans from "./NoOfTrans";
 import PayMethodTable from "./PayMethodTable";
 import PayMethodChart from "./PayMethodChart";
 import DataGroup from "./DataGroup";
-import QuickDatePicker from "./components/QuickDatePicker";
+import { QuickDatePicker, ProcessBar } from "./components/";
 import { Header, Modal } from "../shared";
 
-export default () => {
+export default props => {
   const [reports, setReports] = useState({});
   const [rendered, setRendered] = useState(false);
   const mapState = useCallback(
@@ -76,14 +76,16 @@ export default () => {
   }
   return (
     <>
-      <Header show={showHeader} />
+      <Header show={showHeader} {...props} />
       <Modal />
+
       <div
         className={`summary ${showHeader ? "" : "header-hide"} ${
           showModal ? "blur" : ""
         }`}
         id="summary-page"
       >
+        <ProcessBar />
         <div className={`row ${showHeader ? "" : "hide"}`}>
           <QuickDatePicker />
         </div>

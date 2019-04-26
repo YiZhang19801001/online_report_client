@@ -1,0 +1,31 @@
+.app .header .shop-selector {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .selector {
+    height: 1.5rem;
+    display: flex;
+    border-radius: 1rem;
+    background-color: color("selectorBackground");
+    font-size: 0.8rem;
+    font-weight: 100;
+    border: none;
+    color: #fff;
+    width: 6rem;
+    outline: none;
+    padding: 0 0.6rem;
+    .value {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .indicator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
