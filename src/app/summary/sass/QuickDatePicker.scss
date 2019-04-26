@@ -7,6 +7,8 @@
       align-items: center;
       box-shadow: none;
       position: relative;
+      background-color: transparent;
+      min-height: fit-content;
       input {
         height: 2rem;
         width: 2rem;

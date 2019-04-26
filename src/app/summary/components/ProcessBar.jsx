@@ -1,28 +1,29 @@
 import React from "react";
 import { uniqueId } from "lodash";
 import { getColor } from "../helpers";
-export default ({ list }) => {
-  const data = list
-    ? list
-    : [
-        { name: "wechat", value: 0.2 },
-        { name: "redpayments", value: 0.3 },
-        { name: "cash", value: 0.5 }
-      ];
+import { Loading } from "../../shared";
+
+export default ({ list, handleOnClick }) => {
+  if (!list) {
+    return <Loading />;
+  }
   return (
     <div className="process-bar">
-      {data.map(item => {
+      {list.map(item => {
         return (
           <div
             key={uniqueId("process-bar-div")}
             style={{
-              backgroundColor: getColor(item.name),
-              width: `${item.value * 100}%`,
+              backgroundColor: getColor(item.paymenttype),
+              width: `${item.percentage}%`,
               height: `100%`
             }}
           />
         );
       })}
+      <div className="selector" onClick={handleOnClick}>
+        <img src="/selector.svg" alt="" />
+      </div>
     </div>
   );
 };

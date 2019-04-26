@@ -28,7 +28,13 @@ export default ({ date }) => {
   return (
     <div className="block large">
       {dataGroup ? (
-        <Table ths={ths} dataFormat={dataFormat} data={dataGroup} sum={true} />
+        <Table
+          ths={ths}
+          dataFormat={dataFormat}
+          data={dataGroup}
+          sum={true}
+          striped={true}
+        />
       ) : (
         <Loading />
       )}

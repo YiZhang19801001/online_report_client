@@ -109,12 +109,17 @@ table {
   border-spacing: 0;
   margin-top: 0.5rem;
 }
+table thead tr th {
+  padding-bottom: 0.8rem;
+}
 table thead tr th span {
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  border-bottom: 2px solid #6d81e6;
+  text-transform: capitalize;
+  color: #8d8aa7;
+  font-weight: 400;
 }
 table thead tr th.number {
   padding-left: 0.2rem;
@@ -125,8 +130,14 @@ table thead tr th.number span {
 table thead tr th.text {
   padding-right: 0.2rem;
 }
-table tbody tr.colored {
-  background-color: rgba(247, 219, 161, 0.52);
+table thead tr th.text span {
+  justify-content: center;
+}
+table tbody tr.colored.striped {
+  background-color: #f0eff5;
+}
+table tbody tr.striped td {
+  border: none;
 }
 table tbody tr.total {
   font-weight: bold;
@@ -136,13 +147,32 @@ table tbody tr.total td span {
   display: inline-block;
   border-top: 2px solid #6d81e6;
 }
+table tbody tr td {
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #dedede;
+}
 table tbody tr td.number {
   text-align: right;
   padding-left: 0.2rem;
+  color: #6d81e6;
+}
+table tbody tr td.number .symbol {
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-right: 2px;
 }
 table tbody tr td.text {
   text-align: left;
   padding-right: 0.2rem;
+}
+table tbody tr td.text .payment-method-symbol {
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid;
+  margin-right: 1rem;
 }
 
 form {
@@ -264,12 +294,15 @@ form .button-container button:active {
 }
 
 .row .block {
+  min-height: 6rem;
   width: max-content;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0.5rem 1rem;
-  box-shadow: 0 0 3px #a5a5a5;
+  box-shadow: 0 1px 4px 0 rgba(182, 182, 182, 0.5);
+  border-radius: 5px;
+  background-color: #fff;
   margin-top: 0.5rem;
 }
 .row .block.large {
@@ -277,15 +310,39 @@ form .button-container button:active {
   margin: 0.5rem auto;
 }
 .row .block .title {
-  text-transform: uppercase;
+  text-transform: capitalize;
   color: #7162df;
   font-size: 0.7rem;
-  font-weight: bold;
+  opacity: 0.7;
+  flex: 1;
 }
 .row .block .value {
-  font-size: 2.5rem;
-  color: #000;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #7162df;
+  font-weight: 700;
   text-align: center;
+}
+.row .block .compare {
+  flex: 1;
+  font-size: 0.7rem;
+  font-weight: 200;
+  flex: 1;
+  transform: translateX(0.6rem);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.row .block .compare .date {
+  margin-right: 0.3rem;
+}
+.row .block .compare .percentage {
+  margin-left: 0.3rem;
+  color: #21d599;
 }
 
 .app .summary {
@@ -322,6 +379,8 @@ form .button-container button:active {
   align-items: center;
   box-shadow: none;
   position: relative;
+  background-color: transparent;
+  min-height: fit-content;
 }
 .row .block.date-picker-container input {
   height: 2rem;
@@ -385,6 +444,37 @@ form .button-container button:active {
   font-size: 1.2rem;
 }
 
+.payment-method {
+  width: 100%;
+}
+.payment-method p {
+  color: #54516d;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+.payment-method .block {
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.process-bar {
+  display: flex;
+  height: 2rem;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.process-bar .selector {
+  position: absolute;
+  width: 0.8rem;
+  top: 0.3rem;
+  right: 1rem;
+}
+.process-bar .selector img {
+  width: 100%;
+}
+
 .app .component-weekly-report {
   width: 100vw;
   height: calc(100vh - 6rem);
@@ -441,7 +531,7 @@ form .button-container button:active {
   background-color: #fff;
   color: #6d81e6;
   outline: none;
-  box-shadow: 0 0 3px #a5a5a5;
+  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
   transition: all 400 linear;
 }
 .flat-block.date-picker-container button:active {
@@ -468,7 +558,7 @@ form .button-container button:active {
   grid-area: header;
   background-color: #6d81e6;
   color: #fff;
-  text-shadow: 0 0 3px #a5a5a5;
+  text-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
   padding-left: 1rem;
   display: flex;
   align-items: center;

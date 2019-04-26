@@ -1,26 +1,53 @@
 .row {
   .block {
+    min-height: 6rem;
     width: max-content;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 0.5rem 1rem;
-    box-shadow: 0 0 3px color("boxShadow");
+    box-shadow: 0 1px 4px 0 color("boxShadow");
+    border-radius: 5px;
+    background-color: color("bodyBackground");
     margin-top: 0.5rem;
     &.large {
       width: 100%;
       margin: 0.5rem auto;
     }
     .title {
-      text-transform: uppercase;
+      text-transform: capitalize;
       color: color("textPrimary");
       font-size: 0.7rem;
-      font-weight: bold;
+      opacity: 0.7;
+      flex: 1;
     }
     .value {
-      font-size: 2.5rem;
-      color: #000;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      color: color("textPrimary");
+      font-weight: 700;
       text-align: center;
+    }
+    .compare {
+      flex: 1;
+      font-size: 0.7rem;
+      font-weight: 200;
+      flex: 1;
+      transform: translateX(0.6rem);
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      .date {
+        margin-right: 0.3rem;
+      }
+      .percentage {
+        margin-left: 0.3rem;
+        color: color("myGreen");
+      }
     }
   }
 }

@@ -7,12 +7,15 @@ table {
   thead {
     tr {
       th {
+        padding-bottom: 0.8rem;
         span {
           display: inline-flex;
           justify-content: flex-start;
           align-items: center;
           width: 100%;
-          border-bottom: 2px solid color("main");
+          text-transform: capitalize;
+          color: color("textTableHeader");
+          font-weight: 400;
         }
         &.number {
           span {
@@ -21,6 +24,9 @@ table {
           padding-left: 0.2rem;
         }
         &.text {
+          span {
+            justify-content: center;
+          }
           padding-right: 0.2rem;
         }
       }
@@ -28,8 +34,13 @@ table {
   }
   tbody {
     tr {
-      &.colored {
+      &.colored.striped {
         background-color: color("tableRow");
+      }
+      &.striped {
+        td {
+          border: none;
+        }
       }
       &.total {
         font-weight: bold;
@@ -42,13 +53,30 @@ table {
         }
       }
       td {
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid color("borderTable");
         &.number {
           text-align: right;
           padding-left: 0.2rem;
+          color: color("main");
+          .symbol {
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-right: 2px;
+          }
         }
         &.text {
           text-align: left;
           padding-right: 0.2rem;
+          .payment-method-symbol {
+            display: inline-block;
+            height: 0.8rem;
+            width: 0.8rem;
+            border-radius: 50%;
+            border: 2px solid;
+            margin-right: 1rem;
+          }
         }
       }
     }

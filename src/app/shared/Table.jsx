@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Loading from "./Loading";
+import { getColor } from "../summary/helpers";
 
 /**
  * main function component
  */
-export default ({ ths, data, dataFormat, sum }) => {
+export default ({ ths, data, dataFormat, sum, striped }) => {
   if (!ths || !data || ths.length === 0) {
     return <Loading />;
   } else if (data.length === 0) {
@@ -33,7 +34,7 @@ export default ({ ths, data, dataFormat, sum }) => {
   return (
     <table>
       {renderThead(ths, sort, dataFormat)}
-      {renderTbody(tableData, dataFormat, sum)}
+      {renderTbody(tableData, dataFormat, sum, striped)}
     </table>
   );
 };
@@ -63,7 +64,7 @@ const renderThead = (ths, sort, dataFormat) => {
   );
 };
 
-const renderTbody = (data, dataFormat, sum) => {
+const renderTbody = (data, dataFormat, sum, striped) => {
   let index = 0;
   return (
     <tbody>
@@ -73,7 +74,9 @@ const renderTbody = (data, dataFormat, sum) => {
         return (
           <tr
             key={_.uniqueId("tableRow")}
-            className={`${index % 2 !== 0 ? "colored" : ""}`}
+            className={`${index % 2 !== 0 ? "colored" : ""} ${
+              striped ? "striped" : ""
+            }`}
           >
             {renderTds(dataFormat, row)}
           </tr>
@@ -90,10 +93,27 @@ const renderTds = (dataFormat, row) => {
   return dataFormat.map(property => {
     return (
       <td key={_.uniqueId("tableRowTd")} className={property.type}>
-        {row[property.value]}
+        {renderTdPrefix(property.value, row[property.value])}
+        <span>{row[property.value]}</span>
       </td>
     );
   });
+};
+const renderTdPrefix = (value, name) => {
+  switch (value) {
+    case "total":
+    case "amount":
+      return <span className="symbol">$</span>;
+    case "paymenttype":
+      return (
+        <span
+          className="payment-method-symbol"
+          style={{ borderColor: getColor(name) }}
+        />
+      );
+    default:
+      return null;
+  }
 };
 const renderTotalRow = (dataFormat, data) => {
   return dataFormat.map((property, index) => {

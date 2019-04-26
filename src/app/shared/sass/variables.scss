@@ -1,21 +1,25 @@
 $colors: (
-  textSubtitle: #a5a5a5,
+  textSubtitle: #7162dfd3,
   textPrimary: #7162df,
+  textBlackTitle: #54516d,
   textButton: #fff,
   textActiveNav: #fff,
   textInActiveNav: #d0c9ff,
+  textTableHeader: #8d8aa7,
   borderActiveNav: #fff,
   borderInActiveNav: #b3aaf6,
+  borderTable: #dedede,
   bodyBackground: #fff,
   border: #a5a5a5,
   cover: #c7c7c7a5,
   coverWhite: rgba(255, 255, 255, 0.7),
   main: #6d81e6,
-  boxShadow: #a5a5a5,
+  boxShadow: rgba(182, 182, 182, 0.5),
   secondary: #f55747,
-  tableRow: rgba(247, 219, 161, 0.52),
+  tableRow: #f0eff5,
   myBlue: #0077cc,
-  selectorBackground: #513ed5
+  selectorBackground: #513ed5,
+  myGreen: #21d599
 );
 
 @function color($color_name) {

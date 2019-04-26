@@ -4,8 +4,7 @@ import momment from "moment";
 import axios from "axios";
 import Sales from "./Sales";
 import NoOfTrans from "./NoOfTrans";
-import PayMethodTable from "./PayMethodTable";
-import PayMethodChart from "./PayMethodChart";
+import PaymentMethod from "./PaymentMethod";
 import DataGroup from "./DataGroup";
 import { QuickDatePicker, ProcessBar } from "./components/";
 import { Header, Modal } from "../shared";
@@ -85,20 +84,23 @@ export default props => {
         }`}
         id="summary-page"
       >
-        <ProcessBar />
         <div className={`row ${showHeader ? "" : "hide"}`}>
           <QuickDatePicker />
         </div>
         <div className="row">
-          <Sales sales={reports.sales} />
-          <NoOfTrans sum={reports.numberOfTransactions} />
+          <Sales
+            sales={reports.sales}
+            date={momment(dateForDailyReport).format(`MMM DD`)}
+          />
+          <NoOfTrans
+            sum={reports.numberOfTransactions}
+            date={momment(dateForDailyReport).format(`MMM DD`)}
+          />
         </div>
         <div className="row">
-          <PayMethodTable list={formatedPaymentReports} />
+          <PaymentMethod list={formatedPaymentReports} />
         </div>
-        <div className="row">
-          <PayMethodChart list={formatedPaymentReports} />
-        </div>
+
         <div className="row">
           {rendered && <DataGroup date={dateForDailyReport} />}
         </div>
