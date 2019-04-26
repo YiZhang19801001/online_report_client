@@ -172,6 +172,8 @@ form .button-container button:active {
 
 .component-modal {
   position: fixed;
+  bottom: 0;
+  left: 0;
   z-index: 5000;
   height: calc(100vh - 6rem);
   width: 100vw;
