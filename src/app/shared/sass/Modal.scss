@@ -1,0 +1,10 @@
+.component-modal {
+  position: fixed;
+  z-index: 5000;
+  height: calc(100vh - 6rem);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: color("coverWhite");
+}
