@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { useMappedState, useDispatch } from "redux-react-hook";
-import { dispatch } from "rxjs/internal/observable/range";
 
 export default () => {
   const mapState = useCallback(({ showModal }) => ({ showModal }));
@@ -10,12 +9,15 @@ export default () => {
     return null;
   }
   return (
-    <div
-      className="component-modal"
-      onClick={() => {
-        dispatch({ type: "closeModal" });
-      }}
-    >
+    <div className="component-modal">
+      <i
+        className="material-icons"
+        onClick={() => {
+          dispatch({ type: "closeModal" });
+        }}
+      >
+        not_interested
+      </i>
       <img src="/Spinner.svg" alt="" />
     </div>
   );

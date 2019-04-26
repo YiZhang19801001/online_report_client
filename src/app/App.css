@@ -217,6 +217,9 @@ form .button-container button:active {
   margin-top: 0;
   height: 100vh;
 }
+.app .summary.blur {
+  filter: blur(3px);
+}
 .app .summary .row {
   width: 90%;
   margin: auto;

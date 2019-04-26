@@ -8,6 +8,9 @@
     margin-top: 0;
     height: 100vh;
   }
+  &.blur {
+    filter: blur(3px);
+  }
   .row {
     width: 90%;
     margin: auto;

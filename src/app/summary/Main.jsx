@@ -14,12 +14,13 @@ export default () => {
   const [reports, setReports] = useState({});
   const [rendered, setRendered] = useState(false);
   const mapState = useCallback(
-    ({ dateForDailyReport }) => ({
-      dateForDailyReport
+    ({ dateForDailyReport, showModal }) => ({
+      dateForDailyReport,
+      showModal
     }),
     []
   );
-  const { dateForDailyReport } = useMappedState(mapState);
+  const { dateForDailyReport, showModal } = useMappedState(mapState);
   const dispatch = useDispatch();
   useEffect(() => {
     const date = momment(dateForDailyReport).format(`YYYYMMDD`);
@@ -78,7 +79,9 @@ export default () => {
       <Header show={showHeader} />
       <Modal />
       <div
-        className={`summary ${showHeader ? "" : "header-hide"}`}
+        className={`summary ${showHeader ? "" : "header-hide"} ${
+          showModal ? "blur" : ""
+        }`}
         id="summary-page"
       >
         <div className={`row ${showHeader ? "" : "hide"}`}>
