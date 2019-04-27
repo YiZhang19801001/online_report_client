@@ -6,7 +6,7 @@ import Sales from "./Sales";
 import NoOfTrans from "./NoOfTrans";
 import PaymentMethod from "./PaymentMethod";
 import DataGroup from "./DataGroup";
-import { QuickDatePicker, ProcessBar } from "./components/";
+import { QuickDatePicker} from "./components/";
 import { Header } from "../shared";
 
 export default props => {
