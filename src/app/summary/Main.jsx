@@ -75,7 +75,7 @@ export default props => {
   }
   return (
     <>
-      <Header show={showHeader} {...props} />
+      <Header show={showHeader} shop={reports.shop} {...props} />
 
 
       <div
