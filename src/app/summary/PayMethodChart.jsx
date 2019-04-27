@@ -56,6 +56,16 @@ export default ({ list }) => {
     // These labels appear in the legend and in the tooltips when hovering different arcs
     labels
   };
+  const chartOptions = {
+    legend: {
+      display: true,
+      labels: {
+        fontColor: '#7162df'
+      },
+      position: 'right'
+    },
+    maintainAspectRatio: false
+  }
   return (
     <div className="block large payment-method-chart">
       {!showChart && (
@@ -72,7 +82,7 @@ export default ({ list }) => {
             setShowChart(false);
           }}
         >
-          <Pie data={chartData} options={{ maintainAspectRatio: false }} />
+          <Pie data={chartData} options={chartOptions} />
         </div>
       )}
     </div>
