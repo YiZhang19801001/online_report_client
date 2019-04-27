@@ -57,7 +57,7 @@ export default ({ list }) => {
     labels
   };
   return (
-    <div className="block large">
+    <div className="block large payment-method-chart">
       {!showChart && (
         <ProcessBar
           list={list}

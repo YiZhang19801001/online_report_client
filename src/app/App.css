@@ -465,6 +465,9 @@ form .button-container button:active {
   padding-left: 0;
   padding-right: 0;
 }
+.payment-method .payment-method-chart {
+  min-height: 0;
+}
 
 .process-bar {
   display: flex;
