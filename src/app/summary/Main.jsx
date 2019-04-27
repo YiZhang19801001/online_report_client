@@ -7,7 +7,7 @@ import NoOfTrans from "./NoOfTrans";
 import PaymentMethod from "./PaymentMethod";
 import DataGroup from "./DataGroup";
 import { QuickDatePicker, ProcessBar } from "./components/";
-import { Header, Modal } from "../shared";
+import { Header } from "../shared";
 
 export default props => {
   const [reports, setReports] = useState({});
@@ -31,7 +31,7 @@ export default props => {
             Authorization: `Bearer ${
               JSON.parse(localStorage.getItem("aupos_online_report_user"))
                 .access_token
-            }`
+              }`
           }
         }
       );
@@ -76,12 +76,12 @@ export default props => {
   return (
     <>
       <Header show={showHeader} {...props} />
-      <Modal />
+
 
       <div
         className={`summary ${showHeader ? "" : "header-hide"} ${
           showModal ? "blur" : ""
-        }`}
+          }`}
         id="summary-page"
       >
         <div className={`row ${showHeader ? "" : "hide"}`}>
