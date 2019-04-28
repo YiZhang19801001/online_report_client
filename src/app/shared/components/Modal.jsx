@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import ReactDOM from 'react-dom';
 import { useMappedState, useDispatch } from "redux-react-hook";
 
 export default () => {
@@ -8,17 +9,19 @@ export default () => {
   if (!showModal) {
     return null;
   }
+
   return (
-    <div className="component-modal">
-      <i
-        className="material-icons"
-        onClick={() => {
-          dispatch({ type: "closeModal" });
-        }}
-      >
-        not_interested
+    ReactDOM.createPortal(
+      <div className="component-modal">
+        <i
+          className="material-icons"
+          onClick={() => {
+            dispatch({ type: "closeModal" });
+          }}
+        >
+          not_interested
       </i>
-      <img src="/Spinner.svg" alt="" />
-    </div>
+        <img src="/Spinner.svg" alt="" />
+      </div>, document.querySelector('#modal'))
   );
 };

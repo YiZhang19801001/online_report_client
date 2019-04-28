@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Loading } from "../shared";
+import ProcessBar from "./components/ProcessBar";
+
 export default ({ list }) => {
   if (!list) {
     return (
@@ -17,6 +19,8 @@ export default ({ list }) => {
   const data = list.map(item => {
     return item.total;
   });
+
+  const [showChart, setShowChart] = useState(false);
 
   const backgroundColor = list.map(item => {
     switch (item.paymenttype.toLowerCase()) {
@@ -52,10 +56,35 @@ export default ({ list }) => {
     // These labels appear in the legend and in the tooltips when hovering different arcs
     labels
   };
+  const chartOptions = {
+    legend: {
+      display: true,
+      labels: {
+        fontColor: '#7162df'
+      },
+      position: 'right'
+    },
+    maintainAspectRatio: false
+  }
   return (
-    <div className="block large">
-      <span className="title">Sales by Payment Method</span>
-      <Pie data={chartData} options={{ maintainAspectRatio: false }} />
+    <div className="block large payment-method-chart">
+      {!showChart && (
+        <ProcessBar
+          list={list}
+          handleOnClick={() => {
+            setShowChart(true);
+          }}
+        />
+      )}
+      {showChart && (
+        <div
+          onClick={() => {
+            setShowChart(false);
+          }}
+        >
+          <Pie data={chartData} options={chartOptions} />
+        </div>
+      )}
     </div>
   );
 };

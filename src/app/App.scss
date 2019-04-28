@@ -1,4 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900");
+
+@font-face {
+font-family: 'Avenir';
+
+
+src:local('Avenir LT Std 65 Medium') url('./fonts/AvenirLTStd-Medium.woff') format('woff');
+}
 @import "./shared/sass/index.scss";
+
+* {
+  font-family: 'Avenir',"Roboto", sans-serif;
+}
+
 @import "./summary/sass/index.scss";
 @import "./weekly/sass/index.scss";
 @import "./customize/sass/index.scss";

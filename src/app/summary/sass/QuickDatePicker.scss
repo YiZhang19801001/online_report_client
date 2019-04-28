@@ -3,40 +3,34 @@
     &.date-picker-container {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-
+      box-shadow: none;
+      position: relative;
+      background-color: transparent;
+      min-height: fit-content;
       input {
         height: 2rem;
-        width: 8rem;
-        border: 1px solid color("main");
-        padding-left: 1rem;
-        border-radius: 3px;
-        box-shadow: 0 0 3px color("border");
-        position: relative;
-        z-index: -1;
+        width: 2rem;
+        position: absolute;
+        z-index: 0;
+        background-color: transparent;
+        border: none;
+        right: 0;
+        top: 0.5rem;
+
         &::-webkit-calendar-picker-indicator {
           color: rgba(0, 0, 0, 0);
           opacity: 1;
           display: block;
           position: absolute;
           right: 0;
-          top: 0.4rem;
-          background: url(https://cdn4.iconfinder.com/data/icons/small-n-flat/24/calendar-512.png)
-            no-repeat;
+          top: 0.3rem;
+          background: url(/calendar.svg) no-repeat;
           background-size: contain;
           height: 1rem;
           width: 1rem;
           border-width: thin;
-        }
-
-        &:before {
-          position: absolute;
-          top: 0.5rem;
-          left: 1rem;
-          content: attr(data-date);
-          display: inline-block;
-          color: black;
         }
 
         &::-webkit-datetime-edit,
@@ -47,26 +41,37 @@
       }
       button.date-tag {
         width: max-content;
-        height: 2rem;
-        background-color: color("bodyBackground");
-        color: color("main");
-
-        border: 1px solid color("main");
+        height: 1.5rem;
+        background-color: transparent;
+        color: color("textInActiveNav");
+        border: 1px solid color("borderInActiveNav");
+        border-radius: 5px;
         outline: none;
-        box-shadow: 0 0 3px color("boxShadow");
         transition: all 400ms linear;
         &.decrease {
-          border-top-left-radius: 1rem;
-          border-bottom-left-radius: 1rem;
+          margin-right: 1rem;
         }
         &.increase {
-          border-top-right-radius: 1rem;
-          border-bottom-right-radius: 1rem;
+          margin-left: 1rem;
         }
         &:active {
           box-shadow: none;
           background-color: color("main");
           color: #fff;
+        }
+      }
+      .display-date {
+        color: color("textActiveNav");
+        border-radius: 5px;
+        border: 1px solid color("borderActiveNav");
+        padding: 0.3rem 0.5rem;
+        .month {
+          font-weight: 300;
+          margin-right: 0.3rem;
+        }
+        .day {
+          font-weight: 500;
+          font-size: 1.2rem;
         }
       }
     }

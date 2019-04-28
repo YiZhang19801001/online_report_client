@@ -4,13 +4,12 @@ import momment from "moment";
 import axios from "axios";
 import Sales from "./Sales";
 import NoOfTrans from "./NoOfTrans";
-import PayMethodTable from "./PayMethodTable";
-import PayMethodChart from "./PayMethodChart";
+import PaymentMethod from "./PaymentMethod";
 import DataGroup from "./DataGroup";
-import QuickDatePicker from "./components/QuickDatePicker";
-import { Header, Modal } from "../shared";
+import { QuickDatePicker} from "./components/";
+import { Header } from "../shared";
 
-export default () => {
+export default props => {
   const [reports, setReports] = useState({});
   const [rendered, setRendered] = useState(false);
   const mapState = useCallback(
@@ -32,7 +31,7 @@ export default () => {
             Authorization: `Bearer ${
               JSON.parse(localStorage.getItem("aupos_online_report_user"))
                 .access_token
-            }`
+              }`
           }
         }
       );
@@ -76,27 +75,32 @@ export default () => {
   }
   return (
     <>
-      <Header show={showHeader} />
-      <Modal />
+      <Header show={showHeader} shop={reports.shop} {...props} />
+
+
       <div
         className={`summary ${showHeader ? "" : "header-hide"} ${
           showModal ? "blur" : ""
-        }`}
+          }`}
         id="summary-page"
       >
         <div className={`row ${showHeader ? "" : "hide"}`}>
           <QuickDatePicker />
         </div>
         <div className="row">
-          <Sales sales={reports.sales} />
-          <NoOfTrans sum={reports.numberOfTransactions} />
+          <Sales
+            sales={reports.sales}
+            date={momment(dateForDailyReport).format(`MMM DD`)}
+          />
+          <NoOfTrans
+            sum={reports.numberOfTransactions}
+            date={momment(dateForDailyReport).format(`MMM DD`)}
+          />
         </div>
         <div className="row">
-          <PayMethodTable list={formatedPaymentReports} />
+          <PaymentMethod list={formatedPaymentReports} />
         </div>
-        <div className="row">
-          <PayMethodChart list={formatedPaymentReports} />
-        </div>
+
         <div className="row">
           {rendered && <DataGroup date={dateForDailyReport} />}
         </div>

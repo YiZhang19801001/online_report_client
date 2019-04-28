@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import Loading from "./Loading";
+import { getColor } from "../summary/helpers";
 
 /**
  * main function component
  */
-export default ({ ths, data, dataFormat, sum }) => {
+export default ({ ths, data, dataFormat, sum, striped }) => {
   if (!ths || !data || ths.length === 0) {
     return <Loading />;
   } else if (data.length === 0) {
@@ -20,7 +21,7 @@ export default ({ ths, data, dataFormat, sum }) => {
 
   useEffect(() => {
     setTableData(data);
-  }, []);
+  }, [data]);
 
   const sort = property => {
     const sortOrder =
@@ -32,29 +33,37 @@ export default ({ ths, data, dataFormat, sum }) => {
 
   return (
     <table>
-      {renderThead(ths, sort, dataFormat)}
-      {renderTbody(tableData, dataFormat, sum)}
+      {renderThead(ths, sort, dataFormat, sortOrders)}
+      {renderTbody(tableData, dataFormat, sum, striped)}
     </table>
   );
 };
 
 //** */
-const renderThead = (ths, sort, dataFormat) => {
+const renderThead = (ths, sort, dataFormat, sortOrders) => {
   let index = -1;
   return (
     <thead>
       <tr>
         {ths.map(th => {
           index++;
+          const propertyName = dataFormat[index].value;
+          const orderStatus = sortOrders[propertyName] === 0 || sortOrders[propertyName] === 1 ? 'increase' : 'decrease';
+
           return (
             <th
               onClick={() => {
-                sort(dataFormat[index].value);
+                sort(propertyName);
               }}
               key={_.uniqueId("th")}
               className={th.type}
             >
-              <span>{th.value}</span>
+              <span className="th-content-container">
+                <span className="th-title">{th.value}</span>
+                <span className={`th-symbol ${orderStatus}`}>
+                  <img src="/table-sorting.svg" alt="" />
+                </span>
+              </span>
             </th>
           );
         })}
@@ -63,7 +72,7 @@ const renderThead = (ths, sort, dataFormat) => {
   );
 };
 
-const renderTbody = (data, dataFormat, sum) => {
+const renderTbody = (data, dataFormat, sum, striped) => {
   let index = 0;
   return (
     <tbody>
@@ -73,7 +82,9 @@ const renderTbody = (data, dataFormat, sum) => {
         return (
           <tr
             key={_.uniqueId("tableRow")}
-            className={`${index % 2 !== 0 ? "colored" : ""}`}
+            className={`${index % 2 !== 0 ? "colored" : ""} ${
+              striped ? "striped" : ""
+              }`}
           >
             {renderTds(dataFormat, row)}
           </tr>
@@ -90,10 +101,29 @@ const renderTds = (dataFormat, row) => {
   return dataFormat.map(property => {
     return (
       <td key={_.uniqueId("tableRowTd")} className={property.type}>
-        {row[property.value]}
+        {renderTdPrefix(property.value, row[property.value])}
+        <span>{row[property.value]}</span>
       </td>
     );
   });
+};
+const renderTdPrefix = (value, name) => {
+  switch (value) {
+    case "total":
+    case "amount":
+      return <span className="symbol">$</span>;
+    case "paymenttype":
+      return (
+        <span
+          className="payment-method-symbol"
+          style={{ borderColor: getColor(name) }}
+        />
+      );
+    case "size":
+      return <span className="placeholder"></span>;
+    default:
+      return null;
+  }
 };
 const renderTotalRow = (dataFormat, data) => {
   return dataFormat.map((property, index) => {
@@ -125,7 +155,7 @@ const calculateSum = (property, data) => {
 };
 
 const dynamicSort = (property, sortOrder) => {
-  return function(a, b) {
+  return function (a, b) {
     var result =
       a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
     return result * sortOrder;
