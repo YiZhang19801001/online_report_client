@@ -280,17 +280,27 @@ form .button-container button:active {
   align-items: center;
 }
 .app .header .shop-selector .selector {
+  appearance: none;
   height: 1.5rem;
   display: flex;
+  text-align-last: center;
   border-radius: 1rem;
   background-color: #513ed5;
+  background-image: url("/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.6em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
   font-size: 0.8rem;
   font-weight: 100;
   border: none;
   color: #fff;
-  width: 6rem;
+  min-width: 6rem;
+  width: max-content;
   outline: none;
-  padding: 0 0.6rem;
+  padding: 0 1rem;
+}
+.app .header .shop-selector .selector::-ms-expand {
+  display: none;
 }
 .app .header .shop-selector .selector .value {
   flex: 1;
