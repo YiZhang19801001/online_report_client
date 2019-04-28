@@ -19,8 +19,25 @@
   left: 0;
   top: 0;
   &.hide {
-    transform: translateY(-34vh);
+    height: 8vh;
     box-shadow: none;
+    flex-direction: row;
+    .shop-selector,
+    .title{
+      display: none;
+    }
+    .navigation{
+      width: max-content;
+      border: none;
+      span{
+        font-size:0.8rem;
+        padding: 0.2rem 0.4rem;
+              &.active {
+        border-bottom: 1px solid color("borderActiveNav");
+
+      }
+      }
+    }
   }
   .title {
     display: flex;
