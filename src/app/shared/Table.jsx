@@ -21,7 +21,7 @@ export default ({ ths, data, dataFormat, sum, striped }) => {
 
   useEffect(() => {
     setTableData(data);
-  }, []);
+  }, [data]);
 
   const sort = property => {
     const sortOrder =

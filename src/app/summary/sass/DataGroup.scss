@@ -2,4 +2,27 @@
     box-shadow: none;
     padding-left: 0;
     padding-right: 0;
+ 
+    p {
+    color: color("textBlackTitle");
+    text-transform: capitalize;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    font-size:1rem;
+        .title{
+            font-size: 1.1rem;
+            color:color('textBlackTitle');
+            opacity: 1;
+        }
+        .total{
+            color:color('textNumberTotal');
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+    }
+
+
 }

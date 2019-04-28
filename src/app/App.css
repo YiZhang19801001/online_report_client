@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900");
-* {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir LT Std 65 Medium") url("./fonts/AvenirLTStd-Medium.woff") format("woff");
 }
-
 * {
   box-sizing: border-box;
 }
@@ -146,7 +146,7 @@ table thead tr th .th-content-container {
   width: 100%;
   text-transform: capitalize;
   color: #8d8aa7;
-  font-weight: 400;
+  font-weight: 300;
 }
 table thead tr th .th-content-container .th-title {
   margin-right: 0.2rem;
@@ -349,6 +349,10 @@ form .button-container button:active {
   align-items: center;
 }
 
+* {
+  font-family: "Avenir", "Roboto", sans-serif;
+}
+
 .row .block {
   min-height: 6rem;
   width: max-content;
@@ -530,7 +534,8 @@ form .button-container button:active {
 .payment-method p {
   color: #54516d;
   text-transform: capitalize;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 .payment-method .block {
   box-shadow: none;
@@ -562,6 +567,26 @@ form .button-container button:active {
   box-shadow: none;
   padding-left: 0;
   padding-right: 0;
+}
+.block.large.data-group p {
+  color: #54516d;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  font-size: 1rem;
+}
+.block.large.data-group p .title {
+  font-size: 1.1rem;
+  color: #54516d;
+  opacity: 1;
+}
+.block.large.data-group p .total {
+  color: #5d4ae8;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .app .component-weekly-report {
