@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900");
-* {
-  font-family: "Roboto", sans-serif;
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir LT Std 65 Medium") url("./fonts/AvenirLTStd-Medium.woff") format("woff");
 }
-
 * {
   box-sizing: border-box;
 }
@@ -139,26 +139,39 @@ table {
 table thead tr th {
   padding-bottom: 0.8rem;
 }
-table thead tr th span {
+table thead tr th .th-content-container {
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
   text-transform: capitalize;
   color: #8d8aa7;
-  font-weight: 400;
+  font-weight: 300;
+}
+table thead tr th .th-content-container .th-title {
+  margin-right: 0.2rem;
+}
+table thead tr th .th-content-container .th-symbol {
+  height: 1rem;
+}
+table thead tr th .th-content-container .th-symbol.decrease img {
+  transform: rotateZ(180deg);
+}
+table thead tr th .th-content-container .th-symbol img {
+  height: 100%;
 }
 table thead tr th.number {
   padding-left: 0.2rem;
 }
-table thead tr th.number span {
+table thead tr th.number .th-content-container {
   justify-content: flex-end;
 }
 table thead tr th.text {
   padding-right: 0.2rem;
 }
-table thead tr th.text span {
-  justify-content: center;
+table thead tr th.text .th-content-container {
+  justify-content: flex-start;
+  padding-left: 1.8rem;
 }
 table tbody tr.colored.striped {
   background-color: #f0eff5;
@@ -199,6 +212,12 @@ table tbody tr td.text .payment-method-symbol {
   width: 0.8rem;
   border-radius: 50%;
   border: 2px solid;
+  margin-right: 1rem;
+}
+table tbody tr td.text .placeholder {
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
   margin-right: 1rem;
 }
 
@@ -328,6 +347,10 @@ form .button-container button:active {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+* {
+  font-family: "Avenir", "Roboto", sans-serif;
 }
 
 .row .block {
@@ -511,7 +534,8 @@ form .button-container button:active {
 .payment-method p {
   color: #54516d;
   text-transform: capitalize;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 .payment-method .block {
   box-shadow: none;
@@ -537,6 +561,32 @@ form .button-container button:active {
 }
 .process-bar .selector img {
   width: 100%;
+}
+
+.block.large.data-group {
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.block.large.data-group p {
+  color: #54516d;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  font-size: 1rem;
+}
+.block.large.data-group p .title {
+  font-size: 1.1rem;
+  color: #54516d;
+  opacity: 1;
+}
+.block.large.data-group p .total {
+  color: #5d4ae8;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .app .component-weekly-report {

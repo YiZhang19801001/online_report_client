@@ -4,6 +4,7 @@ import axios from "axios";
 import moment from "moment";
 
 export default ({ date }) => {
+
   const [dataGroup, setDataGroup] = useState(null);
 
   useEffect(() => {
@@ -25,19 +26,32 @@ export default ({ date }) => {
       });
   }, [date]);
 
+  const getTotal = () => {
+    if (!dataGroup) {
+      return 0;
+    }
+    return dataGroup.reduce((sum, item) => {
+      return sum + item.quantity;
+    }, 0)
+  }
+
   return (
-    <div className="block large">
+    <div className="block large data-group">
+      <p>
+        <span className="title">Total Cups</span>
+        <span className="total">{getTotal()}</span>
+      </p>
       {dataGroup ? (
         <Table
           ths={ths}
           dataFormat={dataFormat}
           data={dataGroup}
-          sum={true}
+          sum={false}
           striped={true}
         />
       ) : (
-        <Loading />
-      )}
+          <Loading />
+        )}
     </div>
   );
 };

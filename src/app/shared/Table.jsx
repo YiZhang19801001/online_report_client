@@ -21,7 +21,7 @@ export default ({ ths, data, dataFormat, sum, striped }) => {
 
   useEffect(() => {
     setTableData(data);
-  }, []);
+  }, [data]);
 
   const sort = property => {
     const sortOrder =
@@ -33,29 +33,37 @@ export default ({ ths, data, dataFormat, sum, striped }) => {
 
   return (
     <table>
-      {renderThead(ths, sort, dataFormat)}
+      {renderThead(ths, sort, dataFormat, sortOrders)}
       {renderTbody(tableData, dataFormat, sum, striped)}
     </table>
   );
 };
 
 //** */
-const renderThead = (ths, sort, dataFormat) => {
+const renderThead = (ths, sort, dataFormat, sortOrders) => {
   let index = -1;
   return (
     <thead>
       <tr>
         {ths.map(th => {
           index++;
+          const propertyName = dataFormat[index].value;
+          const orderStatus = sortOrders[propertyName] === 0 || sortOrders[propertyName] === 1 ? 'increase' : 'decrease';
+
           return (
             <th
               onClick={() => {
-                sort(dataFormat[index].value);
+                sort(propertyName);
               }}
               key={_.uniqueId("th")}
               className={th.type}
             >
-              <span className="value">{th.value}</span>
+              <span className="th-content-container">
+                <span className="th-title">{th.value}</span>
+                <span className={`th-symbol ${orderStatus}`}>
+                  <img src="/table-sorting.svg" alt="" />
+                </span>
+              </span>
             </th>
           );
         })}
@@ -111,6 +119,8 @@ const renderTdPrefix = (value, name) => {
           style={{ borderColor: getColor(name) }}
         />
       );
+    case "size":
+      return <span className="placeholder"></span>;
     default:
       return null;
   }
