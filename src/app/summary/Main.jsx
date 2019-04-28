@@ -6,7 +6,7 @@ import Sales from "./Sales";
 import NoOfTrans from "./NoOfTrans";
 import PaymentMethod from "./PaymentMethod";
 import DataGroup from "./DataGroup";
-import { QuickDatePicker} from "./components/";
+import { QuickDatePicker } from "./components/";
 import { Header } from "../shared";
 
 export default props => {
@@ -75,7 +75,7 @@ export default props => {
   }
   return (
     <>
-      <Header show={showHeader} shop={reports.shop} {...props} />
+      <Header show={showHeader} shops={reports.shops} {...props} />
 
 
       <div
@@ -90,10 +90,12 @@ export default props => {
         <div className="row">
           <Sales
             sales={reports.sales}
+            comparison={reports.compareSales}
             date={momment(dateForDailyReport).format(`MMM DD`)}
           />
           <NoOfTrans
             sum={reports.numberOfTransactions}
+            comparison={reports.compareNumberOfTransactions}
             date={momment(dateForDailyReport).format(`MMM DD`)}
           />
         </div>
