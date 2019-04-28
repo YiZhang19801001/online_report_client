@@ -139,7 +139,7 @@ table {
 table thead tr th {
   padding-bottom: 0.8rem;
 }
-table thead tr th span {
+table thead tr th .th-content-container {
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
@@ -148,17 +148,30 @@ table thead tr th span {
   color: #8d8aa7;
   font-weight: 400;
 }
+table thead tr th .th-content-container .th-title {
+  margin-right: 0.2rem;
+}
+table thead tr th .th-content-container .th-symbol {
+  height: 1rem;
+}
+table thead tr th .th-content-container .th-symbol.decrease img {
+  transform: rotateZ(180deg);
+}
+table thead tr th .th-content-container .th-symbol img {
+  height: 100%;
+}
 table thead tr th.number {
   padding-left: 0.2rem;
 }
-table thead tr th.number span {
+table thead tr th.number .th-content-container {
   justify-content: flex-end;
 }
 table thead tr th.text {
   padding-right: 0.2rem;
 }
-table thead tr th.text span {
-  justify-content: center;
+table thead tr th.text .th-content-container {
+  justify-content: flex-start;
+  padding-left: 1.8rem;
 }
 table tbody tr.colored.striped {
   background-color: #f0eff5;
@@ -199,6 +212,12 @@ table tbody tr td.text .payment-method-symbol {
   width: 0.8rem;
   border-radius: 50%;
   border: 2px solid;
+  margin-right: 1rem;
+}
+table tbody tr td.text .placeholder {
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
   margin-right: 1rem;
 }
 
@@ -537,6 +556,12 @@ form .button-container button:active {
 }
 .process-bar .selector img {
   width: 100%;
+}
+
+.block.large.data-group {
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .app .component-weekly-report {

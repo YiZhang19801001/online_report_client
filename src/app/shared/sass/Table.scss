@@ -8,7 +8,7 @@ table {
     tr {
       th {
         padding-bottom: 0.8rem;
-        span {
+        .th-content-container {
           display: inline-flex;
           justify-content: flex-start;
           align-items: center;
@@ -16,16 +16,30 @@ table {
           text-transform: capitalize;
           color: color("textTableHeader");
           font-weight: 400;
+            .th-title{
+              margin-right: 0.2rem;
+            }
+            .th-symbol{
+              height: 1rem;
+              &.decrease img{
+                transform: rotateZ(180deg)
+              }
+              img{
+                height: 100%;
+              }
+            }
         }
         &.number {
-          span {
+          .th-content-container {
             justify-content: flex-end;
           }
           padding-left: 0.2rem;
         }
         &.text {
-          span {
-            justify-content: center;
+          .th-content-container {
+            justify-content: flex-start;
+            padding-left: 1.8rem;
+  
           }
           padding-right: 0.2rem;
         }
@@ -69,12 +83,19 @@ table {
         &.text {
           text-align: left;
           padding-right: 0.2rem;
+          
           .payment-method-symbol {
             display: inline-block;
             height: 0.8rem;
             width: 0.8rem;
             border-radius: 50%;
             border: 2px solid;
+            margin-right: 1rem;
+          }
+          .placeholder{
+            display: inline-block;
+            height: 0.8rem;
+            width: 0.8rem;
             margin-right: 1rem;
           }
         }

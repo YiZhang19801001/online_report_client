@@ -26,18 +26,18 @@ export default ({ date }) => {
   }, [date]);
 
   return (
-    <div className="block large">
+    <div className="block large data-group">
       {dataGroup ? (
         <Table
           ths={ths}
           dataFormat={dataFormat}
           data={dataGroup}
-          sum={true}
+          sum={false}
           striped={true}
         />
       ) : (
-        <Loading />
-      )}
+          <Loading />
+        )}
     </div>
   );
 };
