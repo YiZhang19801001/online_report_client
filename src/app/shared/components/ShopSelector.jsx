@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { uniqueId } from 'lodash';
-export default ({ shop }) => {
-  const shops = ['豆捞', '有米酸奶'];
+export default ({ shops }) => {
+
+  if (!shops) {
+    return null;
+  }
+
   const renderOptions = () => {
-    return shops.map((shopName, index) => {
+    return shops.map((shop, index) => {
       return <option key={uniqueId('shopOption')} value={index}>
-        {shopName}
+        {shop.shop_name}
       </option>
     })
   }

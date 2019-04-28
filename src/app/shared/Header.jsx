@@ -6,7 +6,7 @@ import { history } from "./history";
 
 import ShopSelector from "./components/ShopSelector";
 
-export default ({ show, shop }) => {
+export default ({ show, shops }) => {
   const { pathname } = history.location;
   const mapState = useCallback(
     ({ dateForDailyReport }) => ({ dateForDailyReport }),
@@ -22,7 +22,7 @@ export default ({ show, shop }) => {
         <span className="year">{year}</span>
         <span className="text">Reports</span>
       </div>
-      <ShopSelector shop={shop} />
+      <ShopSelector shops={shops} />
       <div className="navigation">
         <span
           onClick={() => {
