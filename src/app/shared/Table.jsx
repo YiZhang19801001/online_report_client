@@ -55,7 +55,7 @@ const renderThead = (ths, sort, dataFormat) => {
               key={_.uniqueId("th")}
               className={th.type}
             >
-              <span>{th.value}</span>
+              <span className="value">{th.value}</span>
             </th>
           );
         })}
@@ -76,7 +76,7 @@ const renderTbody = (data, dataFormat, sum, striped) => {
             key={_.uniqueId("tableRow")}
             className={`${index % 2 !== 0 ? "colored" : ""} ${
               striped ? "striped" : ""
-            }`}
+              }`}
           >
             {renderTds(dataFormat, row)}
           </tr>
@@ -145,7 +145,7 @@ const calculateSum = (property, data) => {
 };
 
 const dynamicSort = (property, sortOrder) => {
-  return function(a, b) {
+  return function (a, b) {
     var result =
       a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
     return result * sortOrder;
