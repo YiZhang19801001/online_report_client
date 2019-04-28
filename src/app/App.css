@@ -58,8 +58,24 @@ body {
   top: 0;
 }
 .app .header.hide {
-  transform: translateY(-34vh);
+  height: 8vh;
   box-shadow: none;
+  flex-direction: row;
+}
+.app .header.hide .shop-selector,
+.app .header.hide .title {
+  display: none;
+}
+.app .header.hide .navigation {
+  width: max-content;
+  border: none;
+}
+.app .header.hide .navigation span {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+}
+.app .header.hide .navigation span.active {
+  border-bottom: 1px solid #fff;
 }
 .app .header .title {
   display: flex;
@@ -371,11 +387,12 @@ form .button-container button:active {
   margin-top: 18vh;
   height: 82vh;
   overflow: scroll;
-  padding-bottom: 6rem;
+  padding-bottom: 12rem;
 }
 .app .summary.header-hide {
-  margin-top: 0;
+  margin-top: 10vh;
   height: 100vh;
+  padding-top: 12vh;
 }
 .app .summary .row {
   width: 90%;
@@ -386,8 +403,34 @@ form .button-container button:active {
   transition: transform 300ms linear;
 }
 .app .summary .row.hide {
-  transform: translateX(-100vw);
-  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  padding-right: 0.1rem;
+}
+.app .summary .row.hide .block.large.date-picker-container {
+  justify-content: flex-end;
+  padding-right: 1.8rem;
+}
+.app .summary .row.hide button {
+  display: none;
+}
+.app .summary .row.hide .display-date {
+  color: #fff;
+  border-radius: none;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  padding-top: 0.4rem;
+}
+.app .summary .row.hide .display-date .month {
+  font-weight: 300;
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+.app .summary .row.hide .display-date .day {
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .row .block.date-picker-container {
