@@ -39,7 +39,8 @@ export default () => {
   ];
   return (
     <div className="component-login">
-      <div className="header">Packing Assistance</div>
+
+      <div className="header"><div className="cover"></div><span className="login-title">Onlie Reports</span></div>
       <Form fields={fields} dispatch={dispatch} />
     </div>
   );
