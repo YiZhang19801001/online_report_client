@@ -10,11 +10,7 @@ export default () => {
   const [showHeader, setShowHeader] = useState(true);
   useEffect(() => {
     const dom = document.querySelector("#weekly-report-page");
-    console.log("ok");
-
-    dom.addEventListener("scroll", () => {
-      console.log("worked");
-
+    const handleScroll = () => {
       if (preScrollPosition > dom.scrollTop) {
         console.log("up");
         setShowHeader(true);
@@ -23,10 +19,11 @@ export default () => {
         setShowHeader(false);
       }
       preScrollPosition = dom.scrollTop;
-    });
+    };
+    dom.addEventListener("scroll", handleScroll);
 
     return () => {
-      console.log("weekly unmount");
+      dom.removeEventListener("scroll", handleScroll);
     };
   }, []);
   return (
