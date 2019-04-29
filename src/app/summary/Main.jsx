@@ -98,11 +98,11 @@ export default props => {
             date={momment(dateForDailyReport).format(`MMM DD`)}
           />
         </div>
-        <div className="row">
+        <div className="row shadow">
           <PaymentMethod list={formatedPaymentReports} />
         </div>
 
-        <div className="row">
+        <div className="row shadow">
           {rendered && <DataGroup date={dateForDailyReport} />}
         </div>
       </div>

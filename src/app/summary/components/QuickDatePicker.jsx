@@ -44,6 +44,7 @@ export default () => {
           .subtract(1, "days")
           .format("MMM DD")}
       </button>
+      <div className="button-fade-cover decrease" />
       <span className="display-date">
         <span className="month">
           {moment(dateForDailyReport).format("MMM")}

@@ -4,6 +4,7 @@
   height: 82vh;
   overflow: scroll;
   padding-bottom: 12rem;
+  scroll-behavior: smooth;
   &.header-hide {
     margin-top: 10vh;
     height: 100vh;
@@ -11,27 +12,32 @@
   }
 
   .row {
-    width: 90%;
+    width: 100%;
+    padding: 0 5%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     transition: transform 300ms linear;
+    margin-bottom: 1rem;
+    &.shadow {
+      box-shadow: 0 0 4px color("boxShadow");
+    }
     &.hide {
-          position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%;
-    
-    padding-right: 0.1rem;
-    .block.large.date-picker-container{
-      justify-content: flex-end;
-      padding-right: 1.8rem;
-    }
-    button{
-      display: none;
-    }
-          .display-date {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+
+      padding-right: 0.1rem;
+      .block.large.date-picker-container {
+        justify-content: flex-end;
+        padding-right: 1.8rem;
+      }
+      button {
+        display: none;
+      }
+      .display-date {
         color: color("textActiveNav");
         border-radius: none;
         border: none;

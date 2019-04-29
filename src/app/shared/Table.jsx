@@ -48,7 +48,10 @@ const renderThead = (ths, sort, dataFormat, sortOrders) => {
         {ths.map(th => {
           index++;
           const propertyName = dataFormat[index].value;
-          const orderStatus = sortOrders[propertyName] === 0 || sortOrders[propertyName] === 1 ? 'increase' : 'decrease';
+          const orderStatus =
+            sortOrders[propertyName] === 0 || sortOrders[propertyName] === 1
+              ? "increase"
+              : "decrease";
 
           return (
             <th
@@ -84,7 +87,7 @@ const renderTbody = (data, dataFormat, sum, striped) => {
             key={_.uniqueId("tableRow")}
             className={`${index % 2 !== 0 ? "colored" : ""} ${
               striped ? "striped" : ""
-              }`}
+            }`}
           >
             {renderTds(dataFormat, row)}
           </tr>
@@ -120,7 +123,7 @@ const renderTdPrefix = (value, name) => {
         />
       );
     case "size":
-      return <span className="placeholder"></span>;
+      return <span className="placeholder" />;
     default:
       return null;
   }
@@ -155,7 +158,7 @@ const calculateSum = (property, data) => {
 };
 
 const dynamicSort = (property, sortOrder) => {
-  return function (a, b) {
+  return function(a, b) {
     var result =
       a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
     return result * sortOrder;
