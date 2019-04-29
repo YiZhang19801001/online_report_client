@@ -46,7 +46,12 @@
       }
       .percentage {
         margin-left: 0.3rem;
-        color: color("myGreen");
+        &.increase {
+          color: color("myGreen");
+        }
+        &.decrease {
+          color: color("myRed");
+        }
       }
     }
   }

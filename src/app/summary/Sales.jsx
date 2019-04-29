@@ -5,8 +5,15 @@ export default ({ sales, date, comparison }) => {
   const getPercentage = () => {
     const sign = sales >= comparison ? 1 : -1;
 
-    return ((sales - comparison) * 100 / sales).toFixed(2);
-  }
+    return (((sales - comparison) * 100 * sign) / sales).toFixed(2);
+  };
+
+  const getSrc = () => {
+    return sales >= comparison ? "/increase-arrow.svg" : "/decrease-arrow.svg";
+  };
+  const getClassName = () => {
+    return sales >= comparison ? "percentage increase" : "percentage decrease";
+  };
   return (
     <div className="block">
       <span className="title">total sales</span>
@@ -14,9 +21,11 @@ export default ({ sales, date, comparison }) => {
         {sales ? `$${parseFloat(sales).toFixed(2)}` : <Loading />}
       </span>
       <span className="compare">
-        <span className="date">{`${date} $${parseFloat(comparison).toFixed(2)}`}</span>
-        <img src="/increase-arrow.svg" alt="" />
-        <span className="percentage">{getPercentage()}%</span>
+        <span className="date">{`${date} $${parseFloat(comparison).toFixed(
+          2
+        )}`}</span>
+        <img src={getSrc()} alt="" />
+        <span className={getClassName()}>{getPercentage()}%</span>
       </span>
     </div>
   );

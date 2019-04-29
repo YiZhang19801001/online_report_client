@@ -403,7 +403,12 @@ form .button-container button:active {
 }
 .row .block .compare .percentage {
   margin-left: 0.3rem;
+}
+.row .block .compare .percentage.increase {
   color: #21d599;
+}
+.row .block .compare .percentage.decrease {
+  color: #db2727;
 }
 
 .app .summary {
