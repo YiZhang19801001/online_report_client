@@ -25,13 +25,13 @@ export default props => {
     const date = momment(dateForDailyReport).format(`YYYYMMDD`);
     const fn = async () => {
       const response = await axios.get(
-        `http://localhost:8000/api/reports?date=${date}`,
+        `http://192.168.1.5/online_report/public/api/reports?date=${date}`,
         {
           headers: {
             Authorization: `Bearer ${
               JSON.parse(localStorage.getItem("aupos_online_report_user"))
                 .access_token
-              }`
+            }`
           }
         }
       );
@@ -77,11 +77,10 @@ export default props => {
     <>
       <Header show={showHeader} shops={reports.shops} {...props} />
 
-
       <div
         className={`summary ${showHeader ? "" : "header-hide"} ${
           showModal ? "blur" : ""
-          }`}
+        }`}
         id="summary-page"
       >
         <div className={`row ${showHeader ? "" : "hide"}`}>

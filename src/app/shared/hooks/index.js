@@ -11,7 +11,7 @@ export const checkLogin = () => {
   }
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/auth/user`, {
+      .get(`http://192.168.1.5/online_report/public/api/user`, {
         headers: {
           Authorization: `Bearer ${user.access_token}`
         }

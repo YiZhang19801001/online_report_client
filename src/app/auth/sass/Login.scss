@@ -10,7 +10,6 @@
     ". form .";
 
   .header {
-   
     grid-area: header;
     background-color: color("main");
     color: color("bodyBackground");
@@ -25,15 +24,15 @@
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0 3px 3px color("boxShadowDarker");
-    .cover{
+    .cover {
       position: fixed;
-      top:0;
-      left:0;
+      top: 0;
+      left: 0;
       height: 34vh;
       width: 100vw;
-      background-color:rgba(0,0,0,0.5);
+      background-color: rgba(0, 0, 0, 0.5);
     }
-    .login-title{
+    .login-title {
       font-size: 1.8rem;
       margin-top: 10vh;
       z-index: 1;

@@ -257,6 +257,7 @@ form .form-field input {
   height: 2rem;
   width: 100%;
   padding-left: 1rem;
+  border-radius: 0;
   outline: none;
   border: none;
   border-bottom: 1px solid #6d81e6;

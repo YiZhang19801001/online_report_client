@@ -6,13 +6,19 @@ const loginReducer = (success = false, action) => {
   switch (action.type) {
     case "login": // handle login
       axios
-        .post(`http://localhost:8000/api/auth/login`, action.payload)
+        .post(
+          `http://192.168.1.5/online_report/public/api/auth/login`,
+          action.payload
+        )
         .then(res => {
           localStorage.setItem(
             "aupos_online_report_user",
             JSON.stringify(res.data)
           );
           history.push(`${process.env.PUBLIC_URL}/daily`);
+        })
+        .catch(err => {
+          alert(JSON.stringify(err.response));
         });
       return true;
     default:
@@ -39,8 +45,10 @@ export default () => {
   ];
   return (
     <div className="component-login">
-
-      <div className="header"><div className="cover"></div><span className="login-title">Onlie Reports</span></div>
+      <div className="header">
+        <div className="cover" />
+        <span className="login-title">Onlie Reports</span>
+      </div>
       <Form fields={fields} dispatch={dispatch} />
     </div>
   );
