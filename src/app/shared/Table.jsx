@@ -64,7 +64,11 @@ const renderThead = (ths, sort, dataFormat, sortOrders) => {
               <span className="th-content-container">
                 <span className="th-title">{th.value}</span>
                 <span className={`th-symbol ${orderStatus}`}>
-                  <img src="/table-sorting.svg" alt="" />
+                  {sortOrders[propertyName] !== 0 ? (
+                    <img src="/table-sorting.svg" alt="" />
+                  ) : (
+                    <img src="/table-unsorting.svg" />
+                  )}
                 </span>
               </span>
             </th>
