@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { history } from "../history";
 import axios from "axios";
-export const checkLogin = () => {
+export const checkLogin = originUrl => {
   const user = JSON.parse(localStorage.getItem("aupos_online_report_user"));
-  console.log("hooks called");
+  console.log("check login hooks called");
 
   if (!user) {
     history.push(`${process.env.PUBLIC_URL}/login`);
@@ -17,7 +17,7 @@ export const checkLogin = () => {
         }
       })
       .then(res => {
-        history.push(`${process.env.PUBLIC_URL}/daily`);
+        history.push(`${process.env.PUBLIC_URL}${originUrl}`);
       })
       .catch(err => {
         localStorage.removeItem("aupos_online_report_user");

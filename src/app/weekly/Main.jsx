@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useMappedState } from "redux-react-hook";
-import QuickDatePicker from "./components/QuickDatePicker";
+import { QuickDatePicker, TabGroup, WeeklyReportsTable } from "./components/";
 import moment from "moment";
 import { weeklyReport } from "./hooks";
-import ProductsTable from "./ProductsTable";
 import { Sales, NoOfTrans } from "../summary";
 import { Header } from "../shared";
 export default () => {
@@ -45,7 +44,7 @@ export default () => {
   }, []);
   return (
     <>
-      <Header show={showHeader} />
+      <Header show={showHeader} shops={shops} />
       <div className="component-weekly-report" id="weekly-report-page">
         <div className={`row ${showHeader ? "" : "hide"}`}>
           <QuickDatePicker />
@@ -63,9 +62,25 @@ export default () => {
           />
         </div>
         <div className="row">
-          {/* <ProductsTable list={productReports} /> */}
+          <TabGroup tabs={getTabs(weeklyReports)} />
+          <WeeklyReportsTable data={weeklyReports} />
         </div>
       </div>
     </>
   );
+};
+
+const getTabs = reports => {
+  let tabs = [];
+
+  reports.forEach(report => {
+    const { paymentMethodReports } = report;
+    paymentMethodReports.forEach(item => {
+      if (!tabs.includes(item.paymenttype)) {
+        tabs = [...tabs, item.paymenttype];
+      }
+    });
+  });
+
+  return tabs;
 };
