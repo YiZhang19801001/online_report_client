@@ -260,6 +260,7 @@ form .form-field input {
   border-radius: 0;
   outline: none;
   border: none;
+  font-size: 1.1rem;
   border-bottom: 1px solid #6d81e6;
 }
 form .form-field input::placeholder {
