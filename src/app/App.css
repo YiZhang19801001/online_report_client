@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900");
-@font-face {
-  font-family: "Avenir";
-  src: local("Avenir LT Std 65 Medium") url("./fonts/AvenirLTStd-Medium.woff") format("woff");
-}
 * {
   box-sizing: border-box;
 }
@@ -352,7 +348,7 @@ form .button-container button:active {
 }
 
 * {
-  font-family: "Avenir", "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .row .block {
@@ -383,10 +379,15 @@ form .button-container button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #7162df;
   font-weight: 700;
   text-align: center;
+}
+.row .block .value .symbol {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-right: 0.1rem;
 }
 .row .block .compare {
   flex: 1;
@@ -605,17 +606,59 @@ form .button-container button:active {
 
 .app .component-weekly-report {
   width: 100vw;
-  height: calc(100vh - 6rem);
+  margin-top: 18vh;
+  height: 82vh;
   overflow: scroll;
-  margin-top: 6rem;
-  padding-bottom: 6rem;
+  padding-bottom: 12rem;
+  scroll-behavior: smooth;
+}
+.app .component-weekly-report.header-hide {
+  margin-top: 10vh;
+  height: 100vh;
+  padding-top: 12vh;
 }
 .app .component-weekly-report .row {
-  width: 90%;
+  width: 100%;
+  padding: 0 5%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 300ms linear;
+  margin-bottom: 1rem;
+}
+.app .component-weekly-report .row.shadow {
+  box-shadow: 0 0 4px rgba(182, 182, 182, 0.5);
+}
+.app .component-weekly-report .row.hide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  padding-right: 0.1rem;
+}
+.app .component-weekly-report .row.hide .block.large.date-picker-container {
+  justify-content: flex-end;
+  padding-right: 1.8rem;
+}
+.app .component-weekly-report .row.hide button {
+  display: none;
+}
+.app .component-weekly-report .row.hide .display-date {
+  color: #fff;
+  border-radius: none;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  padding-top: 0.4rem;
+}
+.app .component-weekly-report .row.hide .display-date .month {
+  font-weight: 300;
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+.app .component-weekly-report .row.hide .display-date .day {
+  font-weight: 500;
+  font-size: 1rem;
 }
 
 .component-custom-report {

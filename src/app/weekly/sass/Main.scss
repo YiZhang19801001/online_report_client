@@ -1,14 +1,58 @@
 .app .component-weekly-report {
   width: 100vw;
-  height: calc(100vh - 6rem);
+  margin-top: 18vh;
+  height: 82vh;
   overflow: scroll;
-  margin-top: 6rem;
-  padding-bottom: 6rem;
+  padding-bottom: 12rem;
+  scroll-behavior: smooth;
+  &.header-hide {
+    margin-top: 10vh;
+    height: 100vh;
+    padding-top: 12vh;
+  }
+
   .row {
-    width: 90%;
+    width: 100%;
+    padding: 0 5%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: transform 300ms linear;
+    margin-bottom: 1rem;
+    &.shadow {
+      box-shadow: 0 0 4px color("boxShadow");
+    }
+    &.hide {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+
+      padding-right: 0.1rem;
+      .block.large.date-picker-container {
+        justify-content: flex-end;
+        padding-right: 1.8rem;
+      }
+      button {
+        display: none;
+      }
+      .display-date {
+        color: color("textActiveNav");
+        border-radius: none;
+        border: none;
+        padding: 0.3rem 0.5rem;
+        padding-top: 0.4rem;
+        .month {
+          font-weight: 300;
+          margin-right: 0.3rem;
+          font-size: 0.8rem;
+        }
+        .day {
+          font-weight: 500;
+          font-size: 1rem;
+        }
+      }
+    }
   }
 }
