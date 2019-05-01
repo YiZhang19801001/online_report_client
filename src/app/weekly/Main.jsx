@@ -61,9 +61,13 @@ export default () => {
             date={moment(comparison.date).format("MMM")}
           />
         </div>
-        <div className="row">
+        <div className="row weekly-reports">
           <TabGroup tabs={getTabs(weeklyReports)} />
-          <WeeklyReportsTable data={weeklyReports} />
+          <WeeklyReportsTable
+            data={weeklyReports}
+            tabs={getTabs(weeklyReports)}
+            weeks={weeks}
+          />
         </div>
       </div>
     </>
@@ -71,10 +75,11 @@ export default () => {
 };
 
 const getTabs = reports => {
-  let tabs = [];
+  let tabs = ["cash"];
 
   reports.forEach(report => {
     const { paymentMethodReports } = report;
+
     paymentMethodReports.forEach(item => {
       if (!tabs.includes(item.paymenttype)) {
         tabs = [...tabs, item.paymenttype];

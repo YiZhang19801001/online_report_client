@@ -627,6 +627,64 @@ form .button-container button:active {
   transition: transform 300ms linear;
   margin-bottom: 1rem;
 }
+.app .component-weekly-report .row.weekly-reports {
+  align-items: flex-start;
+}
+.app .component-weekly-report .row.weekly-reports .table-container {
+  width: 90%;
+  overflow-x: scroll;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table {
+  margin-top: 0;
+  width: max-content;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr {
+  height: 3.2rem;
+  border: none;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.colored {
+  background-color: #f6f5f9;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.cash {
+  color: #4537b0;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.sales {
+  color: #4537b0;
+  font-weight: 500;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span {
+  width: 25vw;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-title {
+  text-transform: capitalize;
+  color: #54516d;
+  font-size: 500;
+  font-size: 1rem;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-value {
+  font-size: 0.7rem;
+  color: #4537b0;
+  font-weight: 500;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr td {
+  border: none;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr td span {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+}
 .app .component-weekly-report .row.shadow {
   box-shadow: 0 0 4px rgba(182, 182, 182, 0.5);
 }
