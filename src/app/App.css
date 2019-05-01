@@ -1,8 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900");
-@font-face {
-  font-family: "Avenir";
-  src: local("Avenir LT Std 65 Medium") url("./fonts/AvenirLTStd-Medium.woff") format("woff");
-}
 * {
   box-sizing: border-box;
 }
@@ -260,6 +256,7 @@ form .form-field input {
   border-radius: 0;
   outline: none;
   border: none;
+  font-size: 1.1rem;
   border-bottom: 1px solid #6d81e6;
 }
 form .form-field input::placeholder {
@@ -351,7 +348,7 @@ form .button-container button:active {
 }
 
 * {
-  font-family: "Avenir", "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .row .block {
@@ -382,10 +379,15 @@ form .button-container button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #7162df;
   font-weight: 700;
   text-align: center;
+}
+.row .block .value .symbol {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-right: 0.1rem;
 }
 .row .block .compare {
   flex: 1;
@@ -604,17 +606,142 @@ form .button-container button:active {
 
 .app .component-weekly-report {
   width: 100vw;
-  height: calc(100vh - 6rem);
+  margin-top: 18vh;
+  height: 82vh;
   overflow: scroll;
-  margin-top: 6rem;
-  padding-bottom: 6rem;
+  padding-bottom: 12rem;
+  scroll-behavior: smooth;
+}
+.app .component-weekly-report.header-hide {
+  margin-top: 10vh;
+  height: 100vh;
+  padding-top: 12vh;
 }
 .app .component-weekly-report .row {
-  width: 90%;
+  width: 100%;
+  padding: 0 5%;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 300ms linear;
+  margin-bottom: 1rem;
+}
+.app .component-weekly-report .row.weekly-reports {
+  align-items: flex-start;
+}
+.app .component-weekly-report .row.weekly-reports .table-container {
+  width: 90%;
+  overflow-x: scroll;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table {
+  margin-top: 0;
+  width: max-content;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr {
+  height: 3.2rem;
+  border: none;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.colored {
+  background-color: #f6f5f9;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.cash {
+  color: #4537b0;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.sales {
+  color: #4537b0;
+  font-weight: 500;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span {
+  width: 25vw;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-title {
+  text-transform: capitalize;
+  color: #54516d;
+  font-size: 500;
+  font-size: 1rem;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-value {
+  font-size: 0.7rem;
+  color: #4537b0;
+  font-weight: 500;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr td {
+  border: none;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr td span {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.app .component-weekly-report .row.shadow {
+  box-shadow: 0 0 4px rgba(182, 182, 182, 0.5);
+}
+.app .component-weekly-report .row.hide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  padding-right: 0.1rem;
+}
+.app .component-weekly-report .row.hide .block.large.date-picker-container {
+  justify-content: flex-end;
+  padding-right: 1.8rem;
+}
+.app .component-weekly-report .row.hide button {
+  display: none;
+}
+.app .component-weekly-report .row.hide .display-date {
+  color: #fff;
+  border-radius: none;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  padding-top: 0.4rem;
+}
+.app .component-weekly-report .row.hide .display-date .month {
+  font-weight: 300;
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+.app .component-weekly-report .row.hide .display-date .day {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.tabs-group {
+  width: 10%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden;
+}
+.tabs-group span {
+  display: flex;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  width: 100%;
+  height: 3.2rem;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 300;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  white-space: pre;
+}
+.tabs-group span img {
+  transform: rotate(-180deg);
 }
 
 .component-custom-report {

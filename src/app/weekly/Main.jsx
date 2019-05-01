@@ -1,10 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { useMappedState } from "redux-react-hook";
+import { QuickDatePicker, TabGroup, WeeklyReportsTable } from "./components/";
+import moment from "moment";
 import { weeklyReport } from "./hooks";
-import ProductsTable from "./ProductsTable";
 import { Sales, NoOfTrans } from "../summary";
 import { Header } from "../shared";
 export default () => {
-  const { sales, numberOfTransactions, productReports } = weeklyReport();
+  const mapState = useCallback(
+    ({ monthForWeeklyReport }) => ({
+      monthForWeeklyReport
+    }),
+    []
+  );
+  const { monthForWeeklyReport } = useMappedState(mapState);
+  const { weeklyReports, shops, weeks, comparison } = weeklyReport(
+    monthForWeeklyReport
+  );
+
+  const sales = weeklyReports.reduce((sum, report) => {
+    return sum + parseFloat(report.sales);
+  }, 0);
+  const numberOfTransactions = weeklyReports.reduce((sum, report) => {
+    return sum + parseInt(report.tx);
+  }, 0);
 
   let preScrollPosition = 0;
   const [showHeader, setShowHeader] = useState(true);
@@ -12,10 +30,8 @@ export default () => {
     const dom = document.querySelector("#weekly-report-page");
     const handleScroll = () => {
       if (preScrollPosition > dom.scrollTop) {
-        console.log("up");
         setShowHeader(true);
       } else {
-        console.log("down");
         setShowHeader(false);
       }
       preScrollPosition = dom.scrollTop;
@@ -28,16 +44,48 @@ export default () => {
   }, []);
   return (
     <>
-      <Header show={showHeader} />
+      <Header show={showHeader} shops={shops} />
       <div className="component-weekly-report" id="weekly-report-page">
-        <div className="row">
-          <Sales sales={sales} />
-          <NoOfTrans sum={numberOfTransactions} />
+        <div className={`row ${showHeader ? "" : "hide"}`}>
+          <QuickDatePicker />
         </div>
         <div className="row">
-          <ProductsTable list={productReports} />
+          <Sales
+            sales={sales}
+            comparison={comparison.sales}
+            date={moment(comparison.date).format("MMM")}
+          />
+          <NoOfTrans
+            sum={numberOfTransactions}
+            comparison={comparison.tx}
+            date={moment(comparison.date).format("MMM")}
+          />
+        </div>
+        <div className="row weekly-reports">
+          <TabGroup tabs={getTabs(weeklyReports)} />
+          <WeeklyReportsTable
+            data={weeklyReports}
+            tabs={getTabs(weeklyReports)}
+            weeks={weeks}
+          />
         </div>
       </div>
     </>
   );
+};
+
+const getTabs = reports => {
+  let tabs = ["cash"];
+
+  reports.forEach(report => {
+    const { paymentMethodReports } = report;
+
+    paymentMethodReports.forEach(item => {
+      if (!tabs.includes(item.paymenttype)) {
+        tabs = [...tabs, item.paymenttype];
+      }
+    });
+  });
+
+  return tabs;
 };

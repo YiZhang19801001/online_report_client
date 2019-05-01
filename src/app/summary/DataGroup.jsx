@@ -4,7 +4,6 @@ import axios from "axios";
 import moment from "moment";
 
 export default ({ date }) => {
-
   const [dataGroup, setDataGroup] = useState(null);
 
   useEffect(() => {
@@ -14,7 +13,7 @@ export default ({ date }) => {
     const paramsDate = moment(date).format(`YYYYMMDD`);
     axios
       .get(
-        `http://localhost:8000/api/reports?date=${paramsDate}&meta=dataGroup`,
+        `http://localhost/online_report/public/api/reports?date=${paramsDate}&meta=dataGroup`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -32,8 +31,8 @@ export default ({ date }) => {
     }
     return dataGroup.reduce((sum, item) => {
       return sum + item.quantity;
-    }, 0)
-  }
+    }, 0);
+  };
 
   return (
     <div className="block large data-group">
@@ -50,8 +49,8 @@ export default ({ date }) => {
           striped={true}
         />
       ) : (
-          <Loading />
-        )}
+        <Loading />
+      )}
     </div>
   );
 };

@@ -18,7 +18,14 @@ export default ({ sales, date, comparison }) => {
     <div className="block">
       <span className="title">total sales</span>
       <span className="value">
-        {sales ? `$${parseFloat(sales).toFixed(2)}` : <Loading />}
+        {sales ? (
+          <>
+            <span className="symbol">$</span>
+            <span>{`${parseFloat(sales).toFixed(2)}`}</span>
+          </>
+        ) : (
+          <Loading />
+        )}
       </span>
       <span className="compare">
         <span className="date">{`${date} $${parseFloat(comparison).toFixed(
