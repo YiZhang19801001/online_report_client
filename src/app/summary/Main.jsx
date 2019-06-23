@@ -8,6 +8,7 @@ import PaymentMethod from "./PaymentMethod";
 import DataGroup from "./DataGroup";
 import { QuickDatePicker } from "./components/";
 import { Header } from "../shared";
+import { apiUrl } from "../shared/constants";
 
 export default props => {
   const [reports, setReports] = useState({});
@@ -24,17 +25,14 @@ export default props => {
   useEffect(() => {
     const date = momment(dateForDailyReport).format(`YYYYMMDD`);
     const fn = async () => {
-      const response = await axios.get(
-        `http://192.168.1.5/online_report/public/api/reports?date=${date}`,
-        {
-          headers: {
-            Authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("aupos_online_report_user"))
-                .access_token
-            }`
-          }
+      const response = await axios.get(`${apiUrl}/reports?date=${date}`, {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("aupos_online_report_user"))
+              .access_token
+          }`
         }
-      );
+      });
 
       setReports(response.data.reports);
       setRendered(true);

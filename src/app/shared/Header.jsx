@@ -42,17 +42,17 @@ export default ({ show, shops }) => {
         </span>
         <span
           onClick={() => {
-            history.push(`${process.env.PUBLIC_URL}/monthly`);
+            history.push(`${process.env.PUBLIC_URL}/customize`);
           }}
-          className={pathname === "/transaction" ? "active" : ""}
+          className={pathname === "/customize" ? "active" : ""}
         >
-          transaction
+          customize
         </span>
         <span
           onClick={() => {
-            history.push(`${process.env.PUBLIC_URL}/customize`);
+            history.push(`${process.env.PUBLIC_URL}/all`);
           }}
-          className={pathname === "/more" ? "active" : ""}
+          className={pathname === "/all" ? "active" : ""}
         >
           more
         </span>

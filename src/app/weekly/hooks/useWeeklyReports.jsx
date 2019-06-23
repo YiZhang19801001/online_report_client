@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { apiUrl } from "../../shared/constants";
+
 export default date => {
   const [data, setData] = useState({
     weeklyReports: [],
@@ -7,17 +9,14 @@ export default date => {
   });
   useEffect(() => {
     axios
-      .get(
-        `http://192.168.1.5/online_report/public/api/reports?meta=weeklySummary&date=${date}`,
-        {
-          headers: {
-            Authorization: `Bearer ${
-              JSON.parse(localStorage.getItem("aupos_online_report_user"))
-                .access_token
-            }`
-          }
+      .get(`${apiUrl}/reports?meta=weeklySummary&date=${date}`, {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("aupos_online_report_user"))
+              .access_token
+          }`
         }
-      )
+      })
       .then(res => {
         setData(res.data.reports);
       });

@@ -3,7 +3,7 @@ import { Route, Router } from "react-router-dom";
 import { history } from "./shared";
 import { DailySummary } from "./summary";
 import { WeeklyReport } from "./weekly";
-import { MonthlyReport } from "./monthly";
+import { AllReports } from "./all";
 import { CustomReport } from "./customize";
 import { Login } from "./auth";
 export default () => {
@@ -25,13 +25,10 @@ export default () => {
           component={WeeklyReport}
         />
         <Route
-          path={`${process.env.PUBLIC_URL}/monthly`}
-          component={MonthlyReport}
-        />
-        <Route
           path={`${process.env.PUBLIC_URL}/customize`}
           component={CustomReport}
         />
+        <Route path={`${process.env.PUBLIC_URL}/all`} component={AllReports} />
       </>
     </Router>
   );

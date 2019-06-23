@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { history } from "../history";
 import axios from "axios";
+import { apiUrl } from "../constants";
+
 export const checkLogin = originUrl => {
   const user = JSON.parse(localStorage.getItem("aupos_online_report_user"));
   console.log("check login hooks called");
@@ -11,7 +13,7 @@ export const checkLogin = originUrl => {
   }
   useEffect(() => {
     axios
-      .get(`http://192.168.1.5/online_report/public/api/user`, {
+      .get(`${apiUrl}/user`, {
         headers: {
           Authorization: `Bearer ${user.access_token}`
         }

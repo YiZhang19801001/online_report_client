@@ -1,15 +1,13 @@
 import React, { useReducer } from "react";
 import axios from "axios";
 import { Form, history } from "../shared";
+import { apiUrl } from "../shared/constants";
 
 const loginReducer = (success = false, action) => {
   switch (action.type) {
     case "login": // handle login
       axios
-        .post(
-          `http://192.168.1.5/online_report/public/api/auth/login`,
-          action.payload
-        )
+        .post(`${apiUrl}/auth/login`, action.payload)
         .then(res => {
           localStorage.setItem(
             "aupos_online_report_user",
