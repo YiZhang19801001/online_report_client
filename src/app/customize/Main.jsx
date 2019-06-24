@@ -1,8 +1,7 @@
 import React, { useReducer } from "react";
 import { uniqueId } from "lodash";
 import { fetchTables } from "./hooks";
-import { Header } from "../shared";
-import { Loading } from "../shared";
+import { Header, Loading } from "../shared";
 import { TableCard, TableFilter } from "./components";
 
 const reducer = (state, action) => {

@@ -13,7 +13,11 @@ const loginReducer = (success = false, action) => {
             "aupos_online_report_user",
             JSON.stringify(res.data)
           );
-          history.push(`${process.env.PUBLIC_URL}/daily`);
+          if (res.data.shops.length > 1) {
+            history.push(`${process.env.PUBLIC_URL}/total`);
+          } else {
+            history.push(`${process.env.PUBLIC_URL}/daily`);
+          }
         })
         .catch(err => {
           alert(JSON.stringify(err.response));

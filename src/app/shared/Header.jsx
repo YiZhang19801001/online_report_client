@@ -6,7 +6,7 @@ import { history } from "./history";
 
 import ShopSelector from "./components/ShopSelector";
 
-export default ({ show, shops }) => {
+export default ({ show, shops, hideNavBar = false }) => {
   const { pathname } = history.location;
   const mapState = useCallback(
     ({ dateForDailyReport }) => ({ dateForDailyReport }),
@@ -23,40 +23,42 @@ export default ({ show, shops }) => {
         <span className="text">Reports</span>
       </div>
       <ShopSelector shops={shops} />
-      <div className="navigation">
-        <span
-          onClick={() => {
-            history.push(`${process.env.PUBLIC_URL}/daily`);
-          }}
-          className={pathname === "/daily" ? "active" : ""}
-        >
-          daily
-        </span>
-        <span
-          onClick={() => {
-            history.push(`${process.env.PUBLIC_URL}/weekly`);
-          }}
-          className={pathname === "/weekly" ? "active" : ""}
-        >
-          weekly
-        </span>
-        <span
-          onClick={() => {
-            history.push(`${process.env.PUBLIC_URL}/customize`);
-          }}
-          className={pathname === "/customize" ? "active" : ""}
-        >
-          customize
-        </span>
-        <span
-          onClick={() => {
-            history.push(`${process.env.PUBLIC_URL}/all`);
-          }}
-          className={pathname === "/all" ? "active" : ""}
-        >
-          more
-        </span>
-      </div>
+      {!hideNavBar && (
+        <div className="navigation">
+          <span
+            onClick={() => {
+              history.push(`${process.env.PUBLIC_URL}/daily`);
+            }}
+            className={pathname === "/daily" ? "active" : ""}
+          >
+            daily
+          </span>
+          <span
+            onClick={() => {
+              history.push(`${process.env.PUBLIC_URL}/weekly`);
+            }}
+            className={pathname === "/weekly" ? "active" : ""}
+          >
+            weekly
+          </span>
+          <span
+            onClick={() => {
+              history.push(`${process.env.PUBLIC_URL}/customize`);
+            }}
+            className={pathname === "/customize" ? "active" : ""}
+          >
+            customize
+          </span>
+          <span
+            onClick={() => {
+              history.push(`${process.env.PUBLIC_URL}/all`);
+            }}
+            className={pathname === "/all" ? "active" : ""}
+          >
+            more
+          </span>
+        </div>
+      )}
     </div>
   );
 };

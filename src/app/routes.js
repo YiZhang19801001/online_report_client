@@ -6,6 +6,7 @@ import { WeeklyReport } from "./weekly";
 import { AllReports } from "./all";
 import { CustomReport } from "./customize";
 import { Login } from "./auth";
+import { TotalSummary } from "./totalSummary";
 export default () => {
   return (
     <Router history={history}>
@@ -16,6 +17,10 @@ export default () => {
           component={DailySummary}
         />
         <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
+        <Route
+          path={`${process.env.PUBLIC_URL}/total`}
+          component={TotalSummary}
+        />
         <Route
           path={`${process.env.PUBLIC_URL}/daily`}
           component={DailySummary}
