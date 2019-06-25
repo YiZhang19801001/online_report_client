@@ -1,0 +1,106 @@
+.date-picker {
+  margin-top: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  input {
+    height: 2rem;
+    width: 45%;
+    border-radius: 5px;
+    border: 1px solid color("borderLight");
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    outline: none;
+    color: #fff;
+    background-color: transparent;
+  }
+}
+
+.component-total-report {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 8rem);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  .total-summary {
+    width: 100%;
+    height: 5rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .total-summary__sales,
+    .total-summary__tx {
+      display: flex;
+      flex-direction: column;
+      width: 45%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      height: 3rem;
+      background-color: #fff;
+      box-shadow: 0 0 3px color("boxShadow");
+      .title {
+        height: 1rem;
+        width: 100%;
+        font-size: 0.6rem;
+        color: color("textBlackTitle");
+      }
+      .value {
+        color: color("textPrimary");
+        font-size: 1.2rem;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+  .shop-list {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    flex: 1;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 0 3px color("boxShadow");
+    .shop-summary-card {
+      border-radius: 3px;
+      box-shadow: 0 0 3px color("main");
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.5rem;
+      .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        &.shop-name {
+          color: color("textPrimary");
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid color("borderLight");
+          font-size: 1.2rem;
+        }
+        &.shop-report-data {
+          .report {
+            display: flex;
+            width: 45%;
+            align-items: center;
+            margin-top: 0.5rem;
+            .title {
+              margin-right: 0.5rem;
+              font-size: 0.6rem;
+              color: color("textBlackTitle");
+            }
+            .value {
+              font-size: 1rem;
+              color: color("textPrimary");
+            }
+          }
+        }
+      }
+    }
+  }
+}

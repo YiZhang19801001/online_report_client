@@ -5,10 +5,10 @@ import {
   TimePeriodSelector
 } from "./components";
 import { Header } from "../shared";
-export default () => {
+export default props => {
   return (
     <>
-      <Header show={true} />
+      <Header show={true} {...props} />
       <div className="component-custom-report">
         <ReportTypeSelector />
         <QuickDatePicker />

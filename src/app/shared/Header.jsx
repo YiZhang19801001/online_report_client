@@ -6,8 +6,9 @@ import { history } from "./history";
 
 import ShopSelector from "./components/ShopSelector";
 
-export default ({ show, shops, hideNavBar = false }) => {
-  const { pathname } = history.location;
+export default ({ show, shops, hideNavBar = false, match }) => {
+  const { path } = match;
+  const { shopId } = match.params;
   const mapState = useCallback(
     ({ dateForDailyReport }) => ({ dateForDailyReport }),
     []
@@ -18,18 +19,25 @@ export default ({ show, shops, hideNavBar = false }) => {
 
   return (
     <div className={`header ${show ? "" : "hide"}`}>
-      <div className="title">
+      <div
+        className="title"
+        onClick={e => {
+          history.push(`${process.env.PUBLIC_URL}/total`);
+        }}
+      >
         <span className="year">{year}</span>
         <span className="text">Reports</span>
       </div>
-      <ShopSelector shops={shops} />
+      <ShopSelector shops={shops} path={path} shop_id={shopId} />
       {!hideNavBar && (
         <div className="navigation">
           <span
             onClick={() => {
               history.push(`${process.env.PUBLIC_URL}/daily`);
             }}
-            className={pathname === "/daily" ? "active" : ""}
+            className={
+              path === "/daily" || path === "/daily/:shopId" ? "active" : ""
+            }
           >
             daily
           </span>
@@ -37,7 +45,9 @@ export default ({ show, shops, hideNavBar = false }) => {
             onClick={() => {
               history.push(`${process.env.PUBLIC_URL}/weekly`);
             }}
-            className={pathname === "/weekly" ? "active" : ""}
+            className={
+              path === "/weekly" || path === "/weekly/:shopId" ? "active" : ""
+            }
           >
             weekly
           </span>
@@ -45,7 +55,11 @@ export default ({ show, shops, hideNavBar = false }) => {
             onClick={() => {
               history.push(`${process.env.PUBLIC_URL}/customize`);
             }}
-            className={pathname === "/customize" ? "active" : ""}
+            className={
+              path === "/customize" || path === "/customize/:shopId"
+                ? "active"
+                : ""
+            }
           >
             customize
           </span>
@@ -53,7 +67,9 @@ export default ({ show, shops, hideNavBar = false }) => {
             onClick={() => {
               history.push(`${process.env.PUBLIC_URL}/all`);
             }}
-            className={pathname === "/all" ? "active" : ""}
+            className={
+              path === "/all" || path === "/all/:shopId" ? "active" : ""
+            }
           >
             more
           </span>

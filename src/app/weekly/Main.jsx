@@ -5,7 +5,8 @@ import moment from "moment";
 import { weeklyReport } from "./hooks";
 import { Sales, NoOfTrans } from "../summary";
 import { Header } from "../shared";
-export default () => {
+export default props => {
+  const { shopId } = props.match.params;
   const mapState = useCallback(
     ({ monthForWeeklyReport }) => ({
       monthForWeeklyReport
@@ -14,7 +15,8 @@ export default () => {
   );
   const { monthForWeeklyReport } = useMappedState(mapState);
   const { weeklyReports, shops, weeks, comparison } = weeklyReport(
-    monthForWeeklyReport
+    monthForWeeklyReport,
+    shopId
   );
 
   const sales = weeklyReports.reduce((sum, report) => {
@@ -44,7 +46,7 @@ export default () => {
   }, []);
   return (
     <>
-      <Header show={showHeader} shops={shops} />
+      <Header show={showHeader} shops={shops} {...props} />
       <div className="component-weekly-report" id="weekly-report-page">
         <div className={`row ${showHeader ? "" : "hide"}`}>
           <QuickDatePicker />

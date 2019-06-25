@@ -22,10 +22,21 @@ export default () => {
           component={TotalSummary}
         />
         <Route
+          path={`${process.env.PUBLIC_URL}/daily/:shopId`}
+          component={DailySummary}
+        />
+        <Route
+          exact
           path={`${process.env.PUBLIC_URL}/daily`}
           component={DailySummary}
         />
         <Route
+          path={`${process.env.PUBLIC_URL}/weekly/:shopId`}
+          component={WeeklyReport}
+        />
+
+        <Route
+          exact
           path={`${process.env.PUBLIC_URL}/weekly`}
           component={WeeklyReport}
         />

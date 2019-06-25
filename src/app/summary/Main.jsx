@@ -11,6 +11,7 @@ import { Header } from "../shared";
 import { apiUrl } from "../shared/constants";
 
 export default props => {
+  const { shopId } = props.match.params;
   const [reports, setReports] = useState({});
   const [rendered, setRendered] = useState(false);
   const mapState = useCallback(
@@ -25,21 +26,24 @@ export default props => {
   useEffect(() => {
     const date = momment(dateForDailyReport).format(`YYYYMMDD`);
     const fn = async () => {
-      const response = await axios.get(`${apiUrl}/reports?date=${date}`, {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("aupos_online_report_user"))
-              .access_token
-          }`
+      const response = await axios.get(
+        `${apiUrl}/reports?date=${date}${shopId ? `&shopId=${shopId}` : ""}`,
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("aupos_online_report_user"))
+                .access_token
+            }`
+          }
         }
-      });
+      );
 
       setReports(response.data.reports);
       setRendered(true);
       dispatch({ type: "closeModal" });
     };
     fn();
-  }, [dateForDailyReport]);
+  }, [dateForDailyReport, shopId]);
 
   let preScrollPosition = 0;
   const [showHeader, setShowHeader] = useState(true);

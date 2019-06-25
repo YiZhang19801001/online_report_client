@@ -1,24 +1,81 @@
-import React, { useState } from "react";
-import { uniqueId } from 'lodash';
-export default ({ shops }) => {
+import React, { useReducer, useEffect } from "react";
+import { uniqueId } from "lodash";
+import { history } from "../history";
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "setState":
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+
+const initState = { shopId: undefined, prefixPath: "daily" };
+
+const makeNewPath = path => {
+  switch (path) {
+    case "/weekly":
+    case "/weekly/:shopId":
+      return "weekly";
+    case "/daily":
+    case "/daily/:shopId":
+      return "daily";
+
+    case "/customize":
+    case "/customize/:shopId":
+      return "customize";
+    case "/all":
+    case "/all/:shopId":
+      return "all";
+    default:
+      return path;
+  }
+};
+
+export default ({ shops, path, shop_id }) => {
   if (!shops) {
     return null;
   }
+  useEffect(() => {
+    const newPath = makeNewPath(path);
+    dispatch({ type: "setState", payload: { prefixPath: newPath } });
+  }, [path]);
+
+  useEffect(() => {
+    dispatch({ type: "setState", payload: { shopId: shop_id } });
+  }, [shop_id]);
+
+  const [state, dispatch] = useReducer(reducer, initState);
+  const { shopId, prefixPath } = state;
+
+  useEffect(() => {
+    if (shopId) {
+      history.push(`${process.env.PUBLIC_URL}/${prefixPath}/${shopId}`);
+    }
+  }, [shopId]);
 
   const renderOptions = () => {
-    return shops.map((shop, index) => {
-      return <option key={uniqueId('shopOption')} value={index}>
-        {shop.shop_name}
-      </option>
-    })
-  }
-  const [index, setIndex] = useState(0);
+    return shops.map(shop => {
+      return (
+        <option key={uniqueId("shopOption")} value={shop.shop_id}>
+          {shop.shop_name}
+        </option>
+      );
+    });
+  };
   return (
     <div className="shop-selector">
-      <select value={index} className="selector" onChange={(e) => { setIndex(e.target.value) }}>
+      <select
+        value={shopId}
+        className="selector"
+        onChange={e => {
+          dispatch({ type: "setState", payload: { shopId: e.target.value } });
+        }}
+      >
         {renderOptions()}
       </select>
     </div>
-  )
+  );
 };

@@ -19,14 +19,14 @@ const initState = {
   table_status: "all"
 };
 
-export default () => {
+export default props => {
   const [state, dispatch] = useReducer(reducer, initState);
   const { isLoading, table_status_id, table_status } = state;
   const tables = fetchTables(table_status_id, dispatch);
 
   return (
     <>
-      <Header show={true} />
+      <Header show={true} {...props} />
       <div className="component-tables-report">
         <TableFilter table_status={table_status} dispatch={dispatch} />
         <div className={"tables-grid"}>
