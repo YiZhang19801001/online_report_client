@@ -1,18 +1,63 @@
-import React from "react";
+import React, { useReducer } from "react";
 import {
   ReportTypeSelector,
   QuickDatePicker,
   TimePeriodSelector
 } from "./components";
-import { Header } from "../shared";
+import { useReports } from "./hooks";
+import { Header, Table, Loading } from "../shared";
+import moment from "moment";
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "setState":
+      return { ...state, ...action.payload };
+
+    default:
+      return state;
+  }
+};
+
+const initialState = {
+  startDate: moment().startOf("day"),
+  endDate: moment().endOf("day"),
+  reportType: "text label",
+  isLoading: true
+};
+
 export default props => {
+  const { shopId } = props.match.params;
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { startDate, endDate, reportType, isLoading } = state;
+
+  const reports = useReports(startDate, endDate, reportType, shopId, dispatch);
+
+  const { data, ths, dataFormat } = reports;
+
   return (
     <>
       <Header show={true} {...props} />
       <div className="component-custom-report">
-        <ReportTypeSelector />
-        <QuickDatePicker />
-        <TimePeriodSelector />
+        <ReportTypeSelector dispatch={dispatch} reportType={reportType} />
+        <QuickDatePicker dispatch={dispatch} />
+        <TimePeriodSelector
+          dispatch={dispatch}
+          startDate={startDate}
+          endDate={endDate}
+        />
+        <div className={`flat-block`}>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <Table
+              ths={ths}
+              dataFormat={dataFormat}
+              data={data}
+              sum={false}
+              striped={true}
+            />
+          )}
+        </div>
       </div>
     </>
   );

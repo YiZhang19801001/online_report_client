@@ -845,8 +845,8 @@ form {
 
 .component-custom-report {
   background-color: #e1e1e1;
-  margin-top: 6rem;
-  padding-bottom: 6rem; }
+  margin-top: 9rem;
+  background-color: #fff; }
   .component-custom-report .flat-block {
     display: flex;
     background-color: #fff;

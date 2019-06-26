@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { uniqueId } from "lodash";
-export default () => {
-  const [reportType, setReportType] = useState("text label");
-  const options = ["sales by products", "sales by hours", "sales by store"];
+
+export default ({ reportType, dispatch }) => {
+  const options = [
+    { value: "product", text: "sales by products" },
+    { value: "category", text: "sales by category" },
+    { value: "hour", text: "sales by hours" },
+    { value: "day", text: "sales by day" }
+  ];
+
   return (
     <div className="flat-block">
       <span className="title">select report type</span>
       <select
         value={reportType}
         onChange={e => {
-          setReportType(e.target.value);
+          dispatch({
+            type: "setState",
+            payload: { reportType: e.target.value }
+          });
         }}
       >
         {renderOptions(options)}
@@ -25,9 +34,10 @@ const renderOptions = data => {
         please select report type
       </option>
       {data.map(item => {
+        const { value, text } = item;
         return (
-          <option key={uniqueId("options")} value={item}>
-            {item}
+          <option key={uniqueId("reportType")} value={value}>
+            {text}
           </option>
         );
       })}

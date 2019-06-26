@@ -77,7 +77,7 @@ export default props => {
   }
   return (
     <>
-      <Header show={showHeader} shops={reports.shops} {...props} />
+      <Header show={showHeader} {...props} />
 
       <div
         className={`summary ${showHeader ? "" : "header-hide"} ${

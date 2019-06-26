@@ -34,7 +34,9 @@ const makeNewPath = path => {
   }
 };
 
-export default ({ shops, path, shop_id }) => {
+export default ({ path, shop_id }) => {
+  const shops = JSON.parse(localStorage.getItem("aupos_online_report_user"))
+    .shops;
   if (!shops) {
     return null;
   }

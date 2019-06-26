@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Table, Loading } from "../shared";
+import { apiUrl } from "../shared/constants";
 import axios from "axios";
 import moment from "moment";
 
@@ -12,14 +13,11 @@ export default ({ date }) => {
 
     const paramsDate = moment(date).format(`YYYYMMDD`);
     axios
-      .get(
-        `http://localhost/online_report/public/api/reports?date=${paramsDate}&meta=dataGroup`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
+      .get(`${apiUrl}/reports?date=${paramsDate}&meta=dataGroup`, {
+        headers: {
+          Authorization: `Bearer ${token}`
         }
-      )
+      })
       .then(res => {
         setDataGroup(res.data.reports.dataGroup);
       });

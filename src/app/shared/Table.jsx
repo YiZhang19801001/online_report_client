@@ -63,13 +63,15 @@ const renderThead = (ths, sort, dataFormat, sortOrders) => {
             >
               <span className="th-content-container">
                 <span className="th-title">{th.value}</span>
-                <span className={`th-symbol ${orderStatus}`}>
-                  {sortOrders[propertyName] !== 0 ? (
-                    <img src="/table-sorting.svg" alt="" />
-                  ) : (
-                    <img src="/table-unsorting.svg" />
-                  )}
-                </span>
+                {th.type === "number" && (
+                  <span className={`th-symbol ${orderStatus}`}>
+                    {sortOrders[propertyName] !== 0 ? (
+                      <img src="/table-sorting.svg" alt="" />
+                    ) : (
+                      <img src="/table-unsorting.svg" />
+                    )}
+                  </span>
+                )}
               </span>
             </th>
           );
@@ -109,7 +111,13 @@ const renderTds = (dataFormat, row) => {
     return (
       <td key={_.uniqueId("tableRowTd")} className={property.type}>
         {renderTdPrefix(property.value, row[property.value])}
-        <span>{row[property.value]}</span>
+        <span>
+          {property.type === "number"
+            ? property.value === "amount"
+              ? parseFloat(row[property.value]).toFixed(2)
+              : parseInt(row[property.value])
+            : row[property.value]}
+        </span>
       </td>
     );
   });
@@ -164,7 +172,11 @@ const calculateSum = (property, data) => {
 const dynamicSort = (property, sortOrder) => {
   return function(a, b) {
     var result =
-      a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+      Number(a[property]) < Number(b[property])
+        ? -1
+        : a[property] > b[property]
+        ? 1
+        : 0;
     return result * sortOrder;
   };
 };

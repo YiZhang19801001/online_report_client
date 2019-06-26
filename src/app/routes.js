@@ -41,10 +41,25 @@ export default () => {
           component={WeeklyReport}
         />
         <Route
+          path={`${process.env.PUBLIC_URL}/customize/:shopId`}
+          component={CustomReport}
+        />
+
+        <Route
+          exact
           path={`${process.env.PUBLIC_URL}/customize`}
           component={CustomReport}
         />
-        <Route path={`${process.env.PUBLIC_URL}/all`} component={AllReports} />
+        <Route
+          path={`${process.env.PUBLIC_URL}/all/:shopId`}
+          component={AllReports}
+        />
+
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/all`}
+          component={AllReports}
+        />
       </>
     </Router>
   );

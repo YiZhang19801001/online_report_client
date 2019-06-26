@@ -1,31 +1,29 @@
-import React, { useCallback } from "react";
-import { useMappedState, useDispatch } from "redux-react-hook";
-export default () => {
-  const mapState = useCallback(({ dateStart, dateEnd }) => ({
-    dateStart,
-    dateEnd
-  }));
+import React from "react";
+import moment from "moment";
 
-  const { dateEnd, dateStart } = useMappedState(mapState);
-
-  const dispatch = useDispatch();
-
+export default ({ startDate, endDate, dispatch }) => {
   return (
     <div className="flat-block">
       <span className="title">select period</span>
       <div className="container">
         <input
           type="date"
-          value={dateStart}
+          value={startDate.format("YYYY-MM-DD")}
           onChange={e => {
-            dispatch({ type: "setDateStart", payload: e.target.value });
+            dispatch({
+              type: "setState",
+              payload: { startDate: moment(e.target.value) }
+            });
           }}
         />
         <input
           type="date"
-          value={dateEnd}
+          value={endDate.format("YYYY-MM-DD")}
           onChange={e =>
-            dispatch({ type: "setDateEnd", payload: e.target.value })
+            dispatch({
+              type: "setState",
+              payload: { endDate: moment(e.target.value) }
+            })
           }
         />
       </div>
