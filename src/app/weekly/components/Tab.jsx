@@ -15,13 +15,13 @@ const makeStyles = value => {
     case "eftpos":
       return { backgroundColor: "#f95c15" };
     case "redpayments":
-      return { backgroundColor: "#f32c3b", img: "/redpayments.svg" };
+      return { backgroundColor: "#f32c3b", img: "http://kidsnparty.com.au/report/redpayments.svg" };
     case "eftpos offline":
       return { backgroundColor: "#feae32" };
     case "visa/master":
-      return { backgroundColor: "#3abeb9", img: "/visa-master.svg" };
+      return { backgroundColor: "#3abeb9", img: "http://kidsnparty.com.au/report/visa-master.svg" };
     case "amex":
-      return { backgroundColor: "#2358e7", img: "/amex.svg" };
+      return { backgroundColor: "#2358e7", img: "http://kidsnparty.com.au/report/amex.svg" };
     case "cash":
       return { backgroundColor: "#6b7ee9" };
     default:

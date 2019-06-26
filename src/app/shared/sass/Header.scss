@@ -11,7 +11,7 @@
   // box-shadow: 0 3px 3px color("boxShadow");
   // transform: rotate(-25deg);
   box-shadow: 0 4.5px 16px 0 rgba(30, 135, 240, 0.2);
-  background: url(/header-background.svg);
+  background: url(http://kidsnparty.com.au/report/header-background.svg);
   background-size: cover;
   margin-bottom: 5px;
   transition: all 300ms linear;
@@ -23,19 +23,18 @@
     box-shadow: none;
     flex-direction: row;
     .shop-selector,
-    .title{
+    .title {
       display: none;
     }
-    .navigation{
+    .navigation {
       width: max-content;
       border: none;
-      span{
-        font-size:0.8rem;
+      span {
+        font-size: 0.8rem;
         padding: 0.2rem 0.4rem;
-              &.active {
-        border-bottom: 1px solid color("borderActiveNav");
-
-      }
+        &.active {
+          border-bottom: 1px solid color("borderActiveNav");
+        }
       }
     }
   }

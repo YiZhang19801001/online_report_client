@@ -9,7 +9,9 @@ export default ({ sales, date, comparison }) => {
   };
 
   const getSrc = () => {
-    return sales >= comparison ? "/increase-arrow.svg" : "/decrease-arrow.svg";
+    return sales >= comparison
+      ? "http://kidsnparty.com.au/report/increase-arrow.svg"
+      : "http://kidsnparty.com.au/report/decrease-arrow.svg";
   };
   const getClassName = () => {
     return sales >= comparison ? "percentage increase" : "percentage decrease";

@@ -8,7 +8,9 @@ export default ({ sum, date, comparison }) => {
     return (((sum - comparison) * 100 * sign) / sum).toFixed(2);
   };
   const getSrc = () => {
-    return sum >= comparison ? "/increase-arrow.svg" : "/decrease-arrow.svg";
+    return sum >= comparison
+      ? "http://kidsnparty.com.au/report/increase-arrow.svg"
+      : "http://kidsnparty.com.au/report/decrease-arrow.svg";
   };
   const getClassName = () => {
     return sum >= comparison ? "percentage increase" : "percentage decrease";

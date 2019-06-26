@@ -11,11 +11,6 @@ export default () => {
   return (
     <Router history={history}>
       <>
-        <Route
-          exact
-          path={`${process.env.PUBLIC_URL}/`}
-          component={DailySummary}
-        />
         <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
         <Route
           path={`${process.env.PUBLIC_URL}/total`}

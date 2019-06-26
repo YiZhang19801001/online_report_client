@@ -22,7 +22,7 @@ export const checkLogin = originUrl => {
         if (originUrl === `${process.env.PUBLIC_URL}/`) {
           history.push(`${process.env.PUBLIC_URL}/daily`);
         } else {
-          history.push(`${process.env.PUBLIC_URL}${originUrl}`);
+          history.push(`${originUrl}`);
         }
       })
       .catch(err => {

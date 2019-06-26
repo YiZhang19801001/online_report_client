@@ -38,7 +38,7 @@ body {
   z-index: -1;
   background-color: #6d81e6;
   box-shadow: 0 4.5px 16px 0 rgba(30, 135, 240, 0.2);
-  background: url(/header-background.svg);
+  background: url(http://kidsnparty.com.au/report/header-background.svg);
   background-size: cover;
   margin-bottom: 5px;
   transition: all 300ms linear;
@@ -265,7 +265,7 @@ form {
     text-align-last: center;
     border-radius: 1rem;
     background-color: #513ed5;
-    background-image: url("/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
+    background-image: url("http://kidsnparty.com.au/report/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
     background-repeat: no-repeat, repeat;
     background-position: right 0.6em top 50%, 0 0;
     background-size: 0.65em auto, 100%;
@@ -416,7 +416,7 @@ form {
       position: absolute;
       right: 0;
       top: 0.3rem;
-      background: url("/calendar.svg");
+      background: url("http://kidsnparty.com.au/report/calendar.svg");
       background-repeat: no-repeat;
       background-size: contain;
       height: 1rem;

@@ -66,9 +66,12 @@ const renderThead = (ths, sort, dataFormat, sortOrders) => {
                 {th.type === "number" && (
                   <span className={`th-symbol ${orderStatus}`}>
                     {sortOrders[propertyName] !== 0 ? (
-                      <img src="/table-sorting.svg" alt="" />
+                      <img
+                        src="http://kidsnparty.com.au/report/table-sorting.svg"
+                        alt=""
+                      />
                     ) : (
-                      <img src="/table-unsorting.svg" />
+                      <img src="http://kidsnparty.com.au/report/table-unsorting.svg" />
                     )}
                   </span>
                 )}

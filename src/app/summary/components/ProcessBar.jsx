@@ -22,7 +22,7 @@ export default ({ list, handleOnClick }) => {
         );
       })}
       <div className="selector" onClick={handleOnClick}>
-        <img src="/selector.svg" alt="" />
+        <img src="http://kidsnparty.com.au/report/selector.svg" alt="" />
       </div>
     </div>
   );
