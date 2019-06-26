@@ -19,7 +19,11 @@ export const checkLogin = originUrl => {
         }
       })
       .then(res => {
-        history.push(`${process.env.PUBLIC_URL}${originUrl}`);
+        if (originUrl === `${process.env.PUBLIC_URL}/`) {
+          history.push(`${process.env.PUBLIC_URL}/daily`);
+        } else {
+          history.push(`${process.env.PUBLIC_URL}${originUrl}`);
+        }
       })
       .catch(err => {
         localStorage.removeItem("aupos_online_report_user");
