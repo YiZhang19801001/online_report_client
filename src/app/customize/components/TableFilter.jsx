@@ -1,6 +1,7 @@
 import React from "react";
 
-export default ({ table_status = "all", dispatch }) => {
+export default ({ table_status = "all", dispatch, tableStats }) => {
+  const { all, available, occupied, reserve } = tableStats;
   return (
     <div className={"tables-filter"}>
       <div className={"tables-filter__row"}>
@@ -22,7 +23,10 @@ export default ({ table_status = "all", dispatch }) => {
           <div className={"tables-filter__button__indicator"}>
             <div className={`round`} />
           </div>
-          <div className={"tables-filter__button__label"}>available</div>
+          <div className={"tables-filter__button__label"}>
+            <span>available</span>
+            <span>{available}</span>
+          </div>
         </div>
         <div
           className={`table-filter__button ${
@@ -42,7 +46,10 @@ export default ({ table_status = "all", dispatch }) => {
           <div className={"tables-filter__button__indicator"}>
             <div className={`round`} />
           </div>
-          <div className={"tables-filter__button__label"}>occupied</div>
+          <div className={"tables-filter__button__label"}>
+            <span>occupied</span>
+            <span>{occupied}</span>
+          </div>
         </div>
       </div>
       <div className={"tables-filter__row"}>
@@ -64,7 +71,10 @@ export default ({ table_status = "all", dispatch }) => {
           <div className={"tables-filter__button__indicator"}>
             <div className={`round`} />
           </div>
-          <div className={"tables-filter__button__label"}>reserved</div>
+          <div className={"tables-filter__button__label"}>
+            <span>reserved</span>
+            <span>{reserve}</span>
+          </div>
         </div>
         <div
           className={`table-filter__button ${
@@ -84,7 +94,10 @@ export default ({ table_status = "all", dispatch }) => {
           <div className={"tables-filter__button__indicator"}>
             <div className={`round`} />
           </div>
-          <div className={"tables-filter__button__label"}>all</div>
+          <div className={"tables-filter__button__label"}>
+            <span>all</span>
+            <span>{all}</span>
+          </div>
         </div>
       </div>
     </div>

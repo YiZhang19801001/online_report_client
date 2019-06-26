@@ -6,7 +6,8 @@ export default ({ reportType, dispatch }) => {
     { value: "product", text: "sales by products" },
     { value: "category", text: "sales by category" },
     { value: "hour", text: "sales by hours" },
-    { value: "day", text: "sales by day" }
+    { value: "day", text: "sales by day" },
+    { value: "customer", text: "customer report" }
   ];
 
   return (

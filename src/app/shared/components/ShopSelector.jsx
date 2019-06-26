@@ -37,7 +37,7 @@ const makeNewPath = path => {
 export default ({ path, shop_id }) => {
   const shops = JSON.parse(localStorage.getItem("aupos_online_report_user"))
     .shops;
-  if (!shops) {
+  if (path === "/total") {
     return null;
   }
   useEffect(() => {

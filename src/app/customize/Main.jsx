@@ -20,15 +20,21 @@ const initState = {
 };
 
 export default props => {
+  const { shopId } = props.match.params;
+
   const [state, dispatch] = useReducer(reducer, initState);
   const { isLoading, table_status_id, table_status } = state;
-  const tables = fetchTables(table_status_id, dispatch);
+  const { tables, tableStats } = fetchTables(table_status_id, dispatch, shopId);
 
   return (
     <>
       <Header show={true} {...props} />
       <div className="component-tables-report">
-        <TableFilter table_status={table_status} dispatch={dispatch} />
+        <TableFilter
+          table_status={table_status}
+          dispatch={dispatch}
+          tableStats={tableStats}
+        />
         <div className={"tables-grid"}>
           {isLoading && <Loading />}
           {tables.length === 0 && (

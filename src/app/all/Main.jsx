@@ -21,7 +21,7 @@ const reducer = (state, action) => {
 const initialState = {
   startDate: moment().startOf("day"),
   endDate: moment().endOf("day"),
-  reportType: "text label",
+  reportType: "category",
   isLoading: true
 };
 

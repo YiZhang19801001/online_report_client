@@ -113,9 +113,12 @@ const renderTds = (dataFormat, row) => {
         {renderTdPrefix(property.value, row[property.value])}
         <span>
           {property.type === "number"
-            ? property.value === "amount"
-              ? parseFloat(row[property.value]).toFixed(2)
-              : parseInt(row[property.value])
+            ? property.value === "quantity"
+              ? parseInt(row[property.value])
+              : property.value === "gp_percentage" ||
+                property.value === "percentage"
+              ? `${Math.round(parseFloat(row[property.value]) * 10000) / 100}%`
+              : parseFloat(row[property.value]).toFixed(2)
             : row[property.value]}
         </span>
       </td>
