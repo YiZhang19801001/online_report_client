@@ -105,7 +105,7 @@ export default props => {
         </div>
 
         <div className="row shadow">
-          {rendered && <DataGroup date={dateForDailyReport} />}
+          {rendered && <DataGroup shopId={shopId} date={dateForDailyReport} />}
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import { apiUrl } from "../shared/constants";
 import axios from "axios";
 import moment from "moment";
 
-export default ({ date }) => {
+export default ({ date, shopId }) => {
   const [dataGroup, setDataGroup] = useState(null);
 
   useEffect(() => {
@@ -12,8 +12,9 @@ export default ({ date }) => {
       .access_token;
 
     const paramsDate = moment(date).format(`YYYYMMDD`);
+    const path = shopId ? `&shopId=${shopId}` : ``;
     axios
-      .get(`${apiUrl}/reports?date=${paramsDate}&meta=dataGroup`, {
+      .get(`${apiUrl}/reports?date=${paramsDate}&meta=dataGroup${path}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -21,14 +22,14 @@ export default ({ date }) => {
       .then(res => {
         setDataGroup(res.data.reports.dataGroup);
       });
-  }, [date]);
+  }, [date, shopId]);
 
   const getTotal = () => {
     if (!dataGroup) {
       return 0;
     }
     return dataGroup.reduce((sum, item) => {
-      return sum + item.quantity;
+      return sum + parseInt(item.quantity);
     }, 0);
   };
 
