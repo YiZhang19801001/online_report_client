@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import Routes from "./routes";
 import { useMappedState } from "redux-react-hook";
 import { checkLogin } from "./shared/hooks";
-import { Modal, history } from "./shared/";
+import { Modal, history, UserModal } from "./shared/";
 
 import "./App.css";
 export default () => {
@@ -15,6 +15,7 @@ export default () => {
   return (
     <div className={`app ${showModal ? "blur" : ""}`}>
       <Modal />
+      <UserModal />
       <Routes />
     </div>
   );

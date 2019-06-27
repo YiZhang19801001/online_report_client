@@ -49,7 +49,7 @@ export default () => {
     <div className="component-login">
       <div className="header">
         <div className="cover" />
-        <span className="login-title">Onlie Reports</span>
+        <span className="login-title">Online Reports</span>
       </div>
       <Form fields={fields} dispatch={dispatch} />
     </div>

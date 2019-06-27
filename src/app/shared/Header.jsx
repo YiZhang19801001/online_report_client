@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useMappedState } from "redux-react-hook";
+import { useMappedState, useDispatch } from "redux-react-hook";
 
 import moment from "moment";
 import { history } from "./history";
@@ -14,19 +14,44 @@ export default ({ show, shops, hideNavBar = false, match }) => {
     []
   );
   const { dateForDailyReport } = useMappedState(mapState);
-
+  const dispatch = useDispatch();
   const year = moment(dateForDailyReport).format("YYYY");
 
   return (
     <div className={`header ${show ? "" : "hide"}`}>
-      <div
-        className="title"
-        onClick={e => {
-          history.push(`${process.env.PUBLIC_URL}/total`);
-        }}
-      >
-        <span className="year">{year}</span>
-        <span className="text">Reports</span>
+      <div className={`header-title`}>
+        <div className={`icon-container`}>
+          {JSON.parse(localStorage.getItem("aupos_online_report_user")).shops
+            .length > 1 &&
+            path !== `${process.env.PUBLIC_URL}/total` && (
+              <img
+                src="http://kidsnparty.com.au/roben_api/images/homepage.png"
+                alt=""
+                onClick={() => {
+                  history.push(`${process.env.PUBLIC_URL}/total`);
+                }}
+              />
+            )}
+        </div>
+        <div
+          className="title"
+          onClick={e => {
+            history.push(`${process.env.PUBLIC_URL}/total`);
+          }}
+        >
+          <span className="year">{year}</span>
+          <span className="text">Reports</span>
+        </div>
+
+        <div className={`icon-container`}>
+          <img
+            src="http://kidsnparty.com.au/roben_api/images/user.png"
+            alt=""
+            onClick={() => {
+              dispatch({ type: "showUserCenter" });
+            }}
+          />
+        </div>
       </div>
       <ShopSelector shops={shops} path={path} shop_id={shopId} />
       {!hideNavBar && (
