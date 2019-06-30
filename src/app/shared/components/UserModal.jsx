@@ -1,52 +1,25 @@
-import React, { useCallback, useReducer } from "react";
+import React, { useCallback } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import { useMappedState, useDispatch } from "redux-react-hook";
+import { apiUrl } from "../constants";
 import { history } from "../history";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "setState":
-      return { ...state, ...action.payload };
-    case "setFormValues":
-      return {
-        ...state,
-        formValues: { ...state.formValues, ...action.payload }
-      };
-    case "setErrs":
-      return {
-        ...state,
-        errs: { ...state.errs, ...action.payload }
-      };
-    default:
-      return state;
-  }
-};
-
-const initState = {
-  showForm: fase,
-  formValues: {
-    password: "",
-    repeatPassword: ""
-  },
-  errs: {
-    password: "",
-    repeatPassword: ""
-  }
-};
-
 export default () => {
-  const mapState = useCallback(({ showUserCenter }) => ({ showUserCenter }));
-  const { showUserCenter } = useMappedState(mapState);
-  const g_dispatch = useDispatch();
+  const mapState = useCallback(({ showUserCenter, userResetPassword }) => ({
+    showUserCenter,
+    userResetPassword
+  }));
+
+  const { showUserCenter, userResetPassword } = useMappedState(mapState);
+
+  const dispatch = useDispatch();
   if (!showUserCenter) {
     return null;
   }
 
-  const [state, dispatch] = useReducer(reducer, initState);
-
-  const { showForm, formValues, errs } = state;
-  const { password, repeatPassword } = formValues;
+  const { valid, formValues, errs } = userResetPassword;
+  const { password, repeatPW } = formValues;
 
   const onSubmit = e => {
     e.preventDefault();
@@ -57,21 +30,21 @@ export default () => {
       });
     }
 
-    if (repeatPassword === "") {
+    if (repeatPW === "") {
       dispatch({
         type: "setErrs",
-        payload: { repeatPassword: "repeat password is required" }
+        payload: { repeatPW: "repeat password is required" }
       });
     }
 
-    if (password !== repeatPassword) {
+    if (password !== repeatPW) {
       dispatch({
         type: "setErrs",
-        payload: { repeatPassword: "password not matched" }
+        payload: { repeatPW: "password not matched" }
       });
     }
 
-    if (errs.password !== "" || errs.repeatPassword !== "") {
+    if (errs.password !== "" || errs.repeatPW !== "") {
       return false;
     } else {
       axios
@@ -88,28 +61,46 @@ export default () => {
   return ReactDOM.createPortal(
     <div className="component-modal">
       <div className={`new-password`}>
-        {showForm && (
-          <form onSubmit={onSubmit}>
-            <input
-              type="text"
-              value={password}
-              onChange={e => {
-                dispatch({
-                  type: "setFormValues",
-                  paylaod: { password: e.target.value }
-                });
-              }}
-            />
-            <input
-              type="text"
-              value={repeatPassword}
-              onChange={e => {
-                dispatch({
-                  type: "setFormValues",
-                  paylaod: { repeatPassword: e.target.value }
-                });
-              }}
-            />
+        {valid && (
+          <form onSubmit={onSubmit} className={`reset-password-form`}>
+            <div className={`form-field`}>
+              <input
+                type="password"
+                value={password}
+                name={`password`}
+                onChange={e => {
+                  dispatch({
+                    type: "setUserRestPasswordFormValues",
+                    payload: { password: e.target.value }
+                  });
+                }}
+              />
+              <label
+                htmlFor="password"
+                className={password !== "" ? "input-not-empty" : ""}
+              >
+                new password
+              </label>
+            </div>
+            <div className={`form-field`}>
+              <input
+                type="password"
+                value={repeatPW}
+                name={`repeatPW`}
+                onChange={e => {
+                  dispatch({
+                    type: "setUserRestPasswordFormValues",
+                    payload: { repeatPW: e.target.value }
+                  });
+                }}
+              />
+              <label
+                htmlFor="repeatPW"
+                className={repeatPW !== "" ? "input-not-empty" : ""}
+              >
+                repeat password
+              </label>
+            </div>
             <button className="button-save">save change</button>
           </form>
         )}
@@ -117,7 +108,11 @@ export default () => {
       <button
         onClick={e => {
           e.preventDefault();
-          g_dispatch({ type: "closeUserCenter" });
+          dispatch({ type: "closeUserCenter" });
+          dispatch({
+            type: "setUserRestPasswordFormValues",
+            payload: { password: "", repeatPW: "" }
+          });
         }}
         className={`button-close`}
       >
@@ -127,7 +122,7 @@ export default () => {
         onClick={e => {
           e.preventDefault();
           localStorage.removeItem("aupos_online_report_user");
-          g_dispatch({ type: "closeUserCenter" });
+          dispatch({ type: "closeUserCenter" });
           history.push(`${process.env.PUBLIC_URL}/login`);
         }}
         className={`button-logout`}
