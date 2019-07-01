@@ -82,7 +82,7 @@ export default ({ show, shops, hideNavBar = false, match }) => {
                 : ""
             }
           >
-            customize
+            table
           </span>
           <span
             onClick={() => {

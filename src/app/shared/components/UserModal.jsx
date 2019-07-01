@@ -4,6 +4,7 @@ import axios from "axios";
 import { useMappedState, useDispatch } from "redux-react-hook";
 import { apiUrl } from "../constants";
 import { history } from "../history";
+import { headers } from "../api";
 
 export default () => {
   const mapState = useCallback(
@@ -54,10 +55,20 @@ export default () => {
     if (hasErrs) {
       return;
     } else {
+      const user =
+        JSON.parse(localStorage.getItem("aupos_online_report_user")) || {};
       axios
-        .post(`${apiUrl}/password`, formValues)
+        .put(`${apiUrl}/password/${user.shops[0].user_id}`, formValues, headers)
         .then(resp => {
-          dispatch({ type: "setState", payload: { showForm: false } });
+          if (resp.data.code && parseInt(resp.data.code) === 0) {
+            alert("password updated");
+            dispatch({
+              type: "resetUserRestPassword"
+            });
+            dispatch({ type: "closeUserCenter" });
+          } else {
+            alert(resp.data.message);
+          }
         })
         .catch(errs => {
           console.log("update password fail: ", errs);
@@ -137,6 +148,9 @@ export default () => {
           e.preventDefault();
           localStorage.removeItem("aupos_online_report_user");
           dispatch({ type: "closeUserCenter" });
+          dispatch({
+            type: "resetUserRestPassword"
+          });
           history.push(`${process.env.PUBLIC_URL}/login`);
         }}
         className={`button-logout`}
