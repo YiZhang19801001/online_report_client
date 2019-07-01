@@ -14,6 +14,18 @@ export default (
       };
     case "setUserRestPasswordValidation":
       return { ...userRestPassword, ...action.payload };
+    case "setUserRestPasswordErrs":
+      return {
+        ...userRestPassword,
+        errs: { ...userRestPassword.errs, ...action.payload }
+      };
+
+    case "resetUserRestPassword":
+      return {
+        ...userRestPassword,
+        formValues: { password: "", repeatPW: "" },
+        errs: { password: "", repeatPW: "" }
+      };
     default:
       return userRestPassword;
   }

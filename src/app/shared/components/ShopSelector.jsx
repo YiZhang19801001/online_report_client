@@ -15,7 +15,6 @@ const reducer = (state, action) => {
 const initState = { shopId: undefined, prefixPath: "daily" };
 
 const makeNewPath = path => {
-  console.log({ path });
   switch (path) {
     case `${process.env.PUBLIC_URL}/weekly`:
     case `${process.env.PUBLIC_URL}/weekly/:shopId`:
@@ -31,7 +30,6 @@ const makeNewPath = path => {
     case `${process.env.PUBLIC_URL}/all/:shopId`:
       return "all";
     default:
-      console.log(path);
       return path;
   }
 };

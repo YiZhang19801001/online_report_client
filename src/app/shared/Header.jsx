@@ -22,23 +22,19 @@ export default ({ show, shops, hideNavBar = false, match }) => {
       <div className={`header-title`}>
         <div className={`icon-container`}>
           {JSON.parse(localStorage.getItem("aupos_online_report_user")).shops
-            .length > 1 &&
-            path !== `${process.env.PUBLIC_URL}/total` && (
-              <img
-                src="http://kidsnparty.com.au/roben_api/images/homepage.png"
-                alt=""
-                onClick={() => {
-                  history.push(`${process.env.PUBLIC_URL}/total`);
-                }}
-              />
-            )}
+            .length > 1 && path !== `${process.env.PUBLIC_URL}/total` ? (
+            <img
+              src="http://kidsnparty.com.au/roben_api/images/homepage.png"
+              alt=""
+              onClick={() => {
+                history.push(`${process.env.PUBLIC_URL}/total`);
+              }}
+            />
+          ) : (
+            <div style={{ width: "1.6rem", height: "2rem" }} />
+          )}
         </div>
-        <div
-          className="title"
-          onClick={e => {
-            history.push(`${process.env.PUBLIC_URL}/total`);
-          }}
-        >
+        <div className="title">
           <span className="year">{year}</span>
           <span className="text">Reports</span>
         </div>

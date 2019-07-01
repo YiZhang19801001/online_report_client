@@ -8,8 +8,6 @@ export default ({ data, weeks, tabs }) => {
     return <Loading />;
   }
 
-  console.log({ weeks });
-
   return (
     <div className="table-container">
       <table>

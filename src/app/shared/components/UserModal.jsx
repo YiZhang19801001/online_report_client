@@ -26,29 +26,33 @@ export default () => {
 
   const onSubmit = e => {
     e.preventDefault();
+    let hasErrs = false;
     if (password === "") {
+      hasErrs = true;
       dispatch({
-        type: "setErrs",
+        type: "setUserRestPasswordErrs",
         payload: { password: "password is required" }
       });
     }
 
     if (repeatPW === "") {
+      hasErrs = true;
       dispatch({
-        type: "setErrs",
+        type: "setUserRestPasswordErrs",
         payload: { repeatPW: "repeat password is required" }
       });
     }
 
     if (password !== repeatPW) {
+      hasErrs = true;
       dispatch({
-        type: "setErrs",
+        type: "setUserRestPasswordErrs",
         payload: { repeatPW: "password not matched" }
       });
     }
 
-    if (errs.password !== "" || errs.repeatPW !== "") {
-      return false;
+    if (hasErrs) {
+      return;
     } else {
       axios
         .post(`${apiUrl}/password`, formValues)
@@ -84,6 +88,7 @@ export default () => {
                 }}
               />
               <label
+                name={`password`}
                 htmlFor="password"
                 className={password !== "" ? "input-not-empty" : ""}
               >
@@ -103,10 +108,12 @@ export default () => {
                 }}
               />
               <label
+                name={`repeatPw`}
                 htmlFor="repeatPW"
                 className={repeatPW !== "" ? "input-not-empty" : ""}
               >
-                repeat password
+                repeat password{" "}
+                {errs.repeatPW !== "" ? ": " + errs.repeatPW : ""}
               </label>
             </div>
             <button className="button-save">save change</button>
@@ -118,8 +125,7 @@ export default () => {
           e.preventDefault();
           dispatch({ type: "closeUserCenter" });
           dispatch({
-            type: "setUserRestPasswordFormValues",
-            payload: { password: "", repeatPW: "" }
+            type: "resetUserRestPassword"
           });
         }}
         className={`button-close`}
