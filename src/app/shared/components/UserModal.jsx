@@ -58,7 +58,11 @@ export default () => {
       const user =
         JSON.parse(localStorage.getItem("aupos_online_report_user")) || {};
       axios
-        .put(`${apiUrl}/password/${user.shops[0].user_id}`, formValues, headers)
+        .put(
+          `${apiUrl}/password/${user.shops[0].user_id}`,
+          formValues,
+          headers()
+        )
         .then(resp => {
           if (resp.data.code && parseInt(resp.data.code) === 0) {
             alert("password updated");

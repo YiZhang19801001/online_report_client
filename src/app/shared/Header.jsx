@@ -49,35 +49,56 @@ export default ({ show, shops, hideNavBar = false, match }) => {
           />
         </div>
       </div>
-      <ShopSelector shops={shops} path={path} shop_id={shopId} />
+      {path !== `${process.env.PUBLIC_URL}/total` && (
+        <ShopSelector shops={shops} path={path} shop_id={shopId} />
+      )}
       {!hideNavBar && (
         <div className="navigation">
           <span
             onClick={() => {
-              history.push(`${process.env.PUBLIC_URL}/daily`);
+              if (shopId) {
+                history.push(`${process.env.PUBLIC_URL}/daily/${shopId}`);
+              } else {
+                history.push(`${process.env.PUBLIC_URL}/daily`);
+              }
             }}
             className={
-              path === "/daily" || path === "/daily/:shopId" ? "active" : ""
+              path === `${process.env.PUBLIC_URL}/daily` ||
+              path === `${process.env.PUBLIC_URL}/daily/:shopId`
+                ? "active"
+                : ""
             }
           >
             daily
           </span>
           <span
             onClick={() => {
-              history.push(`${process.env.PUBLIC_URL}/weekly`);
+              if (shopId) {
+                history.push(`${process.env.PUBLIC_URL}/weekly/${shopId}`);
+              } else {
+                history.push(`${process.env.PUBLIC_URL}/weekly`);
+              }
             }}
             className={
-              path === "/weekly" || path === "/weekly/:shopId" ? "active" : ""
+              path === `${process.env.PUBLIC_URL}/weekly` ||
+              path === `${process.env.PUBLIC_URL}/weekly/:shopId`
+                ? "active"
+                : ""
             }
           >
             weekly
           </span>
           <span
             onClick={() => {
-              history.push(`${process.env.PUBLIC_URL}/customize`);
+              if (shopId) {
+                history.push(`${process.env.PUBLIC_URL}/customize/${shopId}`);
+              } else {
+                history.push(`${process.env.PUBLIC_URL}/customize`);
+              }
             }}
             className={
-              path === "/customize" || path === "/customize/:shopId"
+              path === `${process.env.PUBLIC_URL}/customize` ||
+              path === `${process.env.PUBLIC_URL}/customize/:shopId`
                 ? "active"
                 : ""
             }
@@ -86,10 +107,17 @@ export default ({ show, shops, hideNavBar = false, match }) => {
           </span>
           <span
             onClick={() => {
-              history.push(`${process.env.PUBLIC_URL}/all`);
+              if (shopId) {
+                history.push(`${process.env.PUBLIC_URL}/all/${shopId}`);
+              } else {
+                history.push(`${process.env.PUBLIC_URL}/all`);
+              }
             }}
             className={
-              path === "/all" || path === "/all/:shopId" ? "active" : ""
+              path === `${process.env.PUBLIC_URL}/all` ||
+              path === `${process.env.PUBLIC_URL}/all/:shopId`
+                ? "active"
+                : ""
             }
           >
             more
