@@ -6,10 +6,13 @@ import { apiUrl } from "../constants";
 import { history } from "../history";
 
 export default () => {
-  const mapState = useCallback(({ showUserCenter, userResetPassword }) => ({
-    showUserCenter,
-    userResetPassword
-  }));
+  const mapState = useCallback(
+    ({ showUserCenter, userResetPassword }) => ({
+      showUserCenter,
+      userResetPassword
+    }),
+    []
+  );
 
   const { showUserCenter, userResetPassword } = useMappedState(mapState);
 
@@ -63,6 +66,11 @@ export default () => {
       <div className={`new-password`}>
         {valid && (
           <form onSubmit={onSubmit} className={`reset-password-form`}>
+            <div className={`intro`}>
+              you can only change your password <b>once</b>. <br />
+              if you want to change your password again, you have to call our
+              staff to reset your password first
+            </div>
             <div className={`form-field`}>
               <input
                 type="password"

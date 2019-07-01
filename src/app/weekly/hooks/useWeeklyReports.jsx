@@ -11,7 +11,7 @@ export default (date, shopId) => {
     axios
       .get(
         `${apiUrl}/reports?meta=weeklySummary&date=${date}${
-          shopId ? `&shopId=${shopId}` : ""
+          shopId ? `&shopId=` + shopId : ""
         }`,
         {
           headers: {

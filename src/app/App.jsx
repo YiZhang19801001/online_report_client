@@ -7,13 +7,19 @@ import { Modal, history, UserModal } from "./shared/";
 import "./App.css";
 export default () => {
   checkLogin(history.location.pathname);
+  const mapState = useCallback(({ showModal, showUserCenter }) => ({
+    showModal,
+    showUserCenter
+  }));
 
-  const mapState = useCallback(({ showModal }) => ({ showModal }), []);
-
-  const { showModal } = useMappedState(mapState);
+  const { showModal, showUserCenter } = useMappedState(mapState);
 
   return (
-    <div className={`app ${showModal ? "blur" : ""}`}>
+    <div
+      className={`app ${showModal ? "blur" : ""} ${
+        showUserCenter ? "blur" : ""
+      }`}
+    >
       <Modal />
       <UserModal />
       <Routes />
