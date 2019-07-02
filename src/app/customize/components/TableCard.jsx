@@ -5,7 +5,7 @@ export default ({ table }) => {
 
   const getTableClass = () => {
     switch (table_status) {
-      case "9":
+      case "1":
         return `table-card table-status3`;
 
       case "0":
