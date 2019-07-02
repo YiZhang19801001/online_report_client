@@ -797,6 +797,10 @@ form {
       .component-tables-report .tables-grid .table-card.table-status3 {
         background-color: #0077cc;
         color: #fff; }
+      .component-tables-report .tables-grid .table-card .site-name {
+        font-size: 0.8rem; }
+      .component-tables-report .tables-grid .table-card .seats {
+        font-size: 0.7rem; }
 
 .component-login {
   height: 100vh;
@@ -967,6 +971,10 @@ form {
       .component-tables-report .tables-grid .table-card.table-status3 {
         background-color: #0077cc;
         color: #fff; }
+      .component-tables-report .tables-grid .table-card .site-name {
+        font-size: 0.8rem; }
+      .component-tables-report .tables-grid .table-card .seats {
+        font-size: 0.7rem; }
 
 .component-custom-report {
   background-color: #e1e1e1;
