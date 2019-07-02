@@ -7,7 +7,7 @@ import NoOfTrans from "./NoOfTrans";
 import PaymentMethod from "./PaymentMethod";
 import DataGroup from "./DataGroup";
 import { QuickDatePicker } from "./components/";
-import { Header } from "../shared";
+import { Header, userAuth } from "../shared";
 import { apiUrl } from "../shared/constants";
 
 export default props => {
@@ -105,7 +105,9 @@ export default props => {
         </div>
 
         <div className="row shadow">
-          {rendered && <DataGroup shopId={shopId} date={dateForDailyReport} />}
+          {userAuth().cups_report && rendered && (
+            <DataGroup shopId={shopId} date={dateForDailyReport} />
+          )}
         </div>
       </div>
     </>

@@ -1,14 +1,22 @@
 import React from "react";
 import { uniqueId } from "lodash";
+import { userAuth } from "../../shared";
 
 export default ({ reportType, dispatch }) => {
-  const options = [
-    { value: "product", text: "sales by products" },
-    { value: "category", text: "sales by category" },
-    { value: "hour", text: "sales by hours" },
-    { value: "day", text: "sales by day" },
-    { value: "customer", text: "customer report" }
-  ];
+  const options = userAuth().customer_report
+    ? [
+        { value: "product", text: "sales by products" },
+        { value: "category", text: "sales by category" },
+        { value: "hour", text: "sales by hours" },
+        { value: "day", text: "sales by day" },
+        { value: "customer", text: "customer report" }
+      ]
+    : [
+        { value: "product", text: "sales by products" },
+        { value: "category", text: "sales by category" },
+        { value: "hour", text: "sales by hours" },
+        { value: "day", text: "sales by day" }
+      ];
 
   return (
     <div className="flat-block">

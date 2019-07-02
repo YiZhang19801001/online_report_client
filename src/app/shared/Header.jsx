@@ -5,6 +5,7 @@ import moment from "moment";
 import { history } from "./history";
 
 import ShopSelector from "./components/ShopSelector";
+import userAuth from "./userAuth";
 
 export default ({ show, shops, hideNavBar = false, match }) => {
   const { path } = match;
@@ -88,23 +89,25 @@ export default ({ show, shops, hideNavBar = false, match }) => {
           >
             weekly
           </span>
-          <span
-            onClick={() => {
-              if (shopId) {
-                history.push(`${process.env.PUBLIC_URL}/customize/${shopId}`);
-              } else {
-                history.push(`${process.env.PUBLIC_URL}/customize`);
+          {userAuth().tables_report && (
+            <span
+              onClick={() => {
+                if (shopId) {
+                  history.push(`${process.env.PUBLIC_URL}/customize/${shopId}`);
+                } else {
+                  history.push(`${process.env.PUBLIC_URL}/customize`);
+                }
+              }}
+              className={
+                path === `${process.env.PUBLIC_URL}/customize` ||
+                path === `${process.env.PUBLIC_URL}/customize/:shopId`
+                  ? "active"
+                  : ""
               }
-            }}
-            className={
-              path === `${process.env.PUBLIC_URL}/customize` ||
-              path === `${process.env.PUBLIC_URL}/customize/:shopId`
-                ? "active"
-                : ""
-            }
-          >
-            table
-          </span>
+            >
+              table
+            </span>
+          )}
           <span
             onClick={() => {
               if (shopId) {

@@ -5,4 +5,5 @@ import Loading from "./Loading";
 import Form from "./components/Form";
 import Modal from "./components/Modal";
 import UserModal from "./components/UserModal";
-export { history, Header, Table, Loading, Form, Modal, UserModal };
+import userAuth from "./userAuth";
+export { history, Header, Table, Loading, Form, Modal, UserModal, userAuth };
