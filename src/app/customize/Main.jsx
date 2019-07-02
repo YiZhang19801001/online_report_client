@@ -16,15 +16,21 @@ const reducer = (state, action) => {
 const initState = {
   isLoading: true,
   table_status_id: null,
-  table_status: "all"
+  table_status: "all",
+  site_id: "all"
 };
 
 export default props => {
   const { shopId } = props.match.params;
 
   const [state, dispatch] = useReducer(reducer, initState);
-  const { isLoading, table_status_id, table_status } = state;
-  const { tables, tableStats } = fetchTables(table_status_id, dispatch, shopId);
+  const { isLoading, table_status_id, table_status, site_id } = state;
+  const { tables, tableStats } = fetchTables(
+    table_status_id,
+    dispatch,
+    shopId,
+    site_id
+  );
 
   return (
     <>
@@ -34,6 +40,8 @@ export default props => {
           table_status={table_status}
           dispatch={dispatch}
           tableStats={tableStats}
+          shopId={shopId}
+          site_id={site_id}
         />
         <div className={"tables-grid"}>
           {isLoading && <Loading />}

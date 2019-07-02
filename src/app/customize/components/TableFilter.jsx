@@ -1,9 +1,36 @@
 import React from "react";
-
-export default ({ table_status = "all", dispatch, tableStats }) => {
+import { useSites } from "../hooks";
+export default ({
+  table_status = "all",
+  site_id = "all",
+  dispatch,
+  tableStats
+}) => {
   const { all, available, occupied, reserve } = tableStats;
+  const sites = useSites(dispatch);
   return (
     <div className={"tables-filter"}>
+      <div className={`tables-filter__row site-selector`}>
+        <select
+          value={site_id}
+          onChange={e => {
+            dispatch({
+              type: "setState",
+              payload: { site_id: e.target.value }
+            });
+          }}
+          className={`selector`}
+        >
+          <option value={"all"}>All</option>
+          {sites.map((site, i) => {
+            return (
+              <option key={`siteOption${i}`} value={site.site_id}>
+                {site.site_name}
+              </option>
+            );
+          })}
+        </select>
+      </div>
       <div className={"tables-filter__row"}>
         <div
           className={`table-filter__button ${

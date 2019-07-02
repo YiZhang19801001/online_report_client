@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { apiUrl } from "../../shared/constants";
 
-export default (status_id, dispatch, shopId) => {
+export default (status_id, dispatch, shopId, site_id = "all") => {
   const [data, setData] = useState({
     tables: [],
     tableStats: {
@@ -17,12 +17,16 @@ export default (status_id, dispatch, shopId) => {
 
     let path = "";
 
-    if (shopId && status_id !== null) {
-      path = `?shopId=${shopId}&table_status=${status_id}`;
-    } else if (shopId) {
+    if (shopId && status_id !== null && site_id !== "all") {
+      path = `?shopId=${shopId}&table_status=${status_id}&site_id=${site_id}`;
+    } else if (shopId && site_id === "all") {
       path = `?shopId=${shopId}`;
-    } else if (status_id !== null) {
+    } else if (status_id !== null && site_id === "all") {
       path = `?table_status=${status_id}`;
+    } else if (site_id !== "all" && shopId) {
+      path = `?shopId=${shopId}&site_id=${site_id}`;
+    } else if (site_id !== "all" && status_id !== null) {
+      path = `?table_status=${status_id}&site_id=${site_id}`;
     }
 
     axios
@@ -38,7 +42,7 @@ export default (status_id, dispatch, shopId) => {
         setData(res.data);
         dispatch({ type: "setState", payload: { isLoading: false } });
       });
-  }, [status_id, shopId]);
+  }, [status_id, shopId, site_id]);
 
   return data;
 };
