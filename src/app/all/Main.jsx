@@ -19,8 +19,14 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
-  startDate: moment().startOf("day"),
-  endDate: moment().endOf("day"),
+  startDate: moment
+    .utc()
+    .add("minutes", "Australia/Sydney")
+    .startOf("day"),
+  endDate: moment
+    .utc()
+    .add("minutes", "Australia/Sydney")
+    .endOf("day"),
   reportType: "category",
   isLoading: true
 };

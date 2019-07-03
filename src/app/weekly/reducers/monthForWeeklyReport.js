@@ -1,6 +1,9 @@
 import moment from "moment";
 export default (
-  monthForWeeklyReport = moment().format("YYYY-MM-DD"),
+  monthForWeeklyReport = moment
+    .utc()
+    .add("minutes", "Australia/Sydney")
+    .format("YYYY-MM-DD"),
   action
 ) => {
   switch (action.type) {

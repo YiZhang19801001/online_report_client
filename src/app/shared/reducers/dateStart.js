@@ -1,6 +1,8 @@
 import moment from "moment";
 export default (
-  dateStart = moment()
+  dateStart = moment
+    .utc()
+    .add("minutes", "Australia/Sydney")
     .subtract(1, "days")
     .format("YYYY-MM-DD"),
   action

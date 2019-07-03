@@ -16,11 +16,19 @@ const reducer = (state, action) => {
   }
 };
 
+const zone = "Australia/Sydney";
+
 const initState = {
   isLoading: true,
   date: {
-    startDate: moment().startOf("day"),
-    endDate: moment().endOf("day")
+    startDate: moment
+      .utc()
+      .add("minutes", "Australia/Sydney")
+      .startOf("day"),
+    endDate: moment
+      .utc()
+      .endOf("day")
+      .add("minutes", zone)
   }
 };
 

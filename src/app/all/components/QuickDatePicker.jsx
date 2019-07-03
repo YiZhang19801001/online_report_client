@@ -10,10 +10,15 @@ export default ({ dispatch }) => {
           dispatch({
             type: "setState",
             payload: {
-              startDate: moment()
+              startDate: moment
+                .utc()
                 .subtract(7, "days")
-                .startOf("day"),
-              endDate: moment().endOf("day")
+                .startOf("day")
+                .add("minutes", "Australia/Sydney"),
+              endDate: moment
+                .utc()
+                .endOf("day")
+                .add("minutes", "Australia/Sydney")
             }
           });
         }}
@@ -26,11 +31,15 @@ export default ({ dispatch }) => {
           dispatch({
             type: "setState",
             payload: {
-              startDate: moment()
+              startDate: moment
+                .utc()
+                .add("minutes", "Australia/Sydney")
                 .startOf("week")
                 .subtract(1, "weeks")
                 .startOf("day"),
-              endDate: moment()
+              endDate: moment
+                .utc()
+                .add("minutes", "Australia/Sydney")
                 .startOf("week")
                 .startOf("day")
             }
@@ -45,11 +54,15 @@ export default ({ dispatch }) => {
           dispatch({
             type: "setState",
             payload: {
-              startDate: moment()
+              startDate: moment
+                .utc()
+                .add("minutes", "Australia/Sydney")
                 .startOf("month")
                 .subtract(1, "months")
                 .startOf("day"),
-              endDate: moment()
+              endDate: moment
+                .utc()
+                .add("minutes", "Australia/Sydney")
                 .startOf("month")
                 .startOf("day")
             }
@@ -64,10 +77,15 @@ export default ({ dispatch }) => {
           dispatch({
             type: "setState",
             payload: {
-              startDate: moment()
+              startDate: moment
+                .utc()
+                .add("minutes", "Australia/Sydney")
                 .startOf("month")
                 .startOf("day"),
-              endDate: moment().endOf("day")
+              endDate: moment
+                .utc()
+                .add("minutes", "Australia/Sydney")
+                .endOf("day")
             }
           });
         }}
