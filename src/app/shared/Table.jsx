@@ -71,8 +71,8 @@ const renderThead = (ths, sort, dataFormat, sortOrders) => {
                         alt=""
                       />
                     ) : (
-                      <img src="http://kidsnparty.com.au/report/table-unsorting.svg" />
-                    )}
+                        <img src="http://kidsnparty.com.au/report/table-unsorting.svg" />
+                      )}
                   </span>
                 )}
               </span>
@@ -96,7 +96,7 @@ const renderTbody = (data, dataFormat, sum, striped) => {
             key={_.uniqueId("tableRow")}
             className={`${index % 2 !== 0 ? "colored" : ""} ${
               striped ? "striped" : ""
-            }`}
+              }`}
           >
             {renderTds(dataFormat, row)}
           </tr>
@@ -120,8 +120,8 @@ const renderTds = (dataFormat, row) => {
               ? parseInt(row[property.value])
               : property.value === "gp_percentage" ||
                 property.value === "percentage"
-              ? `${Math.round(parseFloat(row[property.value]) * 10000) / 100}%`
-              : parseFloat(row[property.value]).toFixed(2)
+                ? `${Math.round(parseFloat(row[property.value]) * 10000) / 100}%`
+                : parseFloat(row[property.value]).toFixed(2)
             : row[property.value]}
         </span>
       </td>
@@ -176,13 +176,13 @@ const calculateSum = (property, data) => {
 };
 
 const dynamicSort = (property, sortOrder) => {
-  return function(a, b) {
+  return function (a, b) {
     var result =
-      Number(a[property]) < Number(b[property])
+      parseFloat(a[property]) < parseFloat(b[property])
         ? -1
-        : a[property] > b[property]
-        ? 1
-        : 0;
+        : parseFloat(a[property]) > parseFloat(b[property])
+          ? 1
+          : 0;
     return result * sortOrder;
   };
 };
