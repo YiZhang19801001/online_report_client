@@ -77,13 +77,13 @@ export default props => {
 };
 
 const getTabs = reports => {
-  let tabs = ["cash"];
+  let tabs = ["Cash"];
 
   reports.forEach(report => {
     const { paymentMethodReports } = report;
 
     paymentMethodReports.forEach(item => {
-      if (!tabs.includes(item.paymenttype)) {
+      if (!tabs.includes(item.paymenttype) && item.paymenttype.toLowerCase() !== "cash") {
         tabs = [...tabs, item.paymenttype];
       }
     });

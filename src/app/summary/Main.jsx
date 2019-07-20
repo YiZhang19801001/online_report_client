@@ -33,7 +33,7 @@ export default props => {
             Authorization: `Bearer ${
               JSON.parse(localStorage.getItem("aupos_online_report_user"))
                 .access_token
-            }`
+              }`
           }
         }
       );
@@ -82,7 +82,7 @@ export default props => {
       <div
         className={`summary ${showHeader ? "" : "header-hide"} ${
           showModal ? "blur" : ""
-        }`}
+          }`}
         id="summary-page"
       >
         <div className={`row ${showHeader ? "" : "hide"}`}>
@@ -92,12 +92,12 @@ export default props => {
           <Sales
             sales={reports.sales}
             comparison={reports.compareSales}
-            date={momment(dateForDailyReport).format(`MMM DD`)}
+            date={momment(dateForDailyReport).subtract(1, 'days').format(`DD MMM`)}
           />
           <NoOfTrans
             sum={reports.numberOfTransactions}
             comparison={reports.compareNumberOfTransactions}
-            date={momment(dateForDailyReport).format(`MMM DD`)}
+            date={momment(dateForDailyReport).subtract(1, 'days').format(`DD MMM`)}
           />
         </div>
         <div className="row shadow">
