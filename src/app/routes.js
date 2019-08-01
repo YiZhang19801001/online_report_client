@@ -7,6 +7,7 @@ import { AllReports } from "./all";
 import { CustomReport } from "./customize";
 import { Login } from "./auth";
 import { TotalSummary } from "./totalSummary";
+import ExportReport from "./exportReport";
 export default () => {
   return (
     <Router history={history}>
@@ -46,9 +47,20 @@ export default () => {
           component={CustomReport}
         />
         <Route
+          path={`${process.env.PUBLIC_URL}/export/:shopId`}
+          component={ExportReport}
+        />
+
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/export`}
+          component={ExportReport}
+        />
+        <Route
           path={`${process.env.PUBLIC_URL}/all/:shopId`}
           component={AllReports}
         />
+
 
         <Route
           exact

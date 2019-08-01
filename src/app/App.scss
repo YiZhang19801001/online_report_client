@@ -11,6 +11,27 @@
   font-family: "Roboto", sans-serif;
 }
 
+button{
+    &.button-download{
+        height: 3rem;
+        background: radial-gradient(#fff, #735EDF);
+        border:none;
+        border-radius: 3px;
+        box-shadow: 0 0 6px #577BE2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+        color:color('myBlue');
+        text-transform: uppercase;
+        .material-icons{
+            margin-right: 0.5rem;
+            text-shadow: 0 0 3px #fff;
+            color:color('myBlue');
+        }
+    }
+}
+
 @import "./summary/sass/index.scss";
 @import "./weekly/sass/index.scss";
 @import "./customize/sass/index.scss";
@@ -18,3 +39,4 @@
 @import "./customize/sass/index.scss";
 @import "./all/sass/index.scss";
 @import "./totalSummary/sass/index.scss";
+@import "./exportReport/sass/index.scss";

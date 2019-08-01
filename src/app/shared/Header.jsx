@@ -24,16 +24,16 @@ export default ({ show, shops, hideNavBar = false, match }) => {
         <div className={`icon-container`}>
           {JSON.parse(localStorage.getItem("aupos_online_report_user")).shops
             .length > 1 && path !== `${process.env.PUBLIC_URL}/total` ? (
-            <img
-              src="http://kidsnparty.com.au/roben_api/images/homepage.png"
-              alt=""
-              onClick={() => {
-                history.push(`${process.env.PUBLIC_URL}/total`);
-              }}
-            />
-          ) : (
-            <div style={{ width: "1.6rem", height: "2rem" }} />
-          )}
+              <img
+                src="http://kidsnparty.com.au/roben_api/images/homepage.png"
+                alt=""
+                onClick={() => {
+                  history.push(`${process.env.PUBLIC_URL}/total`);
+                }}
+              />
+            ) : (
+              <div style={{ width: "1.6rem", height: "2rem" }} />
+            )}
         </div>
         <div className="title">
           <span className="year">{year}</span>
@@ -65,7 +65,7 @@ export default ({ show, shops, hideNavBar = false, match }) => {
             }}
             className={
               path === `${process.env.PUBLIC_URL}/daily` ||
-              path === `${process.env.PUBLIC_URL}/daily/:shopId`
+                path === `${process.env.PUBLIC_URL}/daily/:shopId`
                 ? "active"
                 : ""
             }
@@ -82,7 +82,7 @@ export default ({ show, shops, hideNavBar = false, match }) => {
             }}
             className={
               path === `${process.env.PUBLIC_URL}/weekly` ||
-              path === `${process.env.PUBLIC_URL}/weekly/:shopId`
+                path === `${process.env.PUBLIC_URL}/weekly/:shopId`
                 ? "active"
                 : ""
             }
@@ -100,12 +100,31 @@ export default ({ show, shops, hideNavBar = false, match }) => {
               }}
               className={
                 path === `${process.env.PUBLIC_URL}/customize` ||
-                path === `${process.env.PUBLIC_URL}/customize/:shopId`
+                  path === `${process.env.PUBLIC_URL}/customize/:shopId`
                   ? "active"
                   : ""
               }
             >
               table
+            </span>
+          )}
+          {userAuth().export_report && (
+            <span
+              onClick={() => {
+                if (shopId) {
+                  history.push(`${process.env.PUBLIC_URL}/export/${shopId}`);
+                } else {
+                  history.push(`${process.env.PUBLIC_URL}/export`);
+                }
+              }}
+              className={
+                path === `${process.env.PUBLIC_URL}/export` ||
+                  path === `${process.env.PUBLIC_URL}/export/:shopId`
+                  ? "active"
+                  : ""
+              }
+            >
+              export
             </span>
           )}
           <span
@@ -118,7 +137,7 @@ export default ({ show, shops, hideNavBar = false, match }) => {
             }}
             className={
               path === `${process.env.PUBLIC_URL}/all` ||
-              path === `${process.env.PUBLIC_URL}/all/:shopId`
+                path === `${process.env.PUBLIC_URL}/all/:shopId`
                 ? "active"
                 : ""
             }

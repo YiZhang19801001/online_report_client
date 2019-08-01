@@ -1,31 +1,38 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700,900");
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body,
 html {
   margin: 0;
   padding: 0;
-  font-family: "pingfang", Arial, Helvetica, sans-serif !important; }
+  font-family: "pingfang", Arial, Helvetica, sans-serif !important;
+}
 
 body {
   background-color: #fff;
-  min-height: 100vh; }
+  min-height: 100vh;
+}
 
 .app {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  overflow: scroll; }
-  .app.blur {
-    filter: blur(10px); }
+  overflow: scroll;
+}
+.app.blur {
+  filter: blur(10px);
+}
 
 /* hide ugly scrollbar */
 ::-webkit-scrollbar {
-  display: none; }
+  display: none;
+}
 
 ::-moz-scrollbar {
-  display: none; }
+  display: none;
+}
 
 .app .header {
   height: 34vh;
@@ -44,147 +51,185 @@ body {
   transition: all 300ms linear;
   position: fixed;
   left: 0;
-  top: 0; }
-  .app .header.hide {
-    height: 8vh;
-    box-shadow: none;
-    flex-direction: row; }
-    .app .header.hide .shop-selector,
-    .app .header.hide .header-title {
-      display: none; }
-    .app .header.hide .navigation {
-      width: max-content;
-      border: none; }
-      .app .header.hide .navigation span {
-        font-size: 0.8rem;
-        padding: 0.2rem 0.4rem; }
-        .app .header.hide .navigation span.active {
-          border-bottom: 1px solid #fff; }
-  .app .header .header-title {
-    display: flex;
-    width: 100%;
-    justify-content: space-between; }
-    .app .header .header-title .icon-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 2rem; }
-      .app .header .header-title .icon-container img {
-        height: 80%; }
-    .app .header .header-title .title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 2rem;
-      width: 100%;
-      color: #fff; }
-      .app .header .header-title .title span.year {
-        margin-right: 0.2rem;
-        font-weight: 300; }
-      .app .header .header-title .title span.text {
-        font-weight: 500; }
-  .app .header .setting-icon {
-    position: absolute;
-    right: 0.5rem;
-    top: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    .app .header .setting-icon img {
-      height: 100%;
-      width: 100%; }
-  .app .header .navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    border-bottom: 1px solid #b3aaf6; }
-    .app .header .navigation span {
-      font-weight: 100;
-      height: 100%;
-      font-size: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #d0c9ff;
-      padding: 0.5rem 0.8rem;
-      text-transform: capitalize;
-      margin-bottom: -3px; }
-      .app .header .navigation span.active {
-        border-bottom: 3px solid #fff;
-        color: #fff;
-        font-weight: 300; }
+  top: 0;
+}
+.app .header.hide {
+  height: 8vh;
+  box-shadow: none;
+  flex-direction: row;
+}
+.app .header.hide .shop-selector,
+.app .header.hide .header-title {
+  display: none;
+}
+.app .header.hide .navigation {
+  width: max-content;
+  border: none;
+}
+.app .header.hide .navigation span {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+}
+.app .header.hide .navigation span.active {
+  border-bottom: 1px solid #fff;
+}
+.app .header .header-title {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.app .header .header-title .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+}
+.app .header .header-title .icon-container img {
+  height: 80%;
+}
+.app .header .header-title .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 100%;
+  color: #fff;
+}
+.app .header .header-title .title span.year {
+  margin-right: 0.2rem;
+  font-weight: 300;
+}
+.app .header .header-title .title span.text {
+  font-weight: 500;
+}
+.app .header .setting-icon {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .header .setting-icon img {
+  height: 100%;
+  width: 100%;
+}
+.app .header .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #b3aaf6;
+}
+.app .header .navigation span {
+  font-weight: 100;
+  height: 100%;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d0c9ff;
+  padding: 0.5rem 0.8rem;
+  text-transform: capitalize;
+  margin-bottom: -3px;
+}
+.app .header .navigation span.active {
+  border-bottom: 3px solid #fff;
+  color: #fff;
+  font-weight: 300;
+}
 
 table {
   width: 100%;
   max-height: 100%;
   overflow: scroll;
   border-spacing: 0;
-  margin-top: 0.5rem; }
-  table thead tr th {
-    padding-bottom: 0.8rem; }
-    table thead tr th .th-content-container {
-      display: inline-flex;
-      justify-content: flex-start;
-      align-items: center;
-      width: 100%;
-      text-transform: capitalize;
-      color: #8d8aa7;
-      font-weight: 300; }
-      table thead tr th .th-content-container .th-title {
-        margin-right: 0.2rem; }
-      table thead tr th .th-content-container .th-symbol {
-        height: 1rem; }
-        table thead tr th .th-content-container .th-symbol.decrease img {
-          transform: rotateZ(180deg); }
-        table thead tr th .th-content-container .th-symbol img {
-          height: 100%; }
-    table thead tr th.number {
-      padding-left: 0.2rem; }
-      table thead tr th.number .th-content-container {
-        justify-content: flex-end; }
-    table thead tr th.text {
-      padding-right: 0.2rem; }
-      table thead tr th.text .th-content-container {
-        justify-content: flex-start;
-        padding-left: 1.8rem; }
-  table tbody tr.colored.striped {
-    background-color: #f0eff5; }
-  table tbody tr.striped td {
-    border: none; }
-  table tbody tr.total {
-    font-weight: bold; }
-    table tbody tr.total td span {
-      width: 60%;
-      display: inline-block;
-      border-top: 2px solid #6d81e6; }
-  table tbody tr td {
-    padding: 0.8rem 0;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #dedede; }
-    table tbody tr td.number {
-      text-align: right;
-      padding-left: 0.2rem;
-      color: #6d81e6; }
-      table tbody tr td.number .symbol {
-        font-size: 0.8rem;
-        display: inline-block;
-        margin-right: 2px; }
-    table tbody tr td.text {
-      text-align: left;
-      padding-right: 0.2rem; }
-      table tbody tr td.text .payment-method-symbol {
-        display: inline-block;
-        height: 0.8rem;
-        width: 0.8rem;
-        border-radius: 50%;
-        border: 2px solid;
-        margin-right: 1rem; }
-      table tbody tr td.text .placeholder {
-        display: inline-block;
-        height: 0.8rem;
-        width: 0.8rem;
-        margin-right: 1rem; }
+  margin-top: 0.5rem;
+}
+table thead tr th {
+  padding-bottom: 0.8rem;
+}
+table thead tr th .th-content-container {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  text-transform: capitalize;
+  color: #8d8aa7;
+  font-weight: 300;
+}
+table thead tr th .th-content-container .th-title {
+  margin-right: 0.2rem;
+}
+table thead tr th .th-content-container .th-symbol {
+  height: 1rem;
+}
+table thead tr th .th-content-container .th-symbol.decrease img {
+  transform: rotateZ(180deg);
+}
+table thead tr th .th-content-container .th-symbol img {
+  height: 100%;
+}
+table thead tr th.number {
+  padding-left: 0.2rem;
+}
+table thead tr th.number .th-content-container {
+  justify-content: flex-end;
+}
+table thead tr th.text {
+  padding-right: 0.2rem;
+}
+table thead tr th.text .th-content-container {
+  justify-content: flex-start;
+  padding-left: 1.8rem;
+}
+table tbody tr.colored.striped {
+  background-color: #f0eff5;
+}
+table tbody tr.striped td {
+  border: none;
+}
+table tbody tr.total {
+  font-weight: bold;
+}
+table tbody tr.total td span {
+  width: 60%;
+  display: inline-block;
+  border-top: 2px solid #6d81e6;
+}
+table tbody tr td {
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #dedede;
+}
+table tbody tr td.number {
+  text-align: right;
+  padding-left: 0.2rem;
+  color: #6d81e6;
+}
+table tbody tr td.number .symbol {
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-right: 2px;
+}
+table tbody tr td.text {
+  text-align: left;
+  padding-right: 0.2rem;
+}
+table tbody tr td.text .payment-method-symbol {
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid;
+  margin-right: 1rem;
+}
+table tbody tr td.text .placeholder {
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-right: 1rem;
+}
 
 form {
   width: 85%;
@@ -192,64 +237,74 @@ form {
   flex-direction: column;
   align-items: center;
   max-width: 18rem;
-  min-width: 250px; }
-  form .form-field {
-    width: 100%;
-    height: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    margin-bottom: 0.5rem; }
-    form .form-field label {
-      text-transform: capitalize;
-      font-size: 0.8rem;
-      color: #211ef56b;
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      transition: all 300ms ease-in-out;
-      opacity: 1; }
-      form .form-field label.input-not-empty {
-        top: 0;
-        color: #6d81e6;
-        font-size: 0.6rem; }
-    form .form-field input {
-      height: 2rem;
-      width: 100%;
-      padding-left: 1rem;
-      border-radius: 0;
-      outline: none;
-      border: none;
-      font-size: 1.1rem;
-      border-bottom: 1px solid #6d81e6; }
-      form .form-field input::placeholder {
-        opacity: 0; }
-      form .form-field input:focus ~ label {
-        top: 0;
-        color: #6d81e6;
-        font-size: 0.6rem; }
-  form .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 0.5rem; }
-    form .button-container button {
-      height: 2rem;
-      width: 6rem;
-      border: 1px solid #6d81e6;
-      color: #6d81e6;
-      border-radius: 5px;
-      font-weight: bold;
-      text-transform: uppercase;
-      outline: none;
-      box-shadow: 0 0 3px;
-      transition: all 100ms ease-out;
-      background-color: #fff; }
-      form .button-container button:active {
-        box-shadow: none;
-        color: #fff;
-        background-color: #6d81e6; }
+  min-width: 250px;
+}
+form .form-field {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+form .form-field label {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  color: #211ef56b;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  transition: all 300ms ease-in-out;
+  opacity: 1;
+}
+form .form-field label.input-not-empty {
+  top: 0;
+  color: #6d81e6;
+  font-size: 0.6rem;
+}
+form .form-field input {
+  height: 2rem;
+  width: 100%;
+  padding-left: 1rem;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #6d81e6;
+}
+form .form-field input::placeholder {
+  opacity: 0;
+}
+form .form-field input:focus ~ label {
+  top: 0;
+  color: #6d81e6;
+  font-size: 0.6rem;
+}
+form .button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+form .button-container button {
+  height: 2rem;
+  width: 6rem;
+  border: 1px solid #6d81e6;
+  color: #6d81e6;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+  box-shadow: 0 0 3px;
+  transition: all 100ms ease-out;
+  background-color: #fff;
+}
+form .button-container button:active {
+  box-shadow: none;
+  color: #fff;
+  background-color: #6d81e6;
+}
 
 .component-modal {
   position: fixed;
@@ -263,83 +318,117 @@ form {
   padding-top: 30%;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.7);
-  flex-direction: column; }
-  .component-modal .reset-password-form {
-    margin-bottom: 3rem;
-    background-color: #fff;
-    padding: 1rem 1.5rem;
-    border-radius: 5px;
-    border: 1px solid #7162df;
-    box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
-    width: auto; }
-    .component-modal .reset-password-form .intro {
-      font-size: 0.75rem;
-      padding-bottom: 1rem;
-      color: #cbcbcd; }
-      .component-modal .reset-password-form .intro b {
-        color: #db2727;
-        text-transform: uppercase; }
-    .component-modal .reset-password-form .form-field input {
-      background-color: transparent; }
-    .component-modal .reset-password-form .button-save {
-      color: #7162df; }
-  .component-modal button {
-    margin-top: 0.5rem;
-    text-transform: capitalize;
-    min-width: 8rem;
-    height: 2.375rem;
-    padding: 0 1rem;
-    border-radius: 4px;
-    border: 1px solid #7162df;
-    outline: none;
-    background-color: transparent;
-    box-shadow: 0 0 3px rgba(182, 182, 182, 0.5); }
-    .component-modal button.button-close {
-      color: #21d599;
-      border-color: #21d599; }
-    .component-modal button.button-logout {
-      color: #db2727;
-      border-color: #db2727; }
+  flex-direction: column;
+}
+.component-modal .reset-password-form {
+  margin-bottom: 3rem;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  border: 1px solid #7162df;
+  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+  width: auto;
+}
+.component-modal .reset-password-form .intro {
+  font-size: 0.75rem;
+  padding-bottom: 1rem;
+  color: #cbcbcd;
+}
+.component-modal .reset-password-form .intro b {
+  color: #db2727;
+  text-transform: uppercase;
+}
+.component-modal .reset-password-form .form-field input {
+  background-color: transparent;
+}
+.component-modal .reset-password-form .button-save {
+  color: #7162df;
+}
+.component-modal button {
+  margin-top: 0.5rem;
+  text-transform: capitalize;
+  min-width: 8rem;
+  height: 2.375rem;
+  padding: 0 1rem;
+  border-radius: 4px;
+  border: 1px solid #7162df;
+  outline: none;
+  background-color: transparent;
+  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+}
+.component-modal button.button-close {
+  color: #21d599;
+  border-color: #21d599;
+}
+.component-modal button.button-logout {
+  color: #db2727;
+  border-color: #db2727;
+}
 
 .app .header .shop-selector {
   height: 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; }
-  .app .header .shop-selector .selector {
-    appearance: none;
-    height: 1.5rem;
-    display: flex;
-    text-align-last: center;
-    border-radius: 1rem;
-    background-color: #513ed5;
-    background-image: url("http://kidsnparty.com.au/report/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
-    background-repeat: no-repeat, repeat;
-    background-position: right 0.6em top 50%, 0 0;
-    background-size: 0.65em auto, 100%;
-    font-size: 1rem;
-    font-weight: 100;
-    border: none;
-    color: #fff;
-    min-width: 6rem;
-    width: max-content;
-    outline: none;
-    padding: 0 1rem; }
-    .app .header .shop-selector .selector::-ms-expand {
-      display: none; }
-    .app .header .shop-selector .selector .value {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-    .app .header .shop-selector .selector .indicator {
-      display: flex;
-      justify-content: center;
-      align-items: center; }
+  align-items: center;
+}
+.app .header .shop-selector .selector {
+  appearance: none;
+  height: 1.5rem;
+  display: flex;
+  text-align-last: center;
+  border-radius: 1rem;
+  background-color: #513ed5;
+  background-image: url("http://kidsnparty.com.au/report/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.6em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  font-size: 1rem;
+  font-weight: 100;
+  border: none;
+  color: #fff;
+  min-width: 6rem;
+  width: max-content;
+  outline: none;
+  padding: 0 1rem;
+}
+.app .header .shop-selector .selector::-ms-expand {
+  display: none;
+}
+.app .header .shop-selector .selector .value {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.app .header .shop-selector .selector .indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 * {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+}
+
+button.button-download {
+  height: 3rem;
+  background: radial-gradient(#fff, #735EDF);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 6px #577BE2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  color: #0077cc;
+  text-transform: uppercase;
+}
+button.button-download .material-icons {
+  margin-right: 0.5rem;
+  text-shadow: 0 0 3px #fff;
+  color: #0077cc;
+}
 
 .row .block {
   min-height: 6rem;
@@ -351,47 +440,57 @@ form {
   box-shadow: 0 1px 4px 0 rgba(182, 182, 182, 0.5);
   border-radius: 5px;
   background-color: #fff;
-  margin-top: 0.5rem; }
-  .row .block.large {
-    width: 100%;
-    margin: 0.5rem auto; }
-  .row .block .title {
-    text-transform: capitalize;
-    color: #7162df;
-    font-size: 0.7rem;
-    opacity: 0.7;
-    flex: 1; }
-  .row .block .value {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: #7162df;
-    font-weight: 700;
-    text-align: center; }
-    .row .block .value .symbol {
-      font-size: 0.8rem;
-      font-weight: 400;
-      margin-right: 0.1rem; }
-  .row .block .compare {
-    flex: 1;
-    font-size: 0.7rem;
-    font-weight: 200;
-    flex: 1;
-    transform: translateX(0.6rem);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%; }
-    .row .block .compare .date {
-      margin-right: 0.3rem; }
-    .row .block .compare .percentage {
-      margin-left: 0.3rem; }
-      .row .block .compare .percentage.increase {
-        color: #21d599; }
-      .row .block .compare .percentage.decrease {
-        color: #db2727; }
+  margin-top: 0.5rem;
+}
+.row .block.large {
+  width: 100%;
+  margin: 0.5rem auto;
+}
+.row .block .title {
+  text-transform: capitalize;
+  color: #7162df;
+  font-size: 0.7rem;
+  opacity: 0.7;
+  flex: 1;
+}
+.row .block .value {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #7162df;
+  font-weight: 700;
+  text-align: center;
+}
+.row .block .value .symbol {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-right: 0.1rem;
+}
+.row .block .compare {
+  flex: 1;
+  font-size: 0.7rem;
+  font-weight: 200;
+  flex: 1;
+  transform: translateX(0.6rem);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.row .block .compare .date {
+  margin-right: 0.3rem;
+}
+.row .block .compare .percentage {
+  margin-left: 0.3rem;
+}
+.row .block .compare .percentage.increase {
+  color: #21d599;
+}
+.row .block .compare .percentage.decrease {
+  color: #db2727;
+}
 
 .app .summary {
   width: 100vw;
@@ -399,46 +498,56 @@ form {
   height: 82vh;
   overflow: scroll;
   padding-bottom: 12rem;
-  scroll-behavior: smooth; }
-  .app .summary.header-hide {
-    margin-top: 10vh;
-    height: 100vh;
-    padding-top: 12vh; }
-  .app .summary .row {
-    width: 100%;
-    padding: 0 5%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 300ms linear;
-    margin-bottom: 1rem; }
-    .app .summary .row.shadow {
-      box-shadow: 0 0 4px rgba(182, 182, 182, 0.5); }
-    .app .summary .row.hide {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 40%;
-      padding-right: 0.1rem; }
-      .app .summary .row.hide .block.large.date-picker-container {
-        justify-content: flex-end;
-        padding-right: 1.8rem; }
-      .app .summary .row.hide button {
-        display: none; }
-      .app .summary .row.hide .display-date {
-        color: #fff;
-        border-radius: none;
-        border: none;
-        padding: 0.3rem 0.5rem;
-        padding-top: 0.4rem; }
-        .app .summary .row.hide .display-date .month {
-          font-weight: 300;
-          margin-right: 0.3rem;
-          font-size: 0.8rem; }
-        .app .summary .row.hide .display-date .day {
-          font-weight: 500;
-          font-size: 1rem; }
+  scroll-behavior: smooth;
+}
+.app .summary.header-hide {
+  margin-top: 10vh;
+  height: 100vh;
+  padding-top: 12vh;
+}
+.app .summary .row {
+  width: 100%;
+  padding: 0 5%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 300ms linear;
+  margin-bottom: 1rem;
+}
+.app .summary .row.shadow {
+  box-shadow: 0 0 4px rgba(182, 182, 182, 0.5);
+}
+.app .summary .row.hide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  padding-right: 0.1rem;
+}
+.app .summary .row.hide .block.large.date-picker-container {
+  justify-content: flex-end;
+  padding-right: 1.8rem;
+}
+.app .summary .row.hide button {
+  display: none;
+}
+.app .summary .row.hide .display-date {
+  color: #fff;
+  border-radius: none;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  padding-top: 0.4rem;
+}
+.app .summary .row.hide .display-date .month {
+  font-weight: 300;
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+.app .summary .row.hide .display-date .day {
+  font-weight: 500;
+  font-size: 1rem;
+}
 
 .row .block.date-picker-container {
   display: flex;
@@ -448,109 +557,131 @@ form {
   box-shadow: none;
   position: relative;
   background-color: transparent;
-  min-height: fit-content; }
-  .row .block.date-picker-container input[type="date"] {
-    height: 2rem;
-    width: 2rem;
-    position: absolute;
-    z-index: 0;
-    background-color: transparent;
-    border: none;
-    right: 0;
-    top: 0.5rem;
-    color: rgba(0, 0, 0, 0); }
-    .row .block.date-picker-container input[type="date"]::-webkit-calendar-picker-indicator {
-      opacity: 1;
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 0.3rem;
-      background: url("http://kidsnparty.com.au/report/calendar.svg");
-      background-repeat: no-repeat;
-      background-size: contain;
-      height: 1rem;
-      width: 1rem;
-      border-width: thin; }
-    .row .block.date-picker-container input[type="date"]::-webkit-datetime-edit, .row .block.date-picker-container input[type="date"]::-webkit-inner-spin-button, .row .block.date-picker-container input[type="date"]::-webkit-clear-button {
-      display: none; }
-  .row .block.date-picker-container button.date-tag {
-    width: max-content;
-    height: 1.5rem;
-    background-color: transparent;
-    color: #d0c9ff;
-    border: 1px solid #b3aaf6;
-    border-radius: 5px;
-    outline: none;
-    transition: all 400ms linear; }
-    .row .block.date-picker-container button.date-tag.decrease {
-      margin-right: 1rem; }
-    .row .block.date-picker-container button.date-tag.increase {
-      margin-left: 1rem; }
-    .row .block.date-picker-container button.date-tag:active {
-      box-shadow: none;
-      background-color: #6d81e6;
-      color: #fff; }
-  .row .block.date-picker-container .display-date {
-    color: #fff;
-    border-radius: 5px;
-    border: 1px solid #fff;
-    padding: 0.3rem 0.5rem; }
-    .row .block.date-picker-container .display-date .month {
-      font-weight: 300;
-      margin-right: 0.3rem; }
-    .row .block.date-picker-container .display-date .day {
-      font-weight: 500;
-      font-size: 1.2rem; }
+  min-height: fit-content;
+}
+.row .block.date-picker-container input[type=date] {
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  z-index: 0;
+  background-color: transparent;
+  border: none;
+  right: 0;
+  top: 0.5rem;
+  color: rgba(0, 0, 0, 0);
+}
+.row .block.date-picker-container input[type=date]::-webkit-calendar-picker-indicator {
+  opacity: 1;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0.3rem;
+  background: url("http://kidsnparty.com.au/report/calendar.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 1rem;
+  width: 1rem;
+  border-width: thin;
+}
+.row .block.date-picker-container input[type=date]::-webkit-datetime-edit, .row .block.date-picker-container input[type=date]::-webkit-inner-spin-button, .row .block.date-picker-container input[type=date]::-webkit-clear-button {
+  display: none;
+}
+.row .block.date-picker-container button.date-tag {
+  width: max-content;
+  height: 1.5rem;
+  background-color: transparent;
+  color: #d0c9ff;
+  border: 1px solid #b3aaf6;
+  border-radius: 5px;
+  outline: none;
+  transition: all 400ms linear;
+}
+.row .block.date-picker-container button.date-tag.decrease {
+  margin-right: 1rem;
+}
+.row .block.date-picker-container button.date-tag.increase {
+  margin-left: 1rem;
+}
+.row .block.date-picker-container button.date-tag:active {
+  box-shadow: none;
+  background-color: #6d81e6;
+  color: #fff;
+}
+.row .block.date-picker-container .display-date {
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  padding: 0.3rem 0.5rem;
+}
+.row .block.date-picker-container .display-date .month {
+  font-weight: 300;
+  margin-right: 0.3rem;
+}
+.row .block.date-picker-container .display-date .day {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
 
 .payment-method {
-  width: 100%; }
-  .payment-method p {
-    color: #54516d;
-    text-transform: capitalize;
-    font-weight: 500;
-    font-size: 1.1rem; }
-  .payment-method .block {
-    box-shadow: none;
-    padding-left: 0;
-    padding-right: 0; }
-  .payment-method .payment-method-chart {
-    min-height: 0; }
+  width: 100%;
+}
+.payment-method p {
+  color: #54516d;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.payment-method .block {
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.payment-method .payment-method-chart {
+  min-height: 0;
+}
 
 .process-bar {
   display: flex;
   height: 2rem;
   border-radius: 5px;
   overflow: hidden;
-  position: relative; }
-  .process-bar .selector {
-    position: absolute;
-    width: 0.8rem;
-    top: 0.3rem;
-    right: 1rem; }
-    .process-bar .selector img {
-      width: 100%; }
+  position: relative;
+}
+.process-bar .selector {
+  position: absolute;
+  width: 0.8rem;
+  top: 0.3rem;
+  right: 1rem;
+}
+.process-bar .selector img {
+  width: 100%;
+}
 
 .block.large.data-group {
   box-shadow: none;
   padding-left: 0;
-  padding-right: 0; }
-  .block.large.data-group p {
-    color: #54516d;
-    text-transform: capitalize;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 3rem;
-    font-size: 1rem; }
-    .block.large.data-group p .title {
-      font-size: 1.1rem;
-      color: #54516d;
-      opacity: 1; }
-    .block.large.data-group p .total {
-      color: #5d4ae8;
-      font-weight: 700;
-      font-size: 1.1rem; }
+  padding-right: 0;
+}
+.block.large.data-group p {
+  color: #54516d;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
+  font-size: 1rem;
+}
+.block.large.data-group p .title {
+  font-size: 1.1rem;
+  color: #54516d;
+  opacity: 1;
+}
+.block.large.data-group p .total {
+  color: #5d4ae8;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
 
 .app .component-weekly-report {
   width: 100vw;
@@ -558,113 +689,139 @@ form {
   height: 82vh;
   overflow: scroll;
   padding-bottom: 12rem;
-  scroll-behavior: smooth; }
-  .app .component-weekly-report.header-hide {
-    margin-top: 10vh;
-    height: 100vh;
-    padding-top: 12vh; }
-  .app .component-weekly-report .row {
-    width: 100%;
-    padding: 0 5%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 300ms linear;
-    margin-bottom: 1rem; }
-    .app .component-weekly-report .row.weekly-reports {
-      align-items: flex-start; }
-      .app .component-weekly-report .row.weekly-reports .table-container {
-        width: 90%;
-        overflow-x: scroll; }
-        .app .component-weekly-report .row.weekly-reports .table-container table {
-          margin-top: 0;
-          width: max-content; }
-          .app .component-weekly-report .row.weekly-reports .table-container table tr {
-            height: 3.2rem;
-            border: none; }
-            .app .component-weekly-report .row.weekly-reports .table-container table tr.colored {
-              background-color: #f6f5f9; }
-            .app .component-weekly-report .row.weekly-reports .table-container table tr.cash {
-              color: #4537b0; }
-            .app .component-weekly-report .row.weekly-reports .table-container table tr.sales {
-              color: #4537b0;
-              font-weight: 500; }
-            .app .component-weekly-report .row.weekly-reports .table-container table tr th {
-              padding-bottom: 0;
-              padding-top: 0; }
-              .app .component-weekly-report .row.weekly-reports .table-container table tr th span {
-                width: 25vw;
-                display: flex;
-                height: 100%;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                text-align: center; }
-                .app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-title {
-                  text-transform: capitalize;
-                  color: #54516d;
-                  font-size: 500;
-                  font-size: 1rem; }
-                .app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-value {
-                  font-size: 0.7rem;
-                  color: #4537b0;
-                  font-weight: 500; }
-            .app .component-weekly-report .row.weekly-reports .table-container table tr td {
-              border: none; }
-              .app .component-weekly-report .row.weekly-reports .table-container table tr td span {
-                width: 100%;
-                height: 100%;
-                display: inline-block;
-                text-align: center; }
-    .app .component-weekly-report .row.shadow {
-      box-shadow: 0 0 4px rgba(182, 182, 182, 0.5); }
-    .app .component-weekly-report .row.hide {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 40%;
-      padding-right: 0.1rem; }
-      .app .component-weekly-report .row.hide .block.large.date-picker-container {
-        justify-content: flex-end;
-        padding-right: 1.8rem; }
-      .app .component-weekly-report .row.hide button {
-        display: none; }
-      .app .component-weekly-report .row.hide .display-date {
-        color: #fff;
-        border-radius: none;
-        border: none;
-        padding: 0.3rem 0.5rem;
-        padding-top: 0.4rem; }
-        .app .component-weekly-report .row.hide .display-date .month {
-          font-weight: 300;
-          margin-right: 0.3rem;
-          font-size: 0.8rem; }
-        .app .component-weekly-report .row.hide .display-date .day {
-          font-weight: 500;
-          font-size: 1rem; }
+  scroll-behavior: smooth;
+}
+.app .component-weekly-report.header-hide {
+  margin-top: 10vh;
+  height: 100vh;
+  padding-top: 12vh;
+}
+.app .component-weekly-report .row {
+  width: 100%;
+  padding: 0 5%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 300ms linear;
+  margin-bottom: 1rem;
+}
+.app .component-weekly-report .row.weekly-reports {
+  align-items: flex-start;
+}
+.app .component-weekly-report .row.weekly-reports .table-container {
+  width: 90%;
+  overflow-x: scroll;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table {
+  margin-top: 0;
+  width: max-content;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr {
+  height: 3.2rem;
+  border: none;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.colored {
+  background-color: #f6f5f9;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.cash {
+  color: #4537b0;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr.sales {
+  color: #4537b0;
+  font-weight: 500;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span {
+  width: 25vw;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-title {
+  text-transform: capitalize;
+  color: #54516d;
+  font-size: 500;
+  font-size: 1rem;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr th span .week-value {
+  font-size: 0.7rem;
+  color: #4537b0;
+  font-weight: 500;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr td {
+  border: none;
+}
+.app .component-weekly-report .row.weekly-reports .table-container table tr td span {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.app .component-weekly-report .row.shadow {
+  box-shadow: 0 0 4px rgba(182, 182, 182, 0.5);
+}
+.app .component-weekly-report .row.hide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  padding-right: 0.1rem;
+}
+.app .component-weekly-report .row.hide .block.large.date-picker-container {
+  justify-content: flex-end;
+  padding-right: 1.8rem;
+}
+.app .component-weekly-report .row.hide button {
+  display: none;
+}
+.app .component-weekly-report .row.hide .display-date {
+  color: #fff;
+  border-radius: none;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  padding-top: 0.4rem;
+}
+.app .component-weekly-report .row.hide .display-date .month {
+  font-weight: 300;
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+.app .component-weekly-report .row.hide .display-date .day {
+  font-weight: 500;
+  font-size: 1rem;
+}
 
 .tabs-group {
   width: 10%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  overflow: hidden; }
-  .tabs-group span {
-    display: flex;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    width: 100%;
-    height: 3.2rem;
-    font-size: 0.8rem;
-    color: #fff;
-    font-weight: 300;
-    justify-content: center;
-    align-items: center;
-    word-wrap: break-word;
-    white-space: pre; }
-    .tabs-group span img {
-      transform: rotate(-180deg); }
+  overflow: hidden;
+}
+.tabs-group span {
+  display: flex;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  width: 100%;
+  height: 3.2rem;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 300;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
+  white-space: pre;
+}
+.tabs-group span img {
+  transform: rotate(-180deg);
+}
 
 .component-tables-report {
   margin-top: 7rem;
@@ -672,135 +829,157 @@ form {
   display: flex;
   align-items: center;
   height: 85vh;
-  flex-direction: column; }
-  .component-tables-report .tables-filter {
-    width: 100%;
-    height: 8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center; }
-    .component-tables-report .tables-filter .tables-filter__row {
-      width: 100%;
-      height: 2.6rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0rem 1rem; }
-      .component-tables-report .tables-filter .tables-filter__row.site-selector {
-        height: 2rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-        .component-tables-report .tables-filter .tables-filter__row.site-selector .selector {
-          appearance: none;
-          height: 1.5rem;
-          display: flex;
-          text-align-last: center;
-          border-radius: 1rem;
-          background-color: #513ed5;
-          background-image: url("http://kidsnparty.com.au/report/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
-          background-repeat: no-repeat, repeat;
-          background-position: right 0.6em top 50%, 0 0;
-          background-size: 0.65em auto, 100%;
-          font-size: 1rem;
-          font-weight: 100;
-          border: none;
-          color: #fff;
-          min-width: 6rem;
-          width: max-content;
-          outline: none;
-          padding: 0 1rem; }
-          .component-tables-report .tables-filter .tables-filter__row.site-selector .selector::-ms-expand {
-            display: none; }
-          .component-tables-report .tables-filter .tables-filter__row.site-selector .selector .value {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center; }
-          .component-tables-report .tables-filter .tables-filter__row.site-selector .selector .indicator {
-            display: flex;
-            justify-content: center;
-            align-items: center; }
-      .component-tables-report .tables-filter .tables-filter__row .table-filter__button {
-        width: 45%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-radius: 5px;
-        border: 1px solid #b3aaf6;
-        color: #d0c9ff; }
-        .component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 3.2rem;
-          border-right: 1px solid #b3aaf6; }
-          .component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator .round {
-            height: 1rem;
-            width: 1rem;
-            border-radius: 50%;
-            background-color: #b3aaf6; }
-        .component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__label {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex: 1;
-          height: 100%;
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          padding: 0 0.5rem; }
-        .component-tables-report .tables-filter .tables-filter__row .table-filter__button.active {
-          color: #fff;
-          border: 1px solid #fff; }
-          .component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .tables-filter__button__indicator {
-            border-right: 1px solid #fff; }
-          .component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .round {
-            background-color: #fff; }
-  .component-tables-report .tables-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 1rem;
-    width: 95%;
-    margin-top: 1rem;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(182, 182, 182, 0.5);
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    flex: 1; }
-    .component-tables-report .tables-grid .text-notice {
-      width: 100%;
-      text-align: center;
-      color: #7162df;
-      font-size: 1.2rem; }
-    .component-tables-report .tables-grid .table-card {
-      background-color: #fff;
-      color: #7162df;
-      width: 30%;
-      height: 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      padding: 0.5rem;
-      justify-content: space-between;
-      border-radius: 4px;
-      box-shadow: 0 2px 3px rgba(182, 182, 182, 0.5); }
-      .component-tables-report .tables-grid .table-card.table-status2 {
-        background-color: #db2727;
-        color: #fff; }
-      .component-tables-report .tables-grid .table-card.table-status3 {
-        background-color: #0077cc;
-        color: #fff; }
-      .component-tables-report .tables-grid .table-card .site-name {
-        font-size: 0.8rem; }
-      .component-tables-report .tables-grid .table-card .seats {
-        font-size: 0.7rem; }
+  flex-direction: column;
+}
+.component-tables-report .tables-filter {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row {
+  width: 100%;
+  height: 2.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector {
+  appearance: none;
+  height: 1.5rem;
+  display: flex;
+  text-align-last: center;
+  border-radius: 1rem;
+  background-color: #513ed5;
+  background-image: url("http://kidsnparty.com.au/report/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.6em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  font-size: 1rem;
+  font-weight: 100;
+  border: none;
+  color: #fff;
+  min-width: 6rem;
+  width: max-content;
+  outline: none;
+  padding: 0 1rem;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector::-ms-expand {
+  display: none;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector .value {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector .indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  border: 1px solid #b3aaf6;
+  color: #d0c9ff;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 3.2rem;
+  border-right: 1px solid #b3aaf6;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator .round {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #b3aaf6;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button.active {
+  color: #fff;
+  border: 1px solid #fff;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .tables-filter__button__indicator {
+  border-right: 1px solid #fff;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .round {
+  background-color: #fff;
+}
+.component-tables-report .tables-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: 95%;
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(182, 182, 182, 0.5);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+.component-tables-report .tables-grid .text-notice {
+  width: 100%;
+  text-align: center;
+  color: #7162df;
+  font-size: 1.2rem;
+}
+.component-tables-report .tables-grid .table-card {
+  background-color: #fff;
+  color: #7162df;
+  width: 30%;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  justify-content: space-between;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(182, 182, 182, 0.5);
+}
+.component-tables-report .tables-grid .table-card.table-status2 {
+  background-color: #db2727;
+  color: #fff;
+}
+.component-tables-report .tables-grid .table-card.table-status3 {
+  background-color: #0077cc;
+  color: #fff;
+}
+.component-tables-report .tables-grid .table-card .site-name {
+  font-size: 0.8rem;
+}
+.component-tables-report .tables-grid .table-card .seats {
+  font-size: 0.7rem;
+}
 
 .component-login {
   height: 100vh;
@@ -809,36 +988,41 @@ form {
   display: grid;
   grid-template-columns: 20px auto 20px;
   grid-template-rows: 34vh auto;
-  grid-template-areas: "header header header" ". form ."; }
-  .component-login .header {
-    grid-area: header;
-    background-color: #6d81e6;
-    color: #fff;
-    padding-left: 1rem;
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    font-weight: 900;
-    background: url(https://financialages.com/wp-content/uploads/2017/12/The-Key-to-Writing-Better-Business-Reports.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    box-shadow: 0 3px 3px; }
-    .component-login .header .cover {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 34vh;
-      width: 100vw;
-      background-color: rgba(0, 0, 0, 0.5); }
-    .component-login .header .login-title {
-      font-size: 1.8rem;
-      margin-top: 10vh;
-      z-index: 1; }
-  .component-login form {
-    grid-area: form;
-    justify-self: center;
-    margin-top: 3rem; }
+  grid-template-areas: "header header header" ". form .";
+}
+.component-login .header {
+  grid-area: header;
+  background-color: #6d81e6;
+  color: #fff;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  background: url(https://financialages.com/wp-content/uploads/2017/12/The-Key-to-Writing-Better-Business-Reports.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 3px 3px;
+}
+.component-login .header .cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 34vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.component-login .header .login-title {
+  font-size: 1.8rem;
+  margin-top: 10vh;
+  z-index: 1;
+}
+.component-login form {
+  grid-area: form;
+  justify-self: center;
+  margin-top: 3rem;
+}
 
 .component-tables-report {
   margin-top: 7rem;
@@ -846,199 +1030,232 @@ form {
   display: flex;
   align-items: center;
   height: 85vh;
-  flex-direction: column; }
-  .component-tables-report .tables-filter {
-    width: 100%;
-    height: 8rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center; }
-    .component-tables-report .tables-filter .tables-filter__row {
-      width: 100%;
-      height: 2.6rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0rem 1rem; }
-      .component-tables-report .tables-filter .tables-filter__row.site-selector {
-        height: 2rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-        .component-tables-report .tables-filter .tables-filter__row.site-selector .selector {
-          appearance: none;
-          height: 1.5rem;
-          display: flex;
-          text-align-last: center;
-          border-radius: 1rem;
-          background-color: #513ed5;
-          background-image: url("http://kidsnparty.com.au/report/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
-          background-repeat: no-repeat, repeat;
-          background-position: right 0.6em top 50%, 0 0;
-          background-size: 0.65em auto, 100%;
-          font-size: 1rem;
-          font-weight: 100;
-          border: none;
-          color: #fff;
-          min-width: 6rem;
-          width: max-content;
-          outline: none;
-          padding: 0 1rem; }
-          .component-tables-report .tables-filter .tables-filter__row.site-selector .selector::-ms-expand {
-            display: none; }
-          .component-tables-report .tables-filter .tables-filter__row.site-selector .selector .value {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center; }
-          .component-tables-report .tables-filter .tables-filter__row.site-selector .selector .indicator {
-            display: flex;
-            justify-content: center;
-            align-items: center; }
-      .component-tables-report .tables-filter .tables-filter__row .table-filter__button {
-        width: 45%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-radius: 5px;
-        border: 1px solid #b3aaf6;
-        color: #d0c9ff; }
-        .component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100%;
-          width: 3.2rem;
-          border-right: 1px solid #b3aaf6; }
-          .component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator .round {
-            height: 1rem;
-            width: 1rem;
-            border-radius: 50%;
-            background-color: #b3aaf6; }
-        .component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__label {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          flex: 1;
-          height: 100%;
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          padding: 0 0.5rem; }
-        .component-tables-report .tables-filter .tables-filter__row .table-filter__button.active {
-          color: #fff;
-          border: 1px solid #fff; }
-          .component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .tables-filter__button__indicator {
-            border-right: 1px solid #fff; }
-          .component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .round {
-            background-color: #fff; }
-  .component-tables-report .tables-grid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 1rem;
-    width: 95%;
-    margin-top: 1rem;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(182, 182, 182, 0.5);
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    flex: 1; }
-    .component-tables-report .tables-grid .text-notice {
-      width: 100%;
-      text-align: center;
-      color: #7162df;
-      font-size: 1.2rem; }
-    .component-tables-report .tables-grid .table-card {
-      background-color: #fff;
-      color: #7162df;
-      width: 30%;
-      height: 4rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      padding: 0.5rem;
-      justify-content: space-between;
-      border-radius: 4px;
-      box-shadow: 0 2px 3px rgba(182, 182, 182, 0.5); }
-      .component-tables-report .tables-grid .table-card.table-status2 {
-        background-color: #db2727;
-        color: #fff; }
-      .component-tables-report .tables-grid .table-card.table-status3 {
-        background-color: #0077cc;
-        color: #fff; }
-      .component-tables-report .tables-grid .table-card .site-name {
-        font-size: 0.8rem; }
-      .component-tables-report .tables-grid .table-card .seats {
-        font-size: 0.7rem; }
+  flex-direction: column;
+}
+.component-tables-report .tables-filter {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row {
+  width: 100%;
+  height: 2.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector {
+  height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector {
+  appearance: none;
+  height: 1.5rem;
+  display: flex;
+  text-align-last: center;
+  border-radius: 1rem;
+  background-color: #513ed5;
+  background-image: url("http://kidsnparty.com.au/report/selector.svg"), linear-gradient(to bottom, #513ed5 0%, #513ed5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.6em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+  font-size: 1rem;
+  font-weight: 100;
+  border: none;
+  color: #fff;
+  min-width: 6rem;
+  width: max-content;
+  outline: none;
+  padding: 0 1rem;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector::-ms-expand {
+  display: none;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector .value {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row.site-selector .selector .indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  border: 1px solid #b3aaf6;
+  color: #d0c9ff;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 3.2rem;
+  border-right: 1px solid #b3aaf6;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__indicator .round {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: #b3aaf6;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button .tables-filter__button__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  height: 100%;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button.active {
+  color: #fff;
+  border: 1px solid #fff;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .tables-filter__button__indicator {
+  border-right: 1px solid #fff;
+}
+.component-tables-report .tables-filter .tables-filter__row .table-filter__button.active .round {
+  background-color: #fff;
+}
+.component-tables-report .tables-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: 95%;
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(182, 182, 182, 0.5);
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+.component-tables-report .tables-grid .text-notice {
+  width: 100%;
+  text-align: center;
+  color: #7162df;
+  font-size: 1.2rem;
+}
+.component-tables-report .tables-grid .table-card {
+  background-color: #fff;
+  color: #7162df;
+  width: 30%;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  justify-content: space-between;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px rgba(182, 182, 182, 0.5);
+}
+.component-tables-report .tables-grid .table-card.table-status2 {
+  background-color: #db2727;
+  color: #fff;
+}
+.component-tables-report .tables-grid .table-card.table-status3 {
+  background-color: #0077cc;
+  color: #fff;
+}
+.component-tables-report .tables-grid .table-card .site-name {
+  font-size: 0.8rem;
+}
+.component-tables-report .tables-grid .table-card .seats {
+  font-size: 0.7rem;
+}
 
 .component-custom-report {
   background-color: #e1e1e1;
   margin-top: 9rem;
-  background-color: #fff; }
-  .component-custom-report .flat-block {
-    display: flex;
-    background-color: #fff;
-    flex-direction: column;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0.5rem; }
-    .component-custom-report .flat-block .title {
-      font-size: 0.8rem;
-      color: #a5a5a5;
-      text-transform: uppercase; }
-    .component-custom-report .flat-block .container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      height: 2.5rem; }
-      .component-custom-report .flat-block .container input[type="date"] {
-        margin-right: 0.3rem; }
+  background-color: #fff;
+}
+.component-custom-report .flat-block {
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.5rem;
+}
+.component-custom-report .flat-block .title {
+  font-size: 0.8rem;
+  color: #a5a5a5;
+  text-transform: uppercase;
+}
+.component-custom-report .flat-block .container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 2.5rem;
+}
+.component-custom-report .flat-block .container input[type=date] {
+  margin-right: 0.3rem;
+}
 
 .flat-block.date-picker-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; }
-  .flat-block.date-picker-container button {
-    margin-right: 0.5rem;
-    height: 2rem;
-    width: max-content;
-    border-radius: 3px;
-    border: 2px solid #6d81e6;
-    background-color: #fff;
-    color: #6d81e6;
-    outline: none;
-    box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
-    transition: all 400 linear; }
-    .flat-block.date-picker-container button:active {
-      box-shadow: none;
-      background-color: #6d81e6;
-      color: #fff; }
+  flex-wrap: wrap;
+}
+.flat-block.date-picker-container button {
+  margin-right: 0.5rem;
+  height: 2rem;
+  width: max-content;
+  border-radius: 3px;
+  border: 2px solid #6d81e6;
+  background-color: #fff;
+  color: #6d81e6;
+  outline: none;
+  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+  transition: all 400 linear;
+}
+.flat-block.date-picker-container button:active {
+  box-shadow: none;
+  background-color: #6d81e6;
+  color: #fff;
+}
 
 .flat-block select {
   margin-top: 0.2rem;
   height: 2rem;
-  border-radius: 3px; }
+  border-radius: 3px;
+}
 
 .date-picker {
   margin-top: 4rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 1rem; }
-  .date-picker input {
-    height: 2rem;
-    width: 45%;
-    border-radius: 5px;
-    border: 1px solid #a5a5a560;
-    font-size: 1rem;
-    padding-left: 0.5rem;
-    outline: none;
-    color: #fff;
-    background-color: transparent; }
+  padding: 0.5rem 1rem;
+}
+.date-picker input {
+  height: 2rem;
+  width: 45%;
+  border-radius: 5px;
+  border: 1px solid #a5a5a560;
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  outline: none;
+  color: #fff;
+  background-color: transparent;
+}
 
 .component-total-report {
   display: flex;
@@ -1047,74 +1264,144 @@ form {
   height: calc(100vh - 8rem);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  align-items: center; }
-  .component-total-report .total-summary {
-    width: 100%;
-    height: 5rem;
-    padding: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-    .component-total-report .total-summary .total-summary__sales,
-    .component-total-report .total-summary .total-summary__tx {
-      display: flex;
-      flex-direction: column;
-      width: 45%;
-      padding: 0.5rem;
-      border-radius: 5px;
-      height: 3rem;
-      background-color: #fff;
-      box-shadow: 0 0 3px rgba(182, 182, 182, 0.5); }
-      .component-total-report .total-summary .total-summary__sales .title,
-      .component-total-report .total-summary .total-summary__tx .title {
-        height: 1rem;
-        width: 100%;
-        font-size: 0.6rem;
-        color: #54516d; }
-      .component-total-report .total-summary .total-summary__sales .value,
-      .component-total-report .total-summary .total-summary__tx .value {
-        color: #7162df;
-        font-size: 1.2rem;
-        text-align: center;
-        width: 100%; }
-  .component-total-report .shop-list {
-    display: flex;
-    flex-direction: column;
-    width: 95%;
-    padding: 0.5rem 1rem;
-    background-color: #fff;
-    border-radius: 5px;
-    flex: 1;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    box-shadow: 0 0 3px rgba(182, 182, 182, 0.5); }
-    .component-total-report .shop-list .shop-summary-card {
-      border-radius: 3px;
-      box-shadow: 0 0 3px #6d81e6;
-      padding: 0.5rem 1rem;
-      margin-bottom: 0.5rem; }
-      .component-total-report .shop-list .shop-summary-card .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%; }
-        .component-total-report .shop-list .shop-summary-card .row.shop-name {
-          color: #7162df;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid #a5a5a560;
-          font-size: 1.2rem; }
-        .component-total-report .shop-list .shop-summary-card .row.shop-report-data .report {
-          display: flex;
-          width: 45%;
-          align-items: center;
-          margin-top: 0.5rem;
-          justify-content: space-between; }
-          .component-total-report .shop-list .shop-summary-card .row.shop-report-data .report .title {
-            margin-right: 0.5rem;
-            font-size: 0.6rem;
-            color: #54516d; }
-          .component-total-report .shop-list .shop-summary-card .row.shop-report-data .report .value {
-            font-size: 1rem;
-            color: #7162df; }
+  align-items: center;
+}
+.component-total-report .total-summary {
+  width: 100%;
+  height: 5rem;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-total-report .total-summary .total-summary__sales,
+.component-total-report .total-summary .total-summary__tx {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  height: 3rem;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+}
+.component-total-report .total-summary .total-summary__sales .title,
+.component-total-report .total-summary .total-summary__tx .title {
+  height: 1rem;
+  width: 100%;
+  font-size: 0.6rem;
+  color: #54516d;
+}
+.component-total-report .total-summary .total-summary__sales .value,
+.component-total-report .total-summary .total-summary__tx .value {
+  color: #7162df;
+  font-size: 1.2rem;
+  text-align: center;
+  width: 100%;
+}
+.component-total-report .shop-list {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  flex: 1;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+}
+.component-total-report .shop-list .shop-summary-card {
+  border-radius: 3px;
+  box-shadow: 0 0 3px #6d81e6;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.component-total-report .shop-list .shop-summary-card .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.component-total-report .shop-list .shop-summary-card .row.shop-name {
+  color: #7162df;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #a5a5a560;
+  font-size: 1.2rem;
+}
+.component-total-report .shop-list .shop-summary-card .row.shop-report-data .report {
+  display: flex;
+  width: 45%;
+  align-items: center;
+  margin-top: 0.5rem;
+  justify-content: space-between;
+}
+.component-total-report .shop-list .shop-summary-card .row.shop-report-data .report .title {
+  margin-right: 0.5rem;
+  font-size: 0.6rem;
+  color: #54516d;
+}
+.component-total-report .shop-list .shop-summary-card .row.shop-report-data .report .value {
+  font-size: 1rem;
+  color: #7162df;
+}
+
+.component-export-report {
+  margin-top: 9rem;
+  background-color: #fff;
+  height: calc(100vh - 9rem);
+}
+.component-export-report .calendar-section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.component-export-report .calendar-section label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  color: #db2727;
+}
+.component-export-report .calendar-section input {
+  position: absolute;
+  opacity: 0;
+}
+.component-export-report .month-display {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.component-export-report .month-display .calendar-page {
+  height: 15rem;
+  width: 12rem;
+  box-shadow: 0 0 3px #0077cc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.component-export-report .month-display .calendar-page .year {
+  height: 2rem;
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 2px solid #db2727;
+}
+.component-export-report .month-display .calendar-page .month {
+  flex: 1;
+  padding-top: 15%;
+  font-size: 6rem;
+  color: #0077cc;
+}
+.component-export-report .button-container {
+  margin-top: 1.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*# sourceMappingURL=App.css.map */

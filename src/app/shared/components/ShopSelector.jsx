@@ -29,6 +29,9 @@ const makeNewPath = path => {
     case `${process.env.PUBLIC_URL}/all`:
     case `${process.env.PUBLIC_URL}/all/:shopId`:
       return "all";
+    case `${process.env.PUBLIC_URL}/export`:
+    case `${process.env.PUBLIC_URL}/export/:shopId`:
+      return "export";
     default:
       return path;
   }
