@@ -25,7 +25,11 @@ export default (props) => {
 
     const { monthValue } = state;
 
+    const downloadReport = (e) => {
+        e.preventDefault();
 
+        window.location.href = `http://reports.aupos.com.au/exportFiles/gongcha/${monthValue}_report.xlsx`;
+    }
 
     return <>
         <Header show={true} {...props} />
@@ -53,7 +57,7 @@ export default (props) => {
                 </div>
             </div>
             <div className={`button-container`}>
-                <button className={`button-download`}>
+                <button className={`button-download`} onClick={downloadReport}>
                     <i className={`material-icons`}>
                         cloud_download
                     </i>
