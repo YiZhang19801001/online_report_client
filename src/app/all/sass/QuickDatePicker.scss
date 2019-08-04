@@ -1,4 +1,5 @@
 .flat-block {
+  overflow: scroll;
   &.date-picker-container {
     display: flex;
     flex-direction: row;

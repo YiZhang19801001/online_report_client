@@ -23,7 +23,7 @@ export default ({ report }) => {
       <div className="row shop-report-data">
         <div className={`report`}>
           <div className={`title`}>sales:</div>
-          <div className={`value`}>${parseFloat(totalSales).toFixed(2)}</div>
+          <div className={`value`}>${parseFloat(totalSales || 0).toFixed(2)}</div>
         </div>
         <div className={`report`}>
           <div className={`title`}>transactions:</div>

@@ -40,10 +40,10 @@ export default props => {
   const reports = fetchReports(date, dispatch);
 
   const getTotalSales = () =>
-    reports.reduce((sum, report) => sum + parseFloat(report.totalSales), 0);
+    reports.reduce((sum, report) => sum + parseFloat(report.totalSales || 0), 0);
 
   const getTotalTx = () =>
-    reports.reduce((sum, report) => sum + parseInt(report.totalTx), 0);
+    reports.reduce((sum, report) => sum + parseInt(report.totalTx || 0), 0);
 
   return (
     <>

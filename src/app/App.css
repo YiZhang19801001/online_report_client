@@ -140,7 +140,8 @@ body {
 }
 
 table {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   max-height: 100%;
   overflow: scroll;
   border-spacing: 0;
@@ -1193,6 +1194,7 @@ button.button-download .material-icons {
   flex-direction: column;
   margin-bottom: 0.5rem;
   padding: 0.5rem 0.5rem;
+  overflow: scroll;
 }
 .component-custom-report .flat-block .title {
   font-size: 0.8rem;
@@ -1209,6 +1211,9 @@ button.button-download .material-icons {
   margin-right: 0.3rem;
 }
 
+.flat-block {
+  overflow: scroll;
+}
 .flat-block.date-picker-container {
   display: flex;
   flex-direction: row;
@@ -1232,6 +1237,9 @@ button.button-download .material-icons {
   color: #fff;
 }
 
+.flat-block {
+  overflow: scroll;
+}
 .flat-block select {
   margin-top: 0.2rem;
   height: 2rem;
