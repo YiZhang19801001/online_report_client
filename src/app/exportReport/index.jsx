@@ -28,7 +28,7 @@ export default (props) => {
     const downloadReport = (e) => {
         e.preventDefault();
 
-        window.location.href = `http://reports.aupos.com.au/exportFiles/gongcha/${monthValue}_report.xlsx`;
+        window.location.href = `http://reports.aupos.com.au/exportFiles/gongcha/${moment(monthValue).format('YYYY')}_${moment(monthValue).format('MM')}_report.xls`;
     }
 
     return <>
