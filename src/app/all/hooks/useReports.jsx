@@ -13,8 +13,8 @@ export default (startDate, endDate, reportType, shopId, dispatch) => {
       .put(
         `${apiUrl}/reports/${shopId}`,
         {
-          startDate,
-          endDate,
+          startDate: startDate.format("YYYY-MM-DD HH:mm:ss"),
+          endDate: endDate.format('YYYY-MM-DD HH:mm:ss'),
           reportType,
           shopId
         },
@@ -23,7 +23,7 @@ export default (startDate, endDate, reportType, shopId, dispatch) => {
             Authorization: `Bearer ${
               JSON.parse(localStorage.getItem("aupos_online_report_user"))
                 .access_token
-            }`
+              }`
           }
         }
       )

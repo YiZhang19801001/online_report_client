@@ -12,7 +12,7 @@ export default ({ startDate, endDate, dispatch }) => {
           onChange={e => {
             dispatch({
               type: "setState",
-              payload: { startDate: moment(e.target.value) }
+              payload: { startDate: moment(e.target.value).startOf('day') }
             });
           }}
         />
@@ -22,7 +22,7 @@ export default ({ startDate, endDate, dispatch }) => {
           onChange={e =>
             dispatch({
               type: "setState",
-              payload: { endDate: moment(e.target.value) }
+              payload: { endDate: moment(e.target.value).endOf('day') }
             })
           }
         />

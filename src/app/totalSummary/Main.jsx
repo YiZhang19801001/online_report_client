@@ -21,12 +21,10 @@ const zone = "Australia/Sydney";
 const initState = {
   isLoading: true,
   date: {
-    startDate: moment
-      .utc()
-      .add("minutes", "Australia/Sydney")
+    startDate: moment.utc()
+      .add("minutes", zone)
       .startOf("day"),
-    endDate: moment
-      .utc()
+    endDate: moment.utc()
       .endOf("day")
       .add("minutes", zone)
   }
@@ -67,6 +65,7 @@ export default props => {
           value={endDate.format("YYYY-MM-DD")}
           min={startDate.format("YYYY-MM-DD")}
           onChange={e => {
+            console.log({ date: moment(e.target.value).endOf("day") });
             dispatch({
               type: "setDate",
               payload: { endDate: moment(e.target.value).endOf("day") }
