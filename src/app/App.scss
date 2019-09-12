@@ -7,8 +7,33 @@
 // }
 @import "./shared/sass/index.scss";
 
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Bold.otf");
+    font-weight: bold;
+  }
+
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Light.otf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Regular.otf");
+    font-weight:200;
+}
+
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Medium.otf");
+    font-weight: 300;
+  }
+  
+
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "SourceHanSansCN", sans-serif;
 }
 
 button{

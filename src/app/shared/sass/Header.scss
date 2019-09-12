@@ -60,6 +60,9 @@
       height: 2rem;
       width: 100%;
       color: color("textActiveNav");
+      letter-spacing: 1px;
+      font-family: SourceHanSansCN;
+      font-weight: bold;
       span {
         &.year {
           margin-right: 0.2rem;

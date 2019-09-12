@@ -11,6 +11,8 @@ const reducer = (state, action) => {
       return { ...state, ...action.payload };
     case "setDate":
       return { ...state, date: { ...state.date, ...action.payload } };
+    case "setTag":
+      return { ...state, currentTag: action.payload }
     default:
       break;
   }
@@ -27,12 +29,13 @@ const initState = {
     endDate: moment.utc()
       .endOf("day")
       .add("minutes", zone)
-  }
+  },
+  currentTag: 'shop',
 };
 
 export default props => {
   const [state, dispatch] = useReducer(reducer, initState);
-  const { isLoading, date } = state;
+  const { isLoading, date, currentTag } = state;
   const { startDate, endDate } = date;
 
   const reports = fetchReports(date, dispatch);
@@ -47,6 +50,19 @@ export default props => {
     <>
       <Header show={true} hideNavBar={true} {...props} />
       {isLoading && <Loading />}
+      <div style={{ display: 'flex', justifyContent: "center" }}>
+        <div className={`header-container`}>
+          <div className={currentTag === 'shop' ? `border sub-container` : 'sub-container'} onClick={() => dispatch({ type: 'setTag', payload: 'shop' })}>
+            <span >Shop</span>
+          </div>
+          <div className={currentTag === 'group' ? `border sub-container` : 'sub-container'} onClick={() => dispatch({ type: 'setTag', payload: 'group' })}>
+            <span>Group</span>
+          </div>
+          <div className={currentTag === 'agent' ? `border sub-container` : 'sub-container'} onClick={() => dispatch({ type: 'setTag', payload: 'agent' })}>
+            <span>Agent</span>
+          </div>
+        </div>
+      </div>
       <div className={`date-picker`}>
         <input
           type="date"
@@ -76,13 +92,13 @@ export default props => {
       <div className="component-total-report">
         <div className="total-summary">
           <div className="total-summary__sales">
-            <div className="title">sales:</div>
+            <div className="title">Sales:</div>
             <div className="value">
               ${parseFloat(getTotalSales()).toFixed(2)}
             </div>
           </div>
           <div className="total-summary__tx">
-            <div className="title">transactions:</div>
+            <div className="title">Transactions:</div>
             <div className="value">{getTotalTx()}</div>
           </div>
         </div>

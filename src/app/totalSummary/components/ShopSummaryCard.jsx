@@ -22,21 +22,21 @@ export default ({ report }) => {
       </div>
       <div className="row shop-report-data">
         <div className={`report`}>
-          <div className={`title`}>sales:</div>
+          <div className={`title`}>Sales:</div>
           <div className={`value`}>${parseFloat(totalSales || 0).toFixed(2)}</div>
         </div>
         <div className={`report`}>
-          <div className={`title`}>transactions:</div>
+          <div className={`title`}>Sales Qty:</div>
           <div className={`value`}>{totalTx}</div>
         </div>
       </div>
       <div className="row shop-report-data">
         <div className={`report`}>
-          <div className={`title`}>GP:</div>
+          <div className={`title`}>GP$:</div>
           <div className={`value`}>${parseFloat(gp).toFixed(2)}</div>
         </div>
         <div className={`report`}>
-          <div className={`title`}>GP(%):</div>
+          <div className={`title`}>GP%:</div>
           <div className={`value`}>{`${Math.round(
             parseFloat(gp_percentage) * 10000
           ) / 100}%`}</div>
@@ -44,11 +44,23 @@ export default ({ report }) => {
       </div>
       <div className="row shop-report-data">
         <div className={`report`}>
-          <div className={`title`}>discount:</div>
+          <div className={`title`}>Refund$:</div>
           <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
         </div>
         <div className={`report`}>
-          <div className={`title`}>refund:</div>
+          <div className={`title`}>Refund Qty:</div>
+          <div className={`value`}>
+            ${parseFloat(totalRefund * -1).toFixed(2)}
+          </div>
+        </div>
+      </div>
+      <div className="row shop-report-data">
+        <div className={`report`}>
+          <div className={`title`}>Discount:</div>
+          <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
+        </div>
+        <div className={`report`}>
+          <div className={`title`}>GST:</div>
           <div className={`value`}>
             ${parseFloat(totalRefund * -1).toFixed(2)}
           </div>
