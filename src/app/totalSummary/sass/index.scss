@@ -7,9 +7,10 @@
   justify-content: space-between;
   border-bottom: solid 1px rgba(155, 155, 155, 0.6);
   .sub-container{
-    padding:0 0.8rem 0.75rem 0.8rem; 
+    padding:0 0.8rem 0.3rem 0.8rem; 
     font-family: SourceHanSansCN;
     font-weight: 100;
+    color:#ffffff9c;
   }
   .border{
     width:auto;
@@ -18,9 +19,9 @@
     // line-height:1.5;
     // font-family: SourceHanSansCN;
     font-weight: 300;
+    color:#fff;
   }
   span{
-    color:#fff;
     font-size: 0.8rem;
     letter-spacing: 1px;
   }
