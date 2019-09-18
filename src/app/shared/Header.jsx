@@ -6,8 +6,10 @@ import { history } from "./history";
 
 import ShopSelector from "./components/ShopSelector";
 import userAuth from "./userAuth";
+import arrow from "../pictures/arrow.png";
+import user from "../pictures/user.png";
 
-export default ({ show, shops, hideNavBar = false, match }) => {
+export default ({ show, shops, hideNavBar = false, match, showAgent = false, currentTag, setShowAgent }) => {
   const { path } = match;
   const { shopId } = match.params;
   const mapState = useCallback(
@@ -32,7 +34,16 @@ export default ({ show, shops, hideNavBar = false, match }) => {
                 }}
               />
             ) : (
-              <div style={{ width: "1.6rem", height: "2rem" }} />
+              (currentTag === 'agent' && showAgent && path === `${process.env.PUBLIC_URL}/total`) ?
+                <img
+                  src={arrow}
+                  alt=""
+                  onClick={() => {
+                    setShowAgent(false);
+                  }}
+                />
+                :
+                <div style={{ width: "1.6rem", height: "2rem" }} />
             )}
         </div>
         <div className="title">
@@ -42,7 +53,7 @@ export default ({ show, shops, hideNavBar = false, match }) => {
 
         <div className={`icon-container`}>
           <img
-            src="http://kidsnparty.com.au/roben_api/images/user.png"
+            src={user}
             alt=""
             onClick={() => {
               dispatch({ type: "showUserCenter" });
@@ -55,6 +66,48 @@ export default ({ show, shops, hideNavBar = false, match }) => {
       )}
       {!hideNavBar && (
         <div className="navigation">
+          {
+            userAuth().user_type === 'GIFTSHOPHEAD' && (
+              <span
+                onClick={() => {
+                  if (shopId) {
+                    history.push(`${process.env.PUBLIC_URL}/group/${shopId}`);
+                  } else {
+                    history.push(`${process.env.PUBLIC_URL}/group`);
+                  }
+                }}
+                className={
+                  path === `${process.env.PUBLIC_URL}/group` ||
+                    path === `${process.env.PUBLIC_URL}/group/:shopId`
+                    ? "active"
+                    : ""
+                }
+              >
+                Group
+            </span>
+            )
+          }
+          {
+            userAuth().user_type === 'GIFTSHOPHEAD' && (
+              <span
+                onClick={() => {
+                  if (shopId) {
+                    history.push(`${process.env.PUBLIC_URL}/staff/${shopId}`);
+                  } else {
+                    history.push(`${process.env.PUBLIC_URL}/staff`);
+                  }
+                }}
+                className={
+                  path === `${process.env.PUBLIC_URL}/staff` ||
+                    path === `${process.env.PUBLIC_URL}/staff/:shopId`
+                    ? "active"
+                    : ""
+                }
+              >
+                Staff
+            </span>
+            )
+          }
           <span
             onClick={() => {
               if (shopId) {

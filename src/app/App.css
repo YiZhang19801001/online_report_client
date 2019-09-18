@@ -44,7 +44,6 @@ body {
   align-items: center;
   z-index: -1;
   background-color: #6d81e6;
-  box-shadow: 0 4.5px 16px 0 rgba(30, 135, 240, 0.2);
   background: url(http://kidsnparty.com.au/report/header-background.svg);
   background-size: cover;
   margin-bottom: 5px;
@@ -94,6 +93,9 @@ body {
   height: 2rem;
   width: 100%;
   color: #fff;
+  letter-spacing: 1px;
+  font-family: SourceHanSansCN;
+  font-weight: bold;
 }
 .app .header .header-title .title span.year {
   margin-right: 0.2rem;
@@ -207,6 +209,7 @@ table tbody tr td.number {
   text-align: right;
   padding-left: 0.2rem;
   color: #6d81e6;
+  font-weight: 200;
 }
 table tbody tr td.number .symbol {
   font-size: 0.8rem;
@@ -216,6 +219,7 @@ table tbody tr td.number .symbol {
 table tbody tr td.text {
   text-align: left;
   padding-right: 0.2rem;
+  font-weight: 100;
 }
 table tbody tr td.text .payment-method-symbol {
   display: inline-block;
@@ -273,6 +277,7 @@ form .form-field input {
   border: none;
   font-size: 1.1rem;
   border-bottom: 1px solid #6d81e6;
+  font-weight: 200;
 }
 form .form-field input::placeholder {
   opacity: 0;
@@ -408,8 +413,34 @@ form .button-container button:active {
   align-items: center;
 }
 
+@font-face {
+  font-family: SourceHanSansCN;
+  src: url("../app/fonts/SourceHanSansCN-Bold.otf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: SourceHanSansCN;
+  src: url("../app/fonts/SourceHanSansCN-Light.otf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: SourceHanSansCN;
+  src: url("../app/fonts/SourceHanSansCN-Regular.otf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: SourceHanSansCN;
+  src: url("../app/fonts/SourceHanSansCN-Medium.otf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: SourceHanSansCN;
+  src: url("../app/fonts/SourceHanSansCN-Heavy.otf");
+  font-weight: bolder;
+}
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "SourceHanSansCN", sans-serif;
+  overflow: hidden;
 }
 
 button.button-download {
@@ -1246,20 +1277,108 @@ button.button-download .material-icons {
   border-radius: 3px;
 }
 
-.date-picker {
+.popup {
+  display: flex;
+  position: absolute;
+  background-color: #fff;
+  width: 20rem;
+  min-height: 9.5rem;
+  left: 3.71rem;
+  flex-direction: column;
+  padding: 0.9rem 1.5rem;
+  transition: left 0.5s;
+  -webkit-animation-name: drawer;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: drawer;
+  animation-duration: 0.3s;
+}
+.popup .popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.popup .popup-header .comment {
+  font-family: SourceHanSansCN;
+  font-weight: 300;
+  color: #4a4a4a;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+.popup .popup-header .name {
+  font-family: SourceHanSansCN;
+  font-weight: bold;
+  color: #765de0;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+.popup .content {
+  display: flex;
+  text-align: left;
+  font-family: SourceHanSansCN;
+  font-weight: 200;
+  color: #4a4a4a;
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}
+.popup .popup-footer {
+  font-family: SourceHanSansCN;
+  font-weight: 100;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  color: #4a4a4a;
+  letter-spacing: 0.86px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
   margin-top: 4rem;
+  width: 18rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px rgba(155, 155, 155, 0.6);
+}
+.header-container .sub-container {
+  padding: 0 0.8rem 0.3rem 0.8rem;
+  font-family: SourceHanSansCN;
+  font-weight: 100;
+  color: #ffffff9c;
+}
+.header-container .border {
+  width: auto;
+  border-bottom: 3px solid #ffffff;
+  display: inline-block;
+  font-weight: 300;
+  color: #fff;
+}
+.header-container span {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.date-picker {
+  margin-top: 0.5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 1rem;
+}
+.date-picker.margin-top {
+  margin-top: 4rem;
 }
 .date-picker input {
+  font-family: SourceHanSansCN;
+  font-weight: 300;
+  text-align: right;
   height: 2rem;
   width: 45%;
   border-radius: 5px;
   border: 1px solid #a5a5a560;
   font-size: 1rem;
-  padding-left: 0.5rem;
   outline: none;
   color: #fff;
   background-color: transparent;
@@ -1272,15 +1391,154 @@ button.button-download .material-icons {
   height: calc(100vh - 8rem);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
-  align-items: center;
+}
+.component-total-report .group-table {
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding-bottom: 250px;
+  margin-bottom: -250px;
+}
+.component-total-report .group-table table {
+  width: max-content;
+  border-spacing: 0;
+  min-width: 100%;
+  font-family: SourceHanSansCN;
+  font-weight: 300;
+}
+.component-total-report .group-table table thead tr {
+  box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.05);
+  background-color: #f6f5f9;
+  cursor: pointer;
+}
+.component-total-report .group-table table thead tr th {
+  font-size: 0.875rem;
+  color: #4a4a4a;
+  padding: 1rem 0.5rem;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.component-total-report .group-table table tbody tr {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0 2px 3px 0 #dddddd;
+}
+.component-total-report .group-table table tbody tr.striped {
+  background-color: #fff;
+}
+.component-total-report .group-table table tbody tr td {
+  padding: 0rem 0.2rem 0rem 0.2rem;
+  text-align: center;
+  font-size: 0.6rem;
+  color: #4a4a4a;
+  width: 1rem;
+  word-break: break-all;
+}
+.component-total-report .group-table table tbody tr td img {
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.2rem;
+}
+.component-total-report .group-table table tbody tr td .shop-name {
+  display: block;
+  align-items: flex-start;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: white;
+  word-wrap: break-word;
+  transform: rotate(180deg);
+  height: 3rem;
+  letter-spacing: 1px;
+  white-space: normal;
+}
+.component-total-report .group-table table tbody tr td span {
+  display: block;
+}
+.component-total-report .group-table table tbody tr td .download-text {
+  font-size: 0.6rem;
+  color: #6757dd;
+  font-family: SourceHanSansCN;
+  font-weight: 300;
+  letter-spacing: 0.71px;
+}
+.component-total-report select {
+  width: 10rem;
+  border-radius: 12px;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  background-color: #503dd4;
+  text-align-last: center;
+  color: #fff;
+  font-weight: 200;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
 }
 .component-total-report .total-summary {
   width: 100%;
-  height: 5rem;
+  overflow: visible;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.component-total-report .total-summary .group-summary {
   padding: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  width: 45%;
+  border-radius: 5px;
+  height: 6rem;
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+}
+.component-total-report .total-summary .group-summary .bottom-container {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
+}
+.component-total-report .total-summary .group-summary .bottom-container .number {
+  color: #6757dd;
+  font-size: 1.1rem;
+  letter-spacing: 1.29px;
+}
+.component-total-report .total-summary .group-summary .bottom-container .text {
+  margin-left: 0.2rem;
+  color: #4a4a4a;
+  font-weight: 200;
+  font-size: 0.75rem;
+  letter-spacing: 0.86px;
+}
+.component-total-report .total-summary .group-summary .group-title {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.component-total-report .total-summary .group-summary .group-title .name,
+.component-total-report .total-summary .group-summary .group-title .route {
+  font-size: 0.75rem;
+  color: #54516d;
+  font-weight: 200;
+}
+.component-total-report .total-summary .group-summary .group-title .name {
+  font-size: 0.6rem;
+  max-width: 8.5rem;
+  word-break: break-all;
+}
+.component-total-report .total-summary .group-summary .group-title .gp {
+  font-size: 0.875rem;
+  font-family: SourceHanSansCN;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #6757dd;
+}
+.component-total-report .total-summary .group-summary .group-title .gp.font {
+  font-family: SourceHanSansCN;
+  font-weight: bolder;
 }
 .component-total-report .total-summary .total-summary__sales,
 .component-total-report .total-summary .total-summary__tx {
@@ -1289,41 +1547,73 @@ button.button-download .material-icons {
   width: 45%;
   padding: 0.5rem;
   border-radius: 5px;
-  height: 3rem;
   background-color: #fff;
   box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+  overflow: hidden;
 }
 .component-total-report .total-summary .total-summary__sales .title,
 .component-total-report .total-summary .total-summary__tx .title {
+  font-family: SourceHanSansCN;
+  font-weight: 200;
   height: 1rem;
   width: 100%;
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   color: #54516d;
 }
 .component-total-report .total-summary .total-summary__sales .value,
 .component-total-report .total-summary .total-summary__tx .value {
   color: #7162df;
+  font-family: SourceHanSansCN;
+  font-weight: 300;
   font-size: 1.2rem;
   text-align: center;
   width: 100%;
+  letter-spacing: 0.8px;
+}
+.component-total-report .total-summary .total-summary__sales .value.margin,
+.component-total-report .total-summary .total-summary__tx .value.margin {
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1.4rem;
+}
+.component-total-report .total-summary .total-summary__sales .value.font,
+.component-total-report .total-summary .total-summary__tx .value.font {
+  font-weight: bolder;
+}
+.component-total-report .total-summary .total-summary__sales .font-weight,
+.component-total-report .total-summary .total-summary__tx .font-weight {
+  font-weight: bolder;
+}
+.component-total-report .total-summary .total-summary__sales .all-pax,
+.component-total-report .total-summary .total-summary__tx .all-pax {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem 0.2rem 2rem;
+  font-family: SourceHanSansCN;
+  font-weight: 200;
+  color: #4a4a4a;
+  font-size: 0.6rem;
 }
 .component-total-report .shop-list {
   display: flex;
   flex-direction: column;
   width: 95%;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.8rem;
   background-color: #fff;
-  border-radius: 5px;
-  flex: 1;
-  overflow: scroll;
+  overflow: auto;
   -webkit-overflow-scrolling: touch;
-  box-shadow: 0 0 3px rgba(182, 182, 182, 0.5);
+  border-radius: 6px;
+  box-shadow: 0 2px 10px 0 rgba(195, 195, 195, 0.5);
+  margin-top: 1rem;
+  padding-bottom: 10rem;
 }
 .component-total-report .shop-list .shop-summary-card {
-  border-radius: 3px;
-  box-shadow: 0 0 3px #6d81e6;
-  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px 0 rgba(210, 210, 210, 0.5);
+  border: solid 2px #ced3f6;
+  padding: 0.5rem 0.5rem;
   margin-bottom: 0.5rem;
+  overflow: visible;
 }
 .component-total-report .shop-list .shop-summary-card .row {
   display: flex;
@@ -1331,7 +1621,46 @@ button.button-download .material-icons {
   align-items: center;
   width: 100%;
 }
+.component-total-report .shop-list .shop-summary-card .row .sub-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.component-total-report .shop-list .shop-summary-card .row .sub-row .guide {
+  font-family: SourceHanSansCN;
+  font-weight: 200;
+  font-size: 0.75rem;
+  color: #4a4a4a;
+  letter-spacing: 0.6px;
+}
+.component-total-report .shop-list .shop-summary-card .row .sub-row .guide-name {
+  font-weight: 100;
+}
+.component-total-report .shop-list .shop-summary-card .row .sub-row .kb {
+  font-family: SourceHanSansCN;
+  font-weight: 200;
+  font-size: 0.75rem;
+  color: #4a4a4a;
+  letter-spacing: 0.6px;
+}
+.component-total-report .shop-list .shop-summary-card .row.column {
+  flex-direction: column;
+}
+.component-total-report .shop-list .shop-summary-card .row .pax {
+  font-family: SourceHanSansCN;
+  font-weight: 200;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  letter-spacing: 0.6px;
+  margin-left: 0.5rem;
+}
+.component-total-report .shop-list .shop-summary-card .row .group-edition {
+  font-size: 1rem;
+}
 .component-total-report .shop-list .shop-summary-card .row.shop-name {
+  font-family: SourceHanSansCN;
+  font-weight: 300;
   color: #7162df;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #a5a5a560;
@@ -1345,15 +1674,39 @@ button.button-download .material-icons {
   justify-content: space-between;
 }
 .component-total-report .shop-list .shop-summary-card .row.shop-report-data .report .title {
+  font-family: SourceHanSansCN;
+  font-weight: 200;
   margin-right: 0.5rem;
   font-size: 0.6rem;
   color: #54516d;
+  letter-spacing: 0.8px;
 }
 .component-total-report .shop-list .shop-summary-card .row.shop-report-data .report .value {
-  font-size: 1rem;
+  font-family: SourceHanSansCN;
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
   color: #7162df;
 }
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes drawer {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20rem;
+  }
+}
+/* Standard syntax */
+@keyframes drawer {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20rem;
+  }
+}
 .component-export-report {
   margin-top: 9rem;
   background-color: #fff;
@@ -1412,4 +1765,94 @@ button.button-download .material-icons {
   align-items: center;
 }
 
-/*# sourceMappingURL=App.css.map */
+.group-summary-page {
+  width: 100vw;
+  margin-top: 18vh;
+  height: 82vh;
+  overflow: scroll;
+  padding-bottom: 12rem;
+  scroll-behavior: smooth;
+}
+.group-summary-page.header-hide {
+  margin-top: 10vh;
+  height: 100vh;
+  padding-top: 12vh;
+}
+.group-summary-page .group-page-table {
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding-bottom: 250px;
+  margin-bottom: -250px;
+}
+.group-summary-page .group-page-table table {
+  width: max-content;
+  border-spacing: 0;
+  min-width: 100%;
+  font-family: SourceHanSansCN;
+  font-weight: 300;
+}
+.group-summary-page .group-page-table table thead tr {
+  box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.05);
+  background-color: #f6f5f9;
+  cursor: pointer;
+}
+.group-summary-page .group-page-table table thead tr th {
+  font-size: 0.875rem;
+  color: #4a4a4a;
+  padding: 1rem 0.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.group-summary-page .group-page-table table thead tr th span {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.87px;
+}
+.group-summary-page .group-page-table table thead tr th span.underline {
+  height: 1.2rem;
+  border-bottom: 2px solid white;
+}
+.group-summary-page .group-page-table table tbody tr {
+  cursor: pointer;
+  background-color: #fff;
+  box-shadow: 0 2px 3px 0 #dddddd;
+}
+.group-summary-page .group-page-table table tbody tr.striped {
+  background-color: #fff;
+}
+.group-summary-page .group-page-table table tbody tr td {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  text-align: center;
+  font-size: 0.6rem;
+  color: #4a4a4a;
+  padding-left: 1rem;
+  width: 1rem;
+  word-wrap: break-word;
+  font-family: SourceHanSansCN;
+  font-weight: 200;
+  letter-spacing: 0.7px;
+}
+.group-summary-page .group-page-table table tbody tr td .shop-name {
+  display: block;
+  padding-left: 1rem;
+  align-items: flex-start;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: white;
+  word-wrap: break-word;
+  transform: rotate(180deg);
+  height: 3rem;
+  letter-spacing: 1px;
+  white-space: normal;
+}
+.group-summary-page .group-page-table table tbody tr td span {
+  display: block;
+  word-break: break-all;
+}
+.group-summary-page .group-page-table table tbody tr td span.barcode {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=app.css.map */

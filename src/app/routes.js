@@ -8,6 +8,9 @@ import { CustomReport } from "./customize";
 import { Login } from "./auth";
 import { TotalSummary } from "./totalSummary";
 import ExportReport from "./exportReport";
+import { Group } from "./group";
+import { Staff } from "./staff";
+
 export default () => {
   return (
     <Router history={history}>
@@ -67,6 +70,30 @@ export default () => {
           path={`${process.env.PUBLIC_URL}/all`}
           component={AllReports}
         />
+
+
+        <Route
+          path={`${process.env.PUBLIC_URL}/group/:shopId`}
+          component={Group}
+        />
+
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/group`}
+          component={Group}
+        />
+
+        <Route
+          path={`${process.env.PUBLIC_URL}/staff/:shopId`}
+          component={Staff}
+        />
+
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/staff`}
+          component={Staff}
+        />
+
       </>
     </Router>
   );

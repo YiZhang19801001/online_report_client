@@ -7,8 +7,40 @@
 // }
 @import "./shared/sass/index.scss";
 
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Bold.otf");
+    font-weight: bold;
+  }
+
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Light.otf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Regular.otf");
+    font-weight:200;
+}
+
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Medium.otf");
+    font-weight: 300;
+  }
+  
+@font-face {
+    font-family: SourceHanSansCN;
+    src: url("../app/fonts/SourceHanSansCN-Heavy.otf");
+    font-weight: bolder;
+  }
+
+
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "SourceHanSansCN", sans-serif;
+  overflow: hidden;
 }
 
 button{
@@ -17,7 +49,7 @@ button{
         background: radial-gradient(#fff, #735EDF);
         border:none;
         border-radius: 3px;
-        box-shadow: 0 0 6px #577BE2;
+        // box-shadow: 0 0 6px #577BE2;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -40,3 +72,4 @@ button{
 @import "./all/sass/index.scss";
 @import "./totalSummary/sass/index.scss";
 @import "./exportReport/sass/index.scss";
+@import "./group//sass//index.scss";
