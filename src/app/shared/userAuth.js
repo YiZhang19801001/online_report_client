@@ -13,9 +13,9 @@ export default () => {
       cups_report: parseInt(user.cups_report) === 0,
       tables_report: parseInt(user.tables_report) === 0,
       customer_report: parseInt(user.customer_report) === 0,
-      export_report: parseInt(user.export_report) === 0
+      export_report: parseInt(user.export_report) === 0,
+      user_type: user.user_type,
     };
   }
-
   return result;
 };
