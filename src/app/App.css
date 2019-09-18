@@ -20,6 +20,8 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: scroll;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .app.blur {
   filter: blur(10px);
@@ -448,7 +450,6 @@ button.button-download {
   background: radial-gradient(#fff, #735EDF);
   border: none;
   border-radius: 3px;
-  box-shadow: 0 0 6px #577BE2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1361,7 +1362,6 @@ button.button-download .material-icons {
 }
 
 .date-picker {
-  margin-top: 0.5rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1381,14 +1381,13 @@ button.button-download .material-icons {
   font-size: 1rem;
   outline: none;
   color: #fff;
-  background-color: transparent;
+  background-color: initial;
 }
 
 .component-total-report {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - 8rem);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -1441,19 +1440,22 @@ button.button-download .material-icons {
   height: 1rem;
   margin-top: 0.2rem;
 }
-.component-total-report .group-table table tbody tr td .shop-name {
-  display: block;
-  align-items: flex-start;
+.component-total-report .group-table table tbody tr td .shop-name-container {
+  display: flex;
   justify-content: center;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+}
+.component-total-report .group-table table tbody tr td .shop-name {
   writing-mode: vertical-rl;
   font-size: 0.9rem;
   font-weight: 300;
   color: white;
-  word-wrap: break-word;
+  word-break: break-all;
   transform: rotate(180deg);
   height: 3rem;
-  letter-spacing: 1px;
-  white-space: normal;
+  padding-top: 1rem;
+  line-height: 1;
 }
 .component-total-report .group-table table tbody tr td span {
   display: block;
@@ -1469,7 +1471,6 @@ button.button-download .material-icons {
   width: 10rem;
   border-radius: 12px;
   margin-top: 0.4rem;
-  margin-bottom: 1rem;
   background-color: #503dd4;
   text-align-last: center;
   color: #fff;
@@ -1768,71 +1769,76 @@ button.button-download .material-icons {
 .group-summary-page {
   width: 100vw;
   margin-top: 18vh;
-  height: 82vh;
-  overflow: scroll;
-  padding-bottom: 12rem;
-  scroll-behavior: smooth;
+  padding-bottom: 10rem;
 }
 .group-summary-page.header-hide {
   margin-top: 10vh;
   height: 100vh;
   padding-top: 12vh;
 }
-.group-summary-page .group-page-table {
+
+.group-page-table {
   margin-top: 1rem;
+  display: block;
   overflow-x: auto;
   padding-bottom: 250px;
   margin-bottom: -250px;
 }
-.group-summary-page .group-page-table table {
+.group-page-table table {
   width: max-content;
   border-spacing: 0;
   min-width: 100%;
   font-family: SourceHanSansCN;
   font-weight: 300;
 }
-.group-summary-page .group-page-table table thead tr {
+.group-page-table table thead {
+  display: block;
+}
+.group-page-table table thead tr {
   box-shadow: 0 40px 40px 0 rgba(0, 0, 0, 0.05);
   background-color: #f6f5f9;
   cursor: pointer;
 }
-.group-summary-page .group-page-table table thead tr th {
+.group-page-table table thead tr th {
   font-size: 0.875rem;
   color: #4a4a4a;
   padding: 1rem 0.5rem;
   letter-spacing: 1px;
   text-align: center;
 }
-.group-summary-page .group-page-table table thead tr th span {
+.group-page-table table thead tr th span {
   display: block;
   font-size: 0.8rem;
   letter-spacing: 0.87px;
 }
-.group-summary-page .group-page-table table thead tr th span.underline {
+.group-page-table table thead tr th span.underline {
   height: 1.2rem;
   border-bottom: 2px solid white;
 }
-.group-summary-page .group-page-table table tbody tr {
+.group-page-table table tbody {
+  display: block;
+  overflow: auto;
+  height: 14rem;
+}
+.group-page-table table tbody tr {
   cursor: pointer;
   background-color: #fff;
   box-shadow: 0 2px 3px 0 #dddddd;
 }
-.group-summary-page .group-page-table table tbody tr.striped {
+.group-page-table table tbody tr.striped {
   background-color: #fff;
 }
-.group-summary-page .group-page-table table tbody tr td {
+.group-page-table table tbody tr td {
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   text-align: center;
   font-size: 0.6rem;
   color: #4a4a4a;
-  padding-left: 1rem;
-  width: 1rem;
-  word-wrap: break-word;
+  word-break: break-word;
   font-family: SourceHanSansCN;
   font-weight: 200;
   letter-spacing: 0.7px;
 }
-.group-summary-page .group-page-table table tbody tr td .shop-name {
+.group-page-table table tbody tr td .shop-name {
   display: block;
   padding-left: 1rem;
   align-items: flex-start;
@@ -1847,11 +1853,11 @@ button.button-download .material-icons {
   letter-spacing: 1px;
   white-space: normal;
 }
-.group-summary-page .group-page-table table tbody tr td span {
+.group-page-table table tbody tr td span {
   display: block;
   word-break: break-all;
 }
-.group-summary-page .group-page-table table tbody tr td span.barcode {
+.group-page-table table tbody tr td span.barcode {
   font-weight: bold;
 }
 

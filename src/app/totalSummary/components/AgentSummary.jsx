@@ -37,7 +37,7 @@ export default function AgentSummary(props) {
         <>
         {isLoading && <Loading />}
         <div className="component-total-report" style={{display:isdisplay()?'':'none'}}>
-            {showAgent&&<div style={{ alignItems: 'center', display: 'flex', flexDirection: 'column',minHeight:'3rem',overflow:'visible' }}>
+            {showAgent&&<div style={{ alignItems: 'center', display: 'flex', flexDirection: 'column',minHeight:'2rem'}}>
                 <select value={agentName} onChange={(e)=>{setAgentName(e.target.value)}}>
                     {agentList.map(a=><option value={a} key={a}>{a}</option>)}
                 </select>

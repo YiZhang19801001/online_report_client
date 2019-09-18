@@ -42,7 +42,7 @@ export default function GroupSummary(props) {
             {isLoading && <Loading />}
             {(group !== '' && reports.groupSummary) &&
                 <>
-                    <div className="total-summary">
+                    <div className="total-summary" style={{marginTop:'1rem'}}>
                         <div className="total-summary__sales" style={{height:"7.5rem",justifyContent:'space-between'}}>
                             <div className="title">Total Sales:</div>
                             <div className="value font-weight" style={{ marginTop: '0.4rem' }}>
@@ -107,7 +107,7 @@ export default function GroupSummary(props) {
                                                             }
                                                             <img src={comment} alt='comment' />
                                                         </div>}
-                                                        <div style={{paddingLeft:'1rem'}}>
+                                                        <div className={`shop-name-container`}>
                                                             <span className={`shop-name`}>{r.shopName}</span>
                                                         </div>
                                                     </div>

@@ -87,7 +87,7 @@ export default function Main(props) {
             <Header show={showHeader} {...props} />
             <div className={`group-summary-page`} id="group-page">
 
-                <div className={`date-picker`}>
+                <div className={`date-picker`} style={{marginBottom:'0rem'}}>
                     <input
                         type="date"
                         value={startDate.format("YYYY-MM-DD")}
@@ -114,14 +114,15 @@ export default function Main(props) {
                 </div>
 
                 <div className="component-total-report">
-                    <div className="total-summary" style={{ marginTop: '1.5rem' }}>
+                    <div className="total-summary" style={{ marginTop: '0rem'}}>
                         <div className="total-summary__sales">
                             <div className="title">Sales:</div>
                             <div className="value margin font">
                                 ${reports.summary&&reports.summary.sales.toFixed(2)}
                             </div>
                         </div>
-                        <div className="group-summary">
+                        <div className="group-summary" style={{justifyContent:
+                        'space-between'}}>
                             <div className={`group-title`}>
                                 <span className={`route`}>GP$</span>
                                 <span className={`gp`}>${reports.summary&&reports.summary.gp.toFixed(2)}</span>
@@ -137,8 +138,8 @@ export default function Main(props) {
                         </div>
                     </div>
 
-
-                    <div className={`group-page-table`}>
+                </div>
+                <div className={`group-page-table`}>
                     {isLoading&&<Loading/>}
                         <table>
                             <thead>
@@ -151,31 +152,29 @@ export default function Main(props) {
                                     <th style={{ backgroundColor: '#755ce0', color: 'white',width:'1rem'}}>Count</th>
                                     <th style={{ backgroundColor: '#4a7ee1', color: 'white',width:'5.8rem' }}>Sales</th>
                                     <th style={{ backgroundColor: '#5268ca', color: 'white',width:'5rem' }}>GP$</th>
-                                    <th style={{ backgroundColor: '#4a7ee1', color: 'white',width:"1rem" }}>GP%</th>
+                                    <th style={{ backgroundColor: '#4a7ee1', color: 'white',width:"4.5rem" }}>GP%</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {reports.details&&reports.details.map((d,i)=>{
                                     return (
                                         <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '' : '#f6f5f9' }}>
-                                            <td>
+                                            <td style={{width:'5.8rem'}}>
                                                 <span className={`barcode`}>{d.barcode}</span>
                                                 <span>{d.groupName}</span>
                                             </td>
-                                            <td>{d.count}</td>
-                                            <td>${parseFloat(d.sales).toFixed(2)}</td>
-                                            <td>${parseFloat(d.gp).toFixed(2)}</td>
-                                            <td>{(parseFloat(d.gp_percentage*100)).toFixed(2)}%</td>
+                                            <td style={{width:'4rem'}}>{d.count}</td>
+                                            <td style={{width:'5.8rem'}}>${parseFloat(d.sales).toFixed(2)}</td>
+                                            <td style={{width:'5rem'}}>${parseFloat(d.gp).toFixed(2)}</td>
+                                            <td style={{width:'4.5rem'}}>{(parseFloat(d.gp_percentage*100)).toFixed(2)}%</td>
                                         </tr>
                                     )
                                 })}
                             </tbody>
                         </table>
                     </div>
-
-                </div>
-
             </div>
+
         </>
     )
 }
