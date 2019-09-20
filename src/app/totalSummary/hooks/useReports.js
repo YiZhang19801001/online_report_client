@@ -6,9 +6,7 @@ export default (date, dispatch, groupId, type, agentName) => {
   const { startDate, endDate } = date;
   const [data, setData] = useState([]);
   useEffect(() => {
-    console.log(groupId, type)
-    console.log(startDate.format('YYYY-MM-DD HH:mm:ss'));
-    if ((type === 'group' && groupId !== '') || type === 'agent' || type === 'shop'||type==='') {
+    if ((type === 'group' && groupId !== '') || type === 'agent' || type === 'shop' || type === '') {
       dispatch({ type: "setState", payload: { isLoading: true } });
       axios
         .post(
@@ -31,8 +29,9 @@ export default (date, dispatch, groupId, type, agentName) => {
         )
         .then(res => {
           setData(res.data.reports);
-          console.log(res.data)
           dispatch({ type: "setState", payload: { isLoading: false } });
+          const user = JSON.parse(localStorage.getItem("aupos_online_report_user"));
+          localStorage.setItem('aupos_online_report_user', JSON.stringify({ ...user, shops: res.data.shops }));
         });
     }
   }, [date, groupId, agentName]);

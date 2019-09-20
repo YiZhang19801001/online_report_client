@@ -55,14 +55,14 @@ export default props => {
   return (
     <>
       <Header show={true} hideNavBar={true} {...props} showAgent={showAgent} currentTag={currentTag} setShowAgent={setShowAgent} />
-      {currentTag==='shop'&&isLoading && <Loading />}
+      {currentTag === 'shop' && isLoading && <Loading />}
       {
-        user_type === 'GIFTSHOPHEAD' && <div style={{ display: 'flex', justifyContent: "center",width:'18rem',margin:'auto' }}>
+        user_type === 'GIFTSHOPHEAD' && <div style={{ display: 'flex', justifyContent: "center", width: '18rem', margin: 'auto' }}>
           <div className={`header-container`}>
-            <div className={currentTag === 'shop' ? `border sub-container` : 'sub-container'} onClick={() => {setTag('shop');setShowAgent(false)}}>
+            <div className={currentTag === 'shop' ? `border sub-container` : 'sub-container'} onClick={() => { setTag('shop'); setShowAgent(false) }}>
               <span >Shop</span>
             </div>
-            <div className={currentTag === 'group' ? `border sub-container` : 'sub-container'} onClick={() => {setTag('group');setShowAgent(false)}}>
+            <div className={currentTag === 'group' ? `border sub-container` : 'sub-container'} onClick={() => { setTag('group'); setShowAgent(false) }}>
               <span>Group</span>
             </div>
             <div className={currentTag === 'agent' ? `border sub-container` : 'sub-container'} onClick={() => setTag('agent')}>
@@ -100,7 +100,7 @@ export default props => {
       {
         currentTag === 'shop' &&
         <div className="component-total-report">
-          <div className="total-summary"style={{marginTop:'1.5rem'}}>
+          <div className="total-summary" style={{ marginTop: '1.5rem' }}>
             <div className="total-summary__sales">
               <div className="title">Sales:</div>
               <div className="value">
@@ -112,7 +112,7 @@ export default props => {
               <div className="value">{getTotalTx()}</div>
             </div>
           </div>
-          <div style={{display:'flex',flexDirection:'column',alignItems:'center',marginTop:'1rem'}}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '1rem' }}>
             <div className="shop-list">
               {!reports.groupSummary && reports.map(report => {
                 return (
@@ -126,13 +126,13 @@ export default props => {
 
       {/* Group Summary */}
       {
-        (currentTag === 'group')&&<GroupSummary drawer={drawer} setDrawer={setDrawer} date={date}/>
+        (currentTag === 'group') && <GroupSummary drawer={drawer} setDrawer={setDrawer} date={date} />
       }
       {/* Group Summary */}
 
       {/* Agent Summary */}
       {
-        (currentTag === 'agent')&&<AgentSummary date={date} showAgent={showAgent} setShowAgent={setShowAgent}/>
+        (currentTag === 'agent') && <AgentSummary date={date} showAgent={showAgent} setShowAgent={setShowAgent} />
       }
       {/* Agent Summary */}
 

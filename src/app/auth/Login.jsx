@@ -20,7 +20,7 @@ const loginReducer = (success = false, action) => {
           }
         })
         .catch(err => {
-          alert(JSON.stringify(err.response));
+          alert(`password incorrect`);
         });
       return true;
     default:
