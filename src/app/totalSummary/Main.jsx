@@ -3,7 +3,7 @@ import { uniqueId } from "lodash";
 import { Header, Loading } from "../shared";
 import moment from "moment";
 import { fetchReports } from "./hooks";
-import { ShopSummaryCard, GroupSummary, AgentSummary } from "./components";
+import { ShopSummaryCard, GroupSummary, AgentSummary, OfflineShop } from "./components";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -98,30 +98,36 @@ export default props => {
         />
       </div>
       {
-        currentTag === 'shop' &&
-        <div className="component-total-report">
-          <div className="total-summary" style={{ marginTop: '1.5rem' }}>
-            <div className="total-summary__sales">
-              <div className="title">Sales:</div>
-              <div className="value">
-                ${parseFloat(getTotalSales()).toFixed(2)}
+        currentTag === 'shop' && (
+
+          <div className="component-total-report">
+            <div className="total-summary" style={{ marginTop: '1.5rem' }}>
+              <div className="total-summary__sales">
+                <div className="title">Sales:</div>
+                <div className="value">
+                  ${parseFloat(getTotalSales()).toFixed(2)}
+                </div>
+              </div>
+              <div className="total-summary__tx">
+                <div className="title">Transactions:</div>
+                <div className="value">{getTotalTx()}</div>
               </div>
             </div>
-            <div className="total-summary__tx">
-              <div className="title">Transactions:</div>
-              <div className="value">{getTotalTx()}</div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '1rem' }}>
+              <div className="shop-list">
+                {!reports.groupSummary && reports.map(report => {
+                  if (report.totalSales === null) {
+                    // show shop as offline
+                    return <OfflineShop shop={report.shop} />
+                  }
+                  return (
+                    <ShopSummaryCard report={report} key={uniqueId("shopSummary")} />
+                  );
+                })}
+              </div>
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '1rem' }}>
-            <div className="shop-list">
-              {!reports.groupSummary && reports.map(report => {
-                return (
-                  <ShopSummaryCard report={report} key={uniqueId("shopSummary")} />
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        )
       }
 
       {/* Group Summary */}

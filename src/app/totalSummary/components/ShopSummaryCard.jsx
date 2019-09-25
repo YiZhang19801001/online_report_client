@@ -17,8 +17,8 @@ export default ({ report }) => {
   const { shop_name, shop_id } = shop;
   const user_type = JSON.parse(localStorage.getItem("aupos_online_report_user")).user_type;
   const onClick = () => {
-    userAuth().user_type=== 'GIFTSHOPHEAD'?history.push(`${process.env.PUBLIC_URL}/group/${shop_id}`)
-    :history.push(`${process.env.PUBLIC_URL}/daily/${shop_id}`);
+    userAuth().user_type === 'GIFTSHOPHEAD' ? history.push(`${process.env.PUBLIC_URL}/group/${shop_id}`)
+      : history.push(`${process.env.PUBLIC_URL}/daily/${shop_id}`);
   };
   return (
     <div className={`shop-summary-card`}>
@@ -47,45 +47,45 @@ export default ({ report }) => {
           ) / 100}%`}</div>
         </div>
       </div>
-      {user_type==='GIFTSHOPHEAD'?<>
-      <div className="row shop-report-data">
-        <div className={`report`}>
-          <div className={`title`}>Refund$:</div>
-          <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
-        </div>
-        <div className={`report`}>
-          <div className={`title`}>Refund Qty:</div>
-          <div className={`value`}>
-            {refundQty||0}
+      {user_type === 'GIFTSHOPHEAD' ? <>
+        <div className="row shop-report-data">
+          <div className={`report`}>
+            <div className={`title`}>Refund$:</div>
+            <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
+          </div>
+          <div className={`report`}>
+            <div className={`title`}>Refund Qty:</div>
+            <div className={`value`}>
+              {refundQty || 0}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="row shop-report-data">
-        <div className={`report`}>
-          <div className={`title`}>Discount:</div>
-          <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
-        </div>
-        <div className={`report`}>
-          <div className={`title`}>GST:</div>
-          <div className={`value`}>
-            ${parseFloat(gst||0).toFixed(2)}
+        <div className="row shop-report-data">
+          <div className={`report`}>
+            <div className={`title`}>Discount:</div>
+            <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
+          </div>
+          <div className={`report`}>
+            <div className={`title`}>GST:</div>
+            <div className={`value`}>
+              ${parseFloat(gst || 0).toFixed(2)}
+            </div>
           </div>
         </div>
-      </div>
       </>
-      :
-      <div className="row shop-report-data">
-      <div className={`report`}>
-        <div className={`title`}>Discount:</div>
-        <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
-      </div>
-      <div className={`report`}>
-        <div className={`title`}>Refund:</div>
-        <div className={`value`}>
-          ${parseFloat(totalRefund * -1).toFixed(2)}
+        :
+        <div className="row shop-report-data">
+          <div className={`report`}>
+            <div className={`title`}>Discount:</div>
+            <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
+          </div>
+          <div className={`report`}>
+            <div className={`title`}>Refund:</div>
+            <div className={`value`}>
+              ${parseFloat(totalRefund * -1).toFixed(2)}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
       }
     </div>
   );

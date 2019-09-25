@@ -1622,6 +1622,16 @@ button.button-download .material-icons {
   align-items: center;
   width: 100%;
 }
+.component-total-report .shop-list .shop-summary-card .row.disconnect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+.component-total-report .shop-list .shop-summary-card .row.disconnect img {
+  max-height: 4.5rem;
+}
 .component-total-report .shop-list .shop-summary-card .row .sub-row {
   display: flex;
   justify-content: space-between;
@@ -1861,4 +1871,4 @@ button.button-download .material-icons {
   font-weight: bold;
 }
 
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=App.css.map */
