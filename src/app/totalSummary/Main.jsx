@@ -116,7 +116,7 @@ export default props => {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '1rem' }}>
               <div className="shop-list">
                 {!reports.groupSummary && reports.map(report => {
-                  if (report.totalSales === null) {
+                  if (report.totalSales === null && report.toRefund === null) {
                     // show shop as offline
                     return <OfflineShop shop={report.shop} />
                   }
