@@ -8,7 +8,8 @@ export default ({ report, name, setShowAgent, setAgentName }) => {
   const {
     kb,
     pax,
-    shopReports
+    shopReports,
+    guide,
   } = report;
   const keyList = array_chunks(Object.keys(shopReports), 2);
   const user_type = JSON.parse(localStorage.getItem("aupos_online_report_user")).user_type;
@@ -24,7 +25,7 @@ export default ({ report, name, setShowAgent, setAgentName }) => {
         </div>
         <div className={`sub-row`}>
           <span className={`guide`}>Guide:
-            <span className={`guide-name`}>Felix</span>
+            <span className={`guide-name`}>{guide}</span>
           </span>
           <span className={`kb`}>{kb}</span>
         </div>
