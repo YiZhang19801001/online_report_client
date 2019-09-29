@@ -2,6 +2,8 @@ import React, { useState, useReducer, useEffect } from 'react'
 import comment from '../../pictures/comment.png';
 import { fetchGroupList, fetchReports } from "../hooks";
 import { Loading } from "../../shared";
+import { apiUrl } from '../../shared/constants';
+import Axios from 'axios';
 
 
 const colorRange = ['#755ce0', '#4a7ee1', '#6352ab', '#5268ca', '#897fcc', '#6d8dd8', '#755ce0', '#4a7ee1', '#6352ab', '#5268ca', '#897fcc', '#6d8dd8'];
@@ -125,12 +127,41 @@ export default function GroupSummary(props) {
                                                     ${parseFloat(r.sale).toFixed(2)}
                                                 </td>
                                                 <td>
-                                                    <span className={`download-text`}>Profit rpt</span>
+                                                    <span
+                                                        className={`download-text`}
+                                                        onClick={e => {
+                                                            e.preventDefault();
+                                                            // window.location.href = `${apiUrl}/pdf?shop_name=${
+                                                            //     r.shopName
+                                                            //     }&group_code=${reports.groupSummary.group_name}`;
+                                                            Axios
+                                                                .get(`${apiUrl}/pdf?shop_name=${r.shopName}&group_code=${reports.groupSummary.group_name || reports.groupSummary.group_code}`, {
+                                                                    headers: {
+                                                                        Authorization: `Bearer ${
+                                                                            JSON.parse(localStorage.getItem("aupos_online_report_user"))
+                                                                                .access_token
+                                                                            }`
+                                                                    }
+                                                                })
+                                                                .then(resp => {
+                                                                    const { fileUrl, code } = resp.data;
+                                                                    if (code && parseInt(code) === 0) {
+
+                                                                        window.open(fileUrl);
+                                                                    } else {
+                                                                        console.log(resp);
+                                                                    }
+                                                                })
+                                                                .catch(errs => {
+                                                                    console.log(errs);
+
+                                                                });
+                                                        }}
+                                                    >Profit rpt</span>
                                                 </td>
                                             </tr>
                                         )
                                     })
-
                                 }
                             </tbody>
                         </table>
