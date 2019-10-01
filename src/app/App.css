@@ -1371,6 +1371,7 @@ button.button-download .material-icons {
   margin-top: 4rem;
 }
 .date-picker input {
+  z-index: 1000;
   font-family: SourceHanSansCN;
   font-weight: 300;
   text-align: right;
@@ -1820,10 +1821,12 @@ button.button-download .material-icons {
   display: block;
   font-size: 0.8rem;
   letter-spacing: 0.87px;
+  line-height: 1rem;
 }
 .group-page-table table thead tr th span.underline {
   height: 1.2rem;
   border-bottom: 2px solid white;
+  line-height: 1rem;
 }
 .group-page-table table tbody {
   display: block;
