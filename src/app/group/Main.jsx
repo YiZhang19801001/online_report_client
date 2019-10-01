@@ -149,8 +149,8 @@ function Main(props) {
                         <thead>
                             <tr>
                                 <th style={{ backgroundColor: '#4a4a4a', color: 'white', padding: '0.1rem 0', width: '7rem' }}>
-                                    <span className={`underline`}>Group</span>
-                                    <span>Guide</span>
+                                    <span className={`underline`}>Guide</span>
+                                    <span >Group</span>
                                 </th>
 
                                 <th style={{ backgroundColor: '#755ce0', color: 'white', width: '1rem' }}>Count</th>
@@ -164,8 +164,9 @@ function Main(props) {
                             {reports.details && reports.details.map((d, i) => {
                                 return (
                                     <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '' : '#f6f5f9' }}>
-                                        <td style={{ width: 'rem' }}>
-                                            <span className={`barcode`}>{d.barcode}</span>
+                                        <td style={{ width: '7rem' }}>
+                                            {/* <span className={`barcode`}>{d.barcode}</span> */}
+                                            <span>{d.guide}</span>
                                             <span>{d.groupName}</span>
                                         </td>
                                         <td style={{ width: '4rem' }}>{d.count}</td>
