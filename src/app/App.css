@@ -443,6 +443,12 @@ form .button-container button:active {
 * {
   font-family: "SourceHanSansCN", sans-serif;
   overflow: hidden;
+  touch-action: manipulation !important;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
 }
 
 button.button-download {

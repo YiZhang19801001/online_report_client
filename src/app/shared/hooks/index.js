@@ -16,8 +16,16 @@ export const checkLogin = originUrl => {
           }
         })
         .then(res => {
-          if (originUrl === `${process.env.PUBLIC_URL}/`) {
-            history.push(`${process.env.PUBLIC_URL}/daily`);
+          if (res.data.id && originUrl === `${process.env.PUBLIC_URL}/`) {
+            const lastVisitPage = localStorage.getItem('aupos_online_report_last_visit_page')
+            if (lastVisitPage) {
+              history.push(`${process.env.PUBLIC_URL}${lastVisitPage}`)
+            } else if (res.data.user_type === "CUSTOMER") {
+              // home page for user who has only 1 store
+              history.push(`${process.env.PUBLIC_URL}/daily`)
+            } else {
+              history.push(`${process.env.PUBLIC_URL}/total`)
+            }
           } else {
             history.push(`${originUrl}`);
           }

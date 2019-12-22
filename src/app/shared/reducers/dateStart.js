@@ -1,9 +1,8 @@
 import moment from "moment";
 export default (
-  startDate = moment
-    .utc()
+  startDate = moment.utc()
     .add("minutes", "Australia/Sydney")
-    .subtract(0, "days"),
+    .startOf("day"),
   action
 ) => {
   switch (action.type) {

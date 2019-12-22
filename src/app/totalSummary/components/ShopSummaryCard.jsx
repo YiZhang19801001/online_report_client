@@ -12,9 +12,10 @@ export default ({ report }) => {
     totalRefund,
     discount,
     refundQty,
-    gst
+    gst,
   } = report;
-  const { shop_name, shop_id } = shop;
+
+  const { shop_name, shop_id } = shop || { shop_name: "读取名字失败", shop_id: report.shop_id };
   const user_type = JSON.parse(localStorage.getItem("aupos_online_report_user")).user_type;
   const onClick = () => {
     userAuth().user_type === 'GIFTSHOPHEAD' ? history.push(`${process.env.PUBLIC_URL}/group/${shop_id}`)
@@ -51,7 +52,7 @@ export default ({ report }) => {
         <div className="row shop-report-data">
           <div className={`report`}>
             <div className={`title`}>Refund$:</div>
-            <div className={`value`}>${parseFloat(discount).toFixed(2)}</div>
+            <div className={`value`}>${parseFloat(totalRefund || 0).toFixed(2)}</div>
           </div>
           <div className={`report`}>
             <div className={`title`}>Refund Qty:</div>

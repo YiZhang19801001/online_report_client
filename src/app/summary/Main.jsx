@@ -24,6 +24,11 @@ export default props => {
   const { dateForDailyReport, showModal } = useMappedState(mapState);
   const dispatch = useDispatch();
   useEffect(() => {
+    if (shopId) {
+      localStorage.setItem('aupos_online_report_last_visit_page', `/daily/${shopId}`)
+    } else {
+      localStorage.setItem('aupos_online_report_last_visit_page', `/daily`)
+    }
     const date = momment(dateForDailyReport).format(`YYYYMMDD`);
     const fn = async () => {
       const response = await axios.get(

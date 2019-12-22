@@ -21,7 +21,7 @@ export default () => {
     <div
       className={`app ${showModal ? "blur" : ""} ${
         showUserCenter ? "blur" : ""
-      }`}
+        }`}
     >
       <Modal />
       <UserModal />

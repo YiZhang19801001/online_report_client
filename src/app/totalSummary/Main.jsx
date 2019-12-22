@@ -35,6 +35,11 @@ const initState = {
 const colorRange = ['#755ce0', '#4a7ee1', '#5268ca'];
 
 export default props => {
+
+  useEffect(() => {
+    localStorage.setItem('aupos_online_report_last_visit_page', '/total')
+  }, [])
+
   const [state, dispatch] = useReducer(reducer, initState);
   const { isLoading, date } = state;
   const { startDate, endDate } = date;

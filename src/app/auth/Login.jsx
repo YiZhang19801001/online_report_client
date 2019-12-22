@@ -11,11 +11,14 @@ const loginReducer = (success = false, action) => {
         .then(res => {
           localStorage.setItem(
             "aupos_online_report_user",
-            JSON.stringify(res.data)
+            JSON.stringify({ ...res.data })
           );
+
           if (res.data.shops.length > 1 || res.data.user_type === 'HEAD') {
+            // home page for user who has more than 1 store
             history.push(`${process.env.PUBLIC_URL}/total`);
           } else {
+            // home page for user who has only 1 store
             history.push(`${process.env.PUBLIC_URL}/daily`);
           }
         })
