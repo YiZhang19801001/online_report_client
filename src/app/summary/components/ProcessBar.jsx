@@ -10,6 +10,8 @@ export default ({ list, handleOnClick }) => {
   return (
     <div className="process-bar">
       {list.map(item => {
+        console.log(item);
+
         return (
           <div
             key={uniqueId("process-bar-div")}

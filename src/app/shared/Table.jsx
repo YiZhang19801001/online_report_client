@@ -10,7 +10,7 @@ export default ({ ths, data, dataFormat, sum, striped }) => {
   if (!ths || !data || ths.length === 0) {
     return <Loading />;
   } else if (data.length === 0) {
-    return <Loading />;
+    return null;
   }
 
   const [tableData, setTableData] = useState([]);

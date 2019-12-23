@@ -79,7 +79,7 @@ export default props => {
       return {
         ...row,
         total: parseFloat(row.total).toFixed(2),
-        percentage: Math.round(row.percentage * 10000) / 100
+        percentage: reports.sales !== 0 ? (Math.round((row.total / reports.sales) * 10000) / 100) : 0
       };
     });
   }
