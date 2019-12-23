@@ -4,7 +4,7 @@ import { Loading } from "../shared";
 export default ({ sum, date, comparison }) => {
   const getPercentage = () => {
     const sign = sum >= comparison ? 1 : -1;
-
+    if (sum === 0) return 0
     return (((sum - comparison) * 100 * sign) / sum).toFixed(2);
   };
   const getSrc = () => {
@@ -18,7 +18,7 @@ export default ({ sum, date, comparison }) => {
   return (
     <div className="block">
       <span className="title">transactions</span>
-      <span className="value">{sum ? parseInt(sum) : <Loading />}</span>
+      <span className="value">{sum || sum === 0 ? parseInt(sum) : <Loading />}</span>
       <span className="compare">
         <span className="date">{`${date} ${comparison}`}</span>
         <img src={getSrc()} alt="" />

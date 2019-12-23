@@ -4,7 +4,7 @@ import { Loading } from "../shared";
 export default ({ sales, date, comparison }) => {
   const getPercentage = () => {
     const sign = sales >= comparison ? 1 : -1;
-
+    if (sales === 0) return 0
     return (((sales - comparison) * 100 * sign) / sales).toFixed(2);
   };
 
@@ -22,7 +22,7 @@ export default ({ sales, date, comparison }) => {
       <span className="value"
         style={{ lineHeight: '1.5rem' }}
       >
-        {sales ? (
+        {sales || sales === 0 ? (
           <>
             <span className="symbol">$</span>
             <span
