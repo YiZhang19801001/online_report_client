@@ -50,11 +50,15 @@ export default props => {
   let reports = fetchReports(date, dispatch, '', '');
 
   const user_type = JSON.parse(localStorage.getItem("aupos_online_report_user")).user_type;
-  const getTotalSales = () =>
-    !reports.groupSummary && reports.reduce((sum, report) => sum + parseFloat(report.totalSales || 0), 0);
+  const getTotalSales = () => {
+    return !reports.groupSummary && reports.reduce((sum, report) => sum + parseFloat(report.totalSales || 0), 0);
+  }
 
-  const getTotalTx = () =>
-    !reports.groupSummary && reports.reduce((sum, report) => sum + parseInt(report.totalTx || 0), 0);
+
+  const getTotalTx = () => {
+    return !reports.groupSummary && reports.reduce((sum, report) => sum + parseInt(report.totalTx || 0), 0);
+  }
+
 
 
   return (
