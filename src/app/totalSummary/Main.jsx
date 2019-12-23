@@ -122,7 +122,14 @@ export default props => {
                 <div className="value">{getTotalTx()}</div>
               </div>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '1rem' }}>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              marginTop: '1rem',
+              height: '70vh',
+              overflow: 'scroll',
+            }}>
               <div className="shop-list">
                 {!reports.groupSummary && reports.map(report => {
                   if (report.totalSales === null && report.toRefund === null) {

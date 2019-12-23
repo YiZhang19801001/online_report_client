@@ -19,8 +19,9 @@ body {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  overflow: scroll;
-  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .app.blur {
@@ -1395,8 +1396,7 @@ button.button-download .material-icons {
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
 }
 .component-total-report .group-table {
   margin-top: 1rem;

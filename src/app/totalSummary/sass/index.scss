@@ -113,8 +113,9 @@
   flex-direction: column;
   width: 100%;
   // height: calc(100vh - 8rem);
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
+  // overflow: scroll;
+  // -webkit-overflow-scrolling: touch;
+  overflow: hidden;
   // align-items: center;
   // padding-bottom: 10rem;
   .group-table{
