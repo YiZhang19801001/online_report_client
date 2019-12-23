@@ -44,25 +44,32 @@ export default props => {
     <>
       <Header show={true} {...props} />
       <div className="component-custom-report">
-        <ReportTypeSelector dispatch={dispatch} reportType={reportType} />
-        <QuickDatePicker dispatch={dispatch} />
-        <TimePeriodSelector
-          dispatch={dispatch}
-          startDate={startDate}
-          endDate={endDate}
-        />
-        <div className={`flat-block`}>
-          {isLoading ? (
-            <Loading />
-          ) : (
-            <Table
-              ths={ths}
-              dataFormat={dataFormat}
-              data={data}
-              sum={false}
-              striped={true}
-            />
-          )}
+        <div
+          style={{
+            height: 'max-content',
+            paddingBottom: '15rem',
+          }}
+        >
+          <ReportTypeSelector dispatch={dispatch} reportType={reportType} />
+          <QuickDatePicker dispatch={dispatch} />
+          <TimePeriodSelector
+            dispatch={dispatch}
+            startDate={startDate}
+            endDate={endDate}
+          />
+          <div className={`flat-block`}>
+            {isLoading ? (
+              <Loading />
+            ) : (
+                <Table
+                  ths={ths}
+                  dataFormat={dataFormat}
+                  data={data}
+                  sum={false}
+                  striped={true}
+                />
+              )}
+          </div>
         </div>
       </div>
     </>

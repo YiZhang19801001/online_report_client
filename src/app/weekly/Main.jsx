@@ -5,6 +5,10 @@ import moment from "moment";
 import { weeklyReport } from "./hooks";
 import { Sales, NoOfTrans } from "../summary";
 import { Header } from "../shared";
+
+let preScrollPosition = 0;
+
+
 export default props => {
   const { shopId } = props.match.params;
   const mapState = useCallback(
@@ -26,14 +30,13 @@ export default props => {
     return sum + parseInt(report.tx);
   }, 0);
 
-  let preScrollPosition = 0;
   const [showHeader, setShowHeader] = useState(true);
   useEffect(() => {
     const dom = document.querySelector("#weekly-report-page");
     const handleScroll = () => {
-      if (preScrollPosition > dom.scrollTop) {
+      if (preScrollPosition > dom.scrollTop && dom.scrollTop / preScrollPosition < 0.7) {
         setShowHeader(true);
-      } else {
+      } else if (preScrollPosition < dom.scrollTop && dom.scrollTop / preScrollPosition > 1.5) {
         setShowHeader(false);
       }
       preScrollPosition = dom.scrollTop;
@@ -48,28 +51,30 @@ export default props => {
     <>
       <Header show={showHeader} shops={shops} {...props} />
       <div className="component-weekly-report" id="weekly-report-page">
-        <div className={`row ${showHeader ? "" : "hide"}`}>
-          <QuickDatePicker />
-        </div>
-        <div className="row">
-          <Sales
-            sales={sales}
-            comparison={comparison.sales}
-            date={moment(comparison.date).format("MMM")}
-          />
-          <NoOfTrans
-            sum={numberOfTransactions}
-            comparison={comparison.tx}
-            date={moment(comparison.date).format("MMM")}
-          />
-        </div>
-        <div className="row weekly-reports">
-          <TabGroup tabs={getTabs(weeklyReports)} />
-          <WeeklyReportsTable
-            data={weeklyReports}
-            tabs={getTabs(weeklyReports)}
-            weeks={weeks}
-          />
+        <div style={{ height: 'max-content', paddingBottom: '15rem' }}>
+          <div className={`row ${showHeader ? "" : "hide"}`}>
+            <QuickDatePicker />
+          </div>
+          <div className="row">
+            <Sales
+              sales={sales}
+              comparison={comparison.sales}
+              date={moment(comparison.date).format("MMM")}
+            />
+            <NoOfTrans
+              sum={numberOfTransactions}
+              comparison={comparison.tx}
+              date={moment(comparison.date).format("MMM")}
+            />
+          </div>
+          <div className="row weekly-reports">
+            <TabGroup tabs={getTabs(weeklyReports)} />
+            <WeeklyReportsTable
+              data={weeklyReports}
+              tabs={getTabs(weeklyReports)}
+              weeks={weeks}
+            />
+          </div>
         </div>
       </div>
     </>

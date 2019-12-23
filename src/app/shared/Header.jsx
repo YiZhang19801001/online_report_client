@@ -24,8 +24,9 @@ export default ({ show, shops, hideNavBar = false, match, showAgent = false, cur
     <div className={`header ${show ? "" : "hide"}`}>
       <div className={`header-title`}>
         <div className={`icon-container`}>
-          {JSON.parse(localStorage.getItem("aupos_online_report_user")).shops
-            .length > 1 && path !== `${process.env.PUBLIC_URL}/total` ? (
+          {localStorage.getItem("aupos_online_report_user") &&
+            JSON.parse(localStorage.getItem("aupos_online_report_user")).shops
+              .length > 1 && path !== `${process.env.PUBLIC_URL}/total` ? (
               <img
                 src="http://kidsnparty.com.au/roben_api/images/homepage.png"
                 alt=""

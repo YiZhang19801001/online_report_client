@@ -535,14 +535,12 @@ button.button-download .material-icons {
 .app .summary {
   width: 100vw;
   margin-top: 18vh;
-  height: 82vh;
+  height: 81vh;
   overflow: scroll;
-  padding-bottom: 12rem;
-  scroll-behavior: smooth;
 }
 .app .summary.header-hide {
   margin-top: 10vh;
-  height: 100vh;
+  height: 89vh;
   padding-top: 12vh;
 }
 .app .summary .row {
@@ -727,12 +725,10 @@ button.button-download .material-icons {
   margin-top: 18vh;
   height: 82vh;
   overflow: scroll;
-  padding-bottom: 12rem;
-  scroll-behavior: smooth;
 }
 .app .component-weekly-report.header-hide {
   margin-top: 10vh;
-  height: 100vh;
+  height: 89vh;
   padding-top: 12vh;
 }
 .app .component-weekly-report .row {
@@ -1223,8 +1219,11 @@ button.button-download .material-icons {
 
 .component-custom-report {
   background-color: #e1e1e1;
-  margin-top: 9rem;
   background-color: #fff;
+  width: 100vw;
+  margin-top: 9rem;
+  height: calc(100vh - 9rem);
+  overflow: scroll;
 }
 .component-custom-report .flat-block {
   display: flex;
@@ -1785,11 +1784,11 @@ button.button-download .material-icons {
 .group-summary-page {
   width: 100vw;
   margin-top: 18vh;
-  padding-bottom: 10rem;
+  overflow: scroll;
 }
 .group-summary-page.header-hide {
   margin-top: 10vh;
-  height: 100vh;
+  height: 89vh;
   padding-top: 12vh;
 }
 

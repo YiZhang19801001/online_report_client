@@ -44,8 +44,7 @@ const makeNewPath = path => {
 };
 
 export default ({ path, shop_id }) => {
-  const shops = JSON.parse(localStorage.getItem("aupos_online_report_user"))
-    .shops;
+  const shops = localStorage.getItem("aupos_online_report_user") ? JSON.parse(localStorage.getItem("aupos_online_report_user")).shops : [];
   if (path === "/total") {
     return null;
   }

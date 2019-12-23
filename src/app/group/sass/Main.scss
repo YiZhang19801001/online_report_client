@@ -2,12 +2,12 @@
     width: 100vw;
     margin-top: 18vh;
     // height: 82vh;
-    padding-bottom:10rem;
-    // overflow: scroll;
+    // padding-bottom:10rem;
+    overflow: scroll;
     // scroll-behavior: smooth;
     &.header-hide {
       margin-top: 10vh;
-      height: 100vh;
+      height: 89vh;
       padding-top: 12vh;
     }
 }

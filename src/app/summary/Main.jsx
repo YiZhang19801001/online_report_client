@@ -10,6 +10,8 @@ import { QuickDatePicker } from "./components/";
 import { Header, userAuth } from "../shared";
 import { apiUrl } from "../shared/constants";
 
+let preScrollPosition = 0;
+
 export default props => {
   const { shopId } = props.match.params;
   const [reports, setReports] = useState({});
@@ -50,14 +52,16 @@ export default props => {
     fn();
   }, [dateForDailyReport, shopId]);
 
-  let preScrollPosition = 0;
   const [showHeader, setShowHeader] = useState(true);
   useEffect(() => {
+
+
     const dom = document.querySelector("#summary-page");
     const handleScroll = () => {
-      if (preScrollPosition > dom.scrollTop) {
+      // alert(`preScrollPosition: ${preScrollPosition},scrollTop: ${dom.scrollTop}`)
+      if (preScrollPosition > dom.scrollTop && dom.scrollTop / preScrollPosition < 0.7) {
         setShowHeader(true);
-      } else {
+      } else if (preScrollPosition < dom.scrollTop && dom.scrollTop / preScrollPosition > 1.5) {
         setShowHeader(false);
       }
       preScrollPosition = dom.scrollTop;
@@ -69,7 +73,6 @@ export default props => {
     };
   }, []);
 
-  // todo: need fixed
   let formatedPaymentReports = [];
   if (reports.reportsForPaymentMethod) {
     formatedPaymentReports = reports.reportsForPaymentMethod.map(row => {
@@ -90,29 +93,36 @@ export default props => {
           }`}
         id="summary-page"
       >
-        <div className={`row ${showHeader ? "" : "hide"}`}>
-          <QuickDatePicker />
-        </div>
-        <div className="row">
-          <Sales
-            sales={reports.sales}
-            comparison={reports.compareSales}
-            date={momment(dateForDailyReport).subtract(1, 'days').format(`DD MMM`)}
-          />
-          <NoOfTrans
-            sum={reports.numberOfTransactions}
-            comparison={reports.compareNumberOfTransactions}
-            date={momment(dateForDailyReport).subtract(1, 'days').format(`DD MMM`)}
-          />
-        </div>
-        <div className="row shadow">
-          <PaymentMethod list={formatedPaymentReports} />
-        </div>
+        <div style={{
 
-        <div className="row shadow">
-          {userAuth().cups_report && rendered && (
-            <DataGroup shopId={shopId} date={dateForDailyReport} />
-          )}
+          height: 'max-content',
+          paddingBottom: '15rem',
+
+        }}>
+          <div className={`row ${showHeader ? "" : "hide"}`}>
+            <QuickDatePicker />
+          </div>
+          <div className="row">
+            <Sales
+              sales={reports.sales}
+              comparison={reports.compareSales}
+              date={momment(dateForDailyReport).subtract(1, 'days').format(`DD MMM`)}
+            />
+            <NoOfTrans
+              sum={reports.numberOfTransactions}
+              comparison={reports.compareNumberOfTransactions}
+              date={momment(dateForDailyReport).subtract(1, 'days').format(`DD MMM`)}
+            />
+          </div>
+          <div className="row shadow">
+            <PaymentMethod list={formatedPaymentReports} />
+          </div>
+
+          <div className="row shadow">
+            {userAuth().cups_report && rendered && (
+              <DataGroup shopId={shopId} date={dateForDailyReport} />
+            )}
+          </div>
         </div>
       </div>
     </>
