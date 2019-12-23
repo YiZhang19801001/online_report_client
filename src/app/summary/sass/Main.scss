@@ -3,6 +3,7 @@
   margin-top: 18vh;
   height: 81vh;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   &.header-hide {
     margin-top: 10vh;
     height: 89vh;

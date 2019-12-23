@@ -46,7 +46,8 @@ export default props => {
       <div className="component-custom-report">
         <div
           style={{
-            height: 'max-content',
+            // height: 'max-content',
+            minHeight: '100vh',
             paddingBottom: '15rem',
           }}
         >

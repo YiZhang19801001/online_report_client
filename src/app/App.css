@@ -22,7 +22,6 @@ body {
   top: 0;
   left: 0;
   overflow: hidden;
-  -webkit-overflow-scrolling: touch;
 }
 .app.blur {
   filter: blur(10px);
@@ -149,6 +148,7 @@ table {
   min-width: 100%;
   max-height: 100%;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
   border-spacing: 0;
   margin-top: 0.5rem;
 }
@@ -444,7 +444,6 @@ form .button-container button:active {
 * {
   font-family: "SourceHanSansCN", sans-serif;
   overflow: hidden;
-  touch-action: manipulation !important;
 }
 
 html, body {
@@ -537,6 +536,7 @@ button.button-download .material-icons {
   margin-top: 18vh;
   height: 81vh;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .app .summary.header-hide {
   margin-top: 10vh;
@@ -1224,6 +1224,7 @@ button.button-download .material-icons {
   margin-top: 9rem;
   height: calc(100vh - 9rem);
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .component-custom-report .flat-block {
   display: flex;
@@ -1785,6 +1786,7 @@ button.button-download .material-icons {
   width: 100vw;
   margin-top: 18vh;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .group-summary-page.header-hide {
   margin-top: 10vh;

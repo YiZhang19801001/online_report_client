@@ -51,7 +51,11 @@ export default props => {
     <>
       <Header show={showHeader} shops={shops} {...props} />
       <div className="component-weekly-report" id="weekly-report-page">
-        <div style={{ height: 'max-content', paddingBottom: '15rem' }}>
+        <div style={{
+          // height: 'max-content', 
+          minHeight: '100vh',
+          paddingBottom: '15rem'
+        }}>
           <div className={`row ${showHeader ? "" : "hide"}`}>
             <QuickDatePicker />
           </div>

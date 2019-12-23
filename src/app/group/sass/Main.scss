@@ -5,6 +5,8 @@
     // padding-bottom:10rem;
     overflow: scroll;
     // scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
     &.header-hide {
       margin-top: 10vh;
       height: 89vh;
