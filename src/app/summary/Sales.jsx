@@ -19,20 +19,26 @@ export default ({ sales, date, comparison }) => {
   return (
     <div className="block">
       <span className="title">total sales</span>
-      <span className="value">
+      <span className="value"
+        style={{ lineHeight: '1.5rem' }}
+      >
         {sales ? (
           <>
             <span className="symbol">$</span>
-            <span>{`${parseFloat(sales).toFixed(2)}`}</span>
+            <span
+              style={parseFloat(sales).toFixed(2).length > 5 ? { fontSize: '1rem' } : {}}
+            >{`${parseFloat(sales).toFixed(2)}`}</span>
           </>
         ) : (
-          <Loading />
-        )}
+            <Loading />
+          )}
       </span>
-      <span className="compare">
-        <span className="date">{`${date} $${parseFloat(comparison).toFixed(
-          2
-        )}`}</span>
+      <span className="compare"
+
+      >
+        <span className="date"
+        >{`${date} $${comparison > 9999 ? `${parseFloat(comparison / 1000).toFixed(2)}K` : parseFloat(comparison).toFixed(2)}`}
+        </span>
         <img src={getSrc()} alt="" />
         <span className={getClassName()}>{getPercentage()}%</span>
       </span>

@@ -2,6 +2,8 @@ import React, { useCallback } from "react";
 import { useDispatch, useMappedState } from "redux-react-hook";
 import moment from "moment";
 
+import calendarSVG from "../../../images/calendar.svg"
+
 export default () => {
   const mapState = useCallback(
     ({ dateForDailyReport }) => ({
@@ -60,11 +62,25 @@ export default () => {
           .add(1, "days")
           .format("MMM DD")}
       </button>
+      <label
+        style={{
+          opacity: 1,
+          display: 'block',
+          position: 'absolute',
+          right: '1rem',
+          top: '1.1rem',
+        }}
+        htmlFor="quick-day-picker">
+        <img src={calendarSVG} alt="" />
+      </label>
+
       <input
+        id="quick-day-picker"
         type="date"
         data-date={moment(dateForDailyReport).format("MMM Do")}
         value={dateForDailyReport}
         onChange={handleDateChange}
+        style={{ opacity: 0, height: '1px', width: '1px', position: 'absolute', zIndex: '-80' }}
       />
     </div>
   );
