@@ -31,7 +31,8 @@ table {
               }
             }
         }
-        &.number {
+        &.number,
+        &.money {
           .th-content-container {
             justify-content: flex-end;
           }
@@ -73,14 +74,16 @@ table {
         height: 3.2rem;
         font-size: 1.1rem;
         border-bottom: 1px solid color("borderTable");
-        &.number {
+        &.number,
+        &.money {
           text-align: right;
           padding-left: 0.2rem;
           color: color("main");
           font-weight: 200;
+          font-size: 0.8rem;
           .symbol {
             font-size: 0.8rem;
-            display: inline-block;
+            // display: inline-block;
             margin-right: 2px;
           }
         }

@@ -13,13 +13,16 @@ const loginReducer = (success = false, action) => {
             "aupos_online_report_user",
             JSON.stringify({ ...res.data })
           );
-
-          if (res.data.shops.length > 1 || res.data.user_type === 'HEAD') {
-            // home page for user who has more than 1 store
-            history.push(`${process.env.PUBLIC_URL}/total`);
-          } else {
+          if (res.data.shops.length <= 1 && res.data.user_type === "CUSTOMER") {
             // home page for user who has only 1 store
             history.push(`${process.env.PUBLIC_URL}/daily`);
+          } else if (res.data.shops.length > 1 && res.data.user_type === "CUSTOMER") {
+            //home page for customer user who has more than 1 store
+            localStorage.setItem('aupos_online_report_customer_user_shops', JSON.stringify(res.data.shops))
+            history.push(`${process.env.PUBLIC_URL}/summary`)
+          } else {
+            // home page for head user
+            history.push(`${process.env.PUBLIC_URL}/total`);
           }
         })
         .catch(err => {

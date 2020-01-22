@@ -20,6 +20,7 @@ export default ({ show, shops, hideNavBar = false, match, showAgent = false, cur
   const dispatch = useDispatch();
   const year = moment(dateForDailyReport).format("YYYY");
 
+
   return (
     <div className={`header ${show ? "" : "hide"}`}>
       <div className={`header-title`}>
@@ -62,7 +63,7 @@ export default ({ show, shops, hideNavBar = false, match, showAgent = false, cur
           />
         </div>
       </div>
-      {path !== `${process.env.PUBLIC_URL}/total` && (
+      {(path !== `${process.env.PUBLIC_URL}/total` && path !== `${process.env.PUBLIC_URL}/summary`) && (
         <ShopSelector shops={shops} path={path} shop_id={shopId} />
       )}
       {!hideNavBar && (

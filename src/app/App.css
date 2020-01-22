@@ -176,10 +176,10 @@ table thead tr th .th-content-container .th-symbol.decrease img {
 table thead tr th .th-content-container .th-symbol img {
   height: 100%;
 }
-table thead tr th.number {
+table thead tr th.number, table thead tr th.money {
   padding-left: 0.2rem;
 }
-table thead tr th.number .th-content-container {
+table thead tr th.number .th-content-container, table thead tr th.money .th-content-container {
   justify-content: flex-end;
 }
 table thead tr th.text {
@@ -208,15 +208,15 @@ table tbody tr td {
   font-size: 1.1rem;
   border-bottom: 1px solid #dedede;
 }
-table tbody tr td.number {
+table tbody tr td.number, table tbody tr td.money {
   text-align: right;
   padding-left: 0.2rem;
   color: #6d81e6;
   font-weight: 200;
-}
-table tbody tr td.number .symbol {
   font-size: 0.8rem;
-  display: inline-block;
+}
+table tbody tr td.number .symbol, table tbody tr td.money .symbol {
+  font-size: 0.8rem;
   margin-right: 2px;
 }
 table tbody tr td.text {
@@ -1508,9 +1508,10 @@ button.button-download .material-icons {
   justify-content: flex-end;
   align-items: center;
 }
-.component-total-report .total-summary .group-summary .bottom-container .number {
+.component-total-report .total-summary .group-summary .bottom-container .number,
+.component-total-report .total-summary .group-summary .bottom-container .money {
   color: #6757dd;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   letter-spacing: 1.29px;
 }
 .component-total-report .total-summary .group-summary .bottom-container .text {

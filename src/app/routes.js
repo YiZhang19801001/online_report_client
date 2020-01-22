@@ -10,6 +10,7 @@ import { TotalSummary } from "./totalSummary";
 import ExportReport from "./exportReport";
 import { Group } from "./group";
 import { Staff } from "./staff";
+import { SummaryList } from "./customerSummary";
 
 export default () => {
   return (
@@ -92,6 +93,11 @@ export default () => {
           exact
           path={`${process.env.PUBLIC_URL}/staff`}
           component={Staff}
+        />
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/summary`}
+          component={SummaryList}
         />
 
       </>

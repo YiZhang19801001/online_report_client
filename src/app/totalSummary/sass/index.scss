@@ -241,9 +241,10 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        .number{
+        .number,
+        .money{
           color:#6757dd;
-          font-size: 1.1rem;
+          font-size: 0.8rem;
           letter-spacing: 1.29px;
         }
         .text{

@@ -10,19 +10,21 @@ import "./App.css";
 export default () => {
   checkLogin(history.location.pathname);
   const mapState = useCallback(
-    ({ showModal, showUserCenter }) => ({
+    ({ showModal, showUserCenter, showCancelNotification }) => ({
       showModal,
-      showUserCenter
+      showUserCenter, showCancelNotification
     }),
     []
   );
 
-  const { showModal, showUserCenter } = useMappedState(mapState);
+  const { showModal, showUserCenter, showCancelNotification } = useMappedState(mapState);
 
   return (
     <div
       className={`app ${showModal ? "blur" : ""} ${
         showUserCenter ? "blur" : ""
+        } ${
+        showCancelNotification ? "blur" : ""
         }`}
     >
       <Modal />

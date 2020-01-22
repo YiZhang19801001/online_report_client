@@ -5,5 +5,6 @@ import Loading from "./Loading";
 import Form from "./components/Form";
 import Modal from "./components/Modal";
 import UserModal from "./components/UserModal";
+import CancelRequestNotification from "./components/CancelRequestNotification"
 import userAuth from "./userAuth";
-export { history, Header, Table, Loading, Form, Modal, UserModal, userAuth };
+export { history, Header, Table, Loading, Form, Modal, UserModal, userAuth, CancelRequestNotification };

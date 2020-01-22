@@ -113,7 +113,7 @@ const renderTds = (dataFormat, row) => {
   return dataFormat.map(property => {
     return (
       <td key={_.uniqueId("tableRowTd")} className={property.type}>
-        {renderTdPrefix(property.value, row[property.value])}
+        {renderTdPrefix(property.value, row[property.value], property.type)}
         <span>
           {property.type === "number"
             ? property.value === "quantity"
@@ -122,16 +122,20 @@ const renderTds = (dataFormat, row) => {
                 property.value === "percentage"
                 ? `${Math.round(parseFloat(row[property.value]) * 10000) / 100}%`
                 : parseFloat(row[property.value]).toFixed(2)
-            : row[property.value]}
+            : property.type === "money" ? (row[property.value] ? `${parseFloat(row[property.value]).toFixed(2)}` : 0) : row[property.value]}
         </span>
       </td>
     );
   });
 };
-const renderTdPrefix = (value, name) => {
+const renderTdPrefix = (value, name, type) => {
+  if (type === 'money') {
+    return <span className="symbol">$</span>;
+  }
   switch (value) {
     case "total":
     case "amount":
+    case "gp":
       return <span className="symbol">$</span>;
     case "paymenttype":
       return (
